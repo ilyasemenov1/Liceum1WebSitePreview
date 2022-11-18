@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
     @@include("./html/head.html", {
-        "title": "Главная"
+        "title": "Лицей №1 г. Всеволожска - Главная"
     })
     <body>
-        @@include("./html/header.html" {})
+        @@include("./html/header.html" {
+            "pagestatus": "Главная"
+        })
         <main></main>
         @@include("./html/footer.html" {})
         <script src="js/app.min.js"></script>

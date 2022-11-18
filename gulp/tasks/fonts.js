@@ -1,6 +1,6 @@
 
 import fs from "fs";
-import fonter from "gulp-fonter";
+import fonter from "gulp-fonter-fix";
 import ttf2woff2 from "gulp-ttf2woff2";
 
 let fromfToTtf = () => {
@@ -31,7 +31,7 @@ let fromTtfToWoff = () => {
         .pipe(app.gulp.dest(`${app.path.build.fonts}`))
         .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
         .pipe(ttf2woff2())
-        .pipe(app.gulp.dest(`${app.path.build.fonts}/fonts/`))
+        .pipe(app.gulp.dest(`${app.path.build.fonts}/`))
 }
 
 let fontStyle = () => {
@@ -77,7 +77,7 @@ let fontStyle = () => {
                         fontStyle = "oblique";
                     }
 
-                    fs.appendFile(fontsFile, `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/fonts/${fontFileName}.woff2") format("woff2"),\n\t\t url("../fonts/fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWeight};\n\tfont-style: ${fontStyle};\n}\r\n`, cb);
+                    fs.appendFile(fontsFile, `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"),\n\t\t url("../fonts/${fontFileName}.woff") format("woff");\n\tfont-weight: ${fontWeight};\n\tfont-style: ${fontStyle};\n}\r\n`, cb);
                     newFileOnly = fontFileName;
                 }
             });
