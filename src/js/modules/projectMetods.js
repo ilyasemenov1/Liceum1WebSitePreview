@@ -6,7 +6,7 @@ class ButtonPopup {
     }
 
     event() {
-        if (!isNaN(this.element.dataset.popup)) {
+        if (this.element.dataset.popup === undefined) {
             return;
         }
 
@@ -50,4 +50,37 @@ class ButtonPopup {
     }
 }
 
-export { ButtonPopup }
+class PageScroll {
+    constructor() {
+        this.header = document.querySelector(".header");
+    }
+
+    headerScrollEvent() {
+        window.addEventListener("scroll", () => {
+            this._scroll();
+        });
+        window.addEventListener("load", () => {
+            this._scroll();
+        })
+    }
+
+    _scroll() {
+        let scroll = window.pageYOffset;
+
+        if (scroll > 35) {
+            this._constractHeader();
+        } else {
+            this.header.classList.remove("scrolled");
+        }
+    }
+
+    _constractHeader() {
+        this.header.classList.add("scrolled");
+    }
+
+    _removeScrollHeader() {
+        this.header.classList.remove("scrolled");
+    }
+}
+
+export { ButtonPopup, PageScroll }

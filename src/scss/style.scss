@@ -3,15 +3,15 @@
 
 $bg-color-1: #fcfcfc;
 $bg-color-2: #ffffff;
-$bg-color-3: #1b97df;
-$bg-color-4: #0a0a0a1f;
+$bg-color-3: #1a8fd3;
+$bg-color-4: #0a0a0a15;
 
 $border-color-1: #e0e0e0;
 
 $text-color-1: #000000bb;
 
 a, button, h1, h2, h3, h4, h5, span {
-    font-family: "SourseSansPro", sans-serif;
+    font-family: "Source Sans Pro";
     color: $text-color-1;
 }
 a, button {
@@ -22,8 +22,11 @@ body {
     background-color: $bg-color-1;
 }
 .header {
+    position: fixed;
+    width: 100%;
     background: $bg-color-2;
-    border-bottom: 1px solid $border-color-1;
+    box-shadow: 0px 0px 15px #00000015;
+    transition: .2s ease;
 } 
 .header-content { 
     display: flex;
@@ -32,25 +35,30 @@ body {
     max-width: 1440px;
     padding: 15px 15px;
     margin: 0 auto;
+    transition: .2s ease;
     box-sizing: border-box;
  }
  .header-content_organization {
     display: flex;
     gap: 15px;
     align-items: center;
-    min-width: 350px;
+    min-width: 400px;
+    transition: .2s ease;
     & span {
         font-weight: 600;
         font-style: italic;
-        font-size: 18px;
+        font-family: "Sourse Sans Pro", sans-serif;
+        font-size: 22px;
         &.header-content_page-status {
             font-size: 16px;
+            transition: .2s ease;
         }
     }
     &>div {
         display: flex;
         flex-direction: column;
         gap: 5px;
+        transition: .2s ease;
     }
  }
 .header-content_logo { 
@@ -61,6 +69,7 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    transition: .2s ease;
 }
 .header-content_info {
     display: flex;
@@ -71,13 +80,13 @@ body {
 .header-content_main-menu {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 .header-content_link {
     position: relative;
     text-decoration: none;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 19px;
     height: min-content;
     &::after {
         position: absolute;
@@ -108,11 +117,68 @@ body {
         border: 1px transparent;
         border-radius: 50%;
         background: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
         transition: .2s ease;
+        &.search {
+            background-image: url("../img/icons/icons.svg#search-icon");
+            background-size: 25px 25px;
+        }
         &:hover,
         &:focus {
             cursor: pointer;
-            background: $bg-color-4;
+            background-color: $bg-color-4;
+        }
+    }
+}
+.burger {
+    position: relative;
+    z-index: 101;
+    & span {
+        position: absolute;
+        width: calc(100% - 24px);
+        left: 16px;
+        height: 3px;
+        border-radius: 5px;
+        background: $text-color-1;
+        transition: .2s ease;
+        pointer-events: none;
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            height: 3px;
+            border-radius: 5px;
+            background: $text-color-1;
+            transition: .2s ease;
+        }
+        &::before {
+            width: calc(100% + 5px);
+            top: -8px;
+            left: -5px;
+        }
+        &::after {
+            width: calc(100% + 7px);
+            left: -7px;
+            top: 8px;
+        }
+    }
+    &.active span {
+        background: rgba(0, 0, 0, 0);
+        transform: translateX(-10px);
+        &::before,
+        &::after {
+            transform: translateX(10px);
+            width: calc(100% + 12px);
+            left: 0px;
+            top: -1px;
+        }
+        &::before {
+            transform: rotate(45deg);
+        }
+        &::after {
+            transform: rotate(-45deg);
         }
     }
 }
@@ -122,8 +188,8 @@ body {
     top: 0;
     width: min-content;
     padding: 8px 10px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 8px #35353528;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px #35353528;
     background: #ffffff;
     animation: add-popup .2s ease forwards;
     box-sizing: border-box;
@@ -144,4 +210,26 @@ body {
     &.remove {
         animation: remove-popup .1s ease forwards;
     }
+}
+.header.scrolled {
+    .header-content_logo {
+        width: 0px;
+        height: 0px;
+        opacity: 0;
+    }
+    .header-content_page-status {
+        font-size: 0;
+        opacity: 0;
+    }
+    .header-content_organization {
+        gap: 0px
+    }
+    .header-content_organization-info {
+        gap: 0px;
+    }
+}
+main {
+    color: $bg-color-1;
+    pointer-events: none;
+    visibility: hidden;
 }
