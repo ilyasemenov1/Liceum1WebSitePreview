@@ -10,7 +10,9 @@ class DocumentEvents {
         this.searchCont = document.querySelector(".header-search");
         this.searchButton = document.querySelector(".search");
         this.searchInput = document.querySelector(".search-block_input");
+        this.searchBlockAria = document.querySelector(".search-block-aria");
         this.isAddPopup = true;
+        this.isCloseSearch = true;
         this.delay = 0;
     }
 
@@ -64,17 +66,12 @@ class DocumentEvents {
     }
 
     searchEvent() {
-        let searchCloseButton = document.querySelector(".search-block_close-button");
         this.searchButton.addEventListener("click", () => {
-            if (this.searchButton.classList.contains("active")) {
-                this.search();
+            if (this.searchButton.classList.contains("search-active")) {
+                //this.search();
             } else {
                 this.openSearch();
             }
-        });
-
-        searchCloseButton.addEventListener("click", () => {
-            this.closeSearch();
         });
 
         window.addEventListener("keydown", (event) => {
@@ -84,6 +81,10 @@ class DocumentEvents {
                     this.searchInput.focus();
                 }, 300);
             }
+        });
+
+        this.searchBlockAria.addEventListener("click", () => {
+            this.closeSearch();
         });
 
         let searchBlock = document.querySelector(".search-block");
@@ -107,6 +108,7 @@ class DocumentEvents {
             this.searchCont.classList.add("active");
             this.searchInput.focus();
             this.searchButton.dataset.popup = "Поиск";
+            this.searchBlockAria.classList.remove("disactive");
         }, 200);
     }
 
@@ -120,6 +122,7 @@ class DocumentEvents {
             this.nav.classList.remove("disactive");
             this.nav.classList.add("active");
             this.searchButton.dataset.popup = "Открыть поиск";
+            this.searchBlockAria.classList.add("disactive");
         }, 200);
     }
 }
