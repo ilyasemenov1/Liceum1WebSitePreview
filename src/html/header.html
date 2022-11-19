@@ -3,8 +3,8 @@
         <div class="header-content_organization">
             <a href="#" class="header-content_logo"></a>
             <div class="header-content_organization-info">
-                <span>Лицей №1 г. Всеволожска</span>
-                <span class="header-content_page-status">Главная</span>
+                <span>Лицей № 1 г. Всеволожска</span>
+                <span class="header-content_page-status">@@pageStatus</span>
             </div>
         </div>
         <div class="header-content_info">
@@ -15,8 +15,15 @@
                 <a href="#" class="header-content_link">Расписание</a>
                 <a href="#" class="header-content_link">Расписание</a>
             </nav>
+            <div class="header-search disactive">
+                <div class="search-block">
+                    <button class="search-block_close-button" data-popup="Закрыть поиск"></button>
+                    <input type="search" class="search-block_input" placeholder="Введите здесь для поиска">
+                </div>
+                <div class="header-search_modal-block"></div>
+            </div>
             <div class="header-content_buttons">
-                <button class="header-content_search search" data-popup="Поиск"></button>
+                <button class="header-content_search search" data-popup="Открыть поиск"></button>
                 <button class="header-content_burger-menu burger" data-popup="Меню">
                     <span></span>
                 </button>

@@ -39,7 +39,7 @@
     "newer": "^0.1.5",
     "sass": "^1.56.0",
     "webp-converter": "2.2.3",
-    "webpack": "^5.74.0",
-    "webpack-stream": "^7.0.0"
+    "webpack": "5.74.0",
+    "webpack-stream": "7.0.0"
   }
 }

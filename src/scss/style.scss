@@ -21,6 +21,9 @@ body {
     margin: 0;
     background-color: $bg-color-1;
 }
+.disactive {
+    display: none !important;
+}
 .header {
     position: fixed;
     width: 100%;
@@ -49,6 +52,7 @@ body {
         font-style: italic;
         font-family: "Sourse Sans Pro", sans-serif;
         font-size: 22px;
+        transition: .2s ease;
         &.header-content_page-status {
             font-size: 16px;
             transition: .2s ease;
@@ -81,6 +85,9 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+    &.remove {
+        animation: remove-block .2s ease forwards;
+    }
 }
 .header-content_link {
     position: relative;
@@ -110,7 +117,7 @@ body {
 }
 .header-content_buttons {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     &>button {
         width: 40px;
         height: 40px;
@@ -121,9 +128,20 @@ body {
         background-position: center;
         background-size: contain;
         transition: .2s ease;
+        z-index: 10;
         &.search {
             background-image: url("../img/icons/icons.svg#search-icon");
-            background-size: 25px 25px;
+            background-size: 24px 24px;
+            background-position: 7px 9px;
+            &.search-active {
+                position: relative;
+                top: 3px;
+                left: 2px;
+                width: 34px;
+                height: 34px;
+                background-size: 21px 21px;
+                background-position: center;
+            }
         }
         &:hover,
         &:focus {
@@ -187,15 +205,16 @@ body {
     left: 0;
     top: 0;
     width: min-content;
-    padding: 8px 10px;
+    padding: 6px 10px;
     border-radius: 8px;
-    box-shadow: 0px 5px 15px #35353528;
+    box-shadow: 0px 3px 15px #35353528;
     background: #ffffff;
     animation: add-popup .2s ease forwards;
     box-sizing: border-box;
+    text-align: center;
     & span {
         font-weight: 600;
-        font-size: 14px;
+        font-size: 16px;
         &.triangle {
             position: absolute;
             top: 0;
@@ -213,19 +232,85 @@ body {
 }
 .header.scrolled {
     .header-content_logo {
-        width: 0px;
-        height: 0px;
-        opacity: 0;
+        width: 30px;
+        height: 40px;
+    }
+    .header-content_organization-info span {
+        font-size: 19px;
+        font-weight: 700;
     }
     .header-content_page-status {
-        font-size: 0;
+        font-size: 0 !important;
         opacity: 0;
     }
     .header-content_organization {
-        gap: 0px
+        gap: 15px
     }
     .header-content_organization-info {
         gap: 0px;
+    }
+}
+.header-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 30%;
+    &.active {
+        animation: add-block .2s ease forwards;
+    }
+    &.remove {
+        animation: remove-block .2s ease forwards;
+    }
+}
+.search-block {
+    position: absolute;
+    left: 60px;
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 17px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px #0000001a;
+    transition: .2s ease;
+    &>button {
+        position: absolute;
+        width: 37px;
+        height: 37px;
+        border-radius: 100%;
+        outline: none;
+        border: none;
+        background: #ffffff;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        background-size: 17px 17px;
+        box-shadow: 0px 0px 5px #0000001f;
+        transition: .2s ease;
+        &.search-block_close-button {
+            top: 2px;
+            left: -50px;
+            background-image: url("../img/icons/icons.svg#close-icon");
+        }
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px #0000001f;
+        }
+    }
+    &>input {
+        width: 100%;
+        margin: 0 35px 0 0;
+        outline: none;
+        border: none;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 16px;
+        background: none;
+        transition: .2s ease;
+    }
+    &.active {
+        box-shadow: 0px 0px 10px #00000019;
     }
 }
 main {

@@ -20,18 +20,16 @@ class ButtonPopup {
 
         let popup = document.createElement("div");
         popup.className = "button-popup";
-        popup.innerHTML = `
-            <span>${this.element.dataset.popup}</span>
-            <span class="triangle"></span>`
+        popup.innerHTML = `<span>${this.element.dataset.popup}</span>`
 
         document.body.append(popup);
 
-        let triangle = document.querySelector(".triangle");
-        let triangleRect = triangle.getBoundingClientRect();
+        //let triangle = document.querySelector(".triangle");
+        //let triangleRect = triangle.getBoundingClientRect();
         let left = rect.left - popup.clientWidth / 2 + this.element.clientWidth / 2;
-        let top = rect.top + triangleRect.height  + rect.height + 5;
+        let top = rect.top + rect.height + 7 + window.pageYOffset;
 
-        triangle.style = `left: ${popup.clientWidth / 2 - triangle.clientWidth - 5}px; top: ${-triangleRect.height-1}px`;
+        //triangle.style = `left: ${popup.clientWidth / 2 - triangle.clientWidth - 5}px; top: ${-triangleRect.height-1}px`;
         popup.style = `left: ${left}px; top: ${top}px`;
     }
 

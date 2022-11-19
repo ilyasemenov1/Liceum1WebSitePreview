@@ -1,4 +1,11 @@
 @font-face {
+	font-family: "Russo One";
+	font-display: swap;
+	src: url("../fonts/RussoOne-Regular.woff2") format("woff2"),
+		 url("../fonts/RussoOne-Regular.woff") format("woff");
+	font-weight: 400;
+}
+@font-face {
 	font-family: "Source Sans Pro";
 	font-display: swap;
 	src: url("../fonts/SourceSansPro-Black.woff2") format("woff2"),
