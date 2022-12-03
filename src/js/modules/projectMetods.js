@@ -51,6 +51,8 @@ class ButtonPopup {
 class PageScroll {
     constructor() {
         this.header = document.querySelector(".header");
+        this.burgerMenuE = new BurgerMenuEvents();
+        this.burgerMenu = document.querySelector(".burger-menu");
     }
 
     headerScrollEvent() {
@@ -66,9 +68,13 @@ class PageScroll {
         let scroll = window.pageYOffset;
 
         if (scroll > 35) {
+            this.burgerMenuE.calcBurgerMenuPosition(70);
             this._constractHeader();
+            this.burgerMenu.classList.add("scrolled");
         } else {
+            this.burgerMenuE.calcBurgerMenuPosition(115);
             this.header.classList.remove("scrolled");
+            this.burgerMenu.classList.remove("scrolled");
         }
     }
 
@@ -81,4 +87,37 @@ class PageScroll {
     }
 }
 
-export { ButtonPopup, PageScroll }
+class BurgerMenuEvents {
+    constructor() {
+        this.burgerMenuCont = document.querySelector(".menu-conteiner");
+        this.pageHeader = document.querySelector(".header");
+    }
+
+    calcBurgerMenuPosition(num) {
+        let headerHeight = this.pageHeader.clientHeight;
+        if (!isNaN(num)) {
+            headerHeight = num;
+        }
+        this.burgerMenuCont.style = `transform: translateY(${headerHeight}px); height: calc(100vh - ${headerHeight}px)`;
+    }
+
+    openBurgerMenu() {
+        this.burgerMenuCont.classList.remove("disactive");
+        setTimeout(() => {
+            this.burgerMenuCont.classList.add("active");
+            document.body.style = `overflow:hidden;`;
+        }, 10);
+    }
+
+    closeBurgerMenu() {
+        this.burgerMenuCont.classList.remove("active");
+        this.burgerMenuCont.classList.add("remove");
+        setTimeout(() => {
+            this.burgerMenuCont.classList.add("disactive");
+            this.burgerMenuCont.classList.remove("remove");
+            document.body.style = ``;
+        }, 200);
+    }
+}
+
+export { ButtonPopup, PageScroll, BurgerMenuEvents }

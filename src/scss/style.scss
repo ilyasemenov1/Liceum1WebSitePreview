@@ -250,6 +250,8 @@ body {
     .header-content_organization-info {
         gap: 0px;
     }
+    background: #ffffffd7;
+    backdrop-filter: blur(15px);
 }
 .header-search {
     position: relative;
@@ -312,6 +314,118 @@ body {
     height: 100vh;
     z-index: 50;
 }
+.burger-menu {
+    position: absolute;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    height: 100%;
+    padding: 15px;
+    background: $bg-color-2;
+    &>h2 {
+        margin: 0 0 0 10px;
+        font-size: 28px;
+    }
+    &.scrolled {
+        background: #ffffffd7;
+        backdrop-filter: blur(15px);
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+        background: none;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba(169, 169, 169, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #00000028;
+        &:hover {
+            background: #00000048;
+        }
+    }
+    border-top: 2px solid #ffffff00;
+    border-right: 3px solid #ffffff00;
+    box-shadow: 0px 12px 8px 8px #0000000e;
+    overflow-y: visible;
+    overflow-x: hidden;
+    transition: .2s ease;
+    opacity: .5;
+    box-sizing: border-box;
+}
+.menu-conteiner {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    &>span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: add-block-animation .2s ease;
+        transition: .2s ease;
+    }
+    &.active>span {
+        background: #00000013;
+    }
+    &::after {
+        position: absolute;
+        top: 0;
+        left: calc(100% - 300px);
+        content: "";
+        width: 300px;
+        height: 2px;
+        background: #00000018;
+        opacity: .5;
+        transform: translateX(100%);
+        transition: .2s ease;
+    }
+    &.active::after {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    &.active>.burger-menu {
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    // transition: .2s ease;
+}
+.burger-menu_links {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    &>li {
+        width: 100%;
+        margin: none;
+        list-style: none;
+        &.mobile-visible {
+            display: none;
+        }
+        a {
+            display: block;
+            padding: 7px 10px;
+            font-size: 19px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: .2s ease;
+            &:hover,
+            &:focus {
+                background: #00000010;
+            }
+            &:active {
+                transform: scale(.97);
+            }
+        }
+    }
+}
 main {
     color: $bg-color-1;
 }
+
+@import "ui-adaptivity";

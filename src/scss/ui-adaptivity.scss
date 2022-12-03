@@ -1,0 +1,50 @@
+@media (max-width: 1125px) {
+    .burger-menu_links {
+        li.mobile-visible {
+            display: block;
+        }
+    }
+    .header-content_main-menu {
+        display: none;
+    }
+}
+@media (max-width: 530px) {
+    .header {
+        .header-content_logo {
+            width: 30px;
+            height: 40px;
+        }
+        .header-content_organization-info span {
+            font-size: 19px;
+            font-weight: 700;
+        }
+        .header-content_page-status {
+            font-size: 0 !important;
+            opacity: 0;
+        }
+        .header-content_organization {
+            gap: 15px;
+            min-width: 300px;
+        }
+        .header-content_organization-info {
+            gap: 0px;
+        } 
+    }
+}
+@media (max-width: 445px) {
+    .header-content_organization-info span {
+        position: relative;
+        transition: none;
+        font-size: 0px !important;
+        &::after {
+            position: absolute;
+            top: -10px;
+            content: "Лицей №1";
+            width: 100px;
+            font-size: 19px !important;
+        }
+    } 
+    .header-content_organization {
+        min-width: auto !important;
+    }
+}

@@ -1,4 +1,4 @@
-import { ButtonPopup, PageScroll } from "./modules/projectMetods.js";
+import { ButtonPopup, PageScroll, BurgerMenuEvents } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 
 isWebp();
@@ -14,6 +14,7 @@ class DocumentEvents {
         this.isAddPopup = true;
         this.isCloseSearch = true;
         this.delay = 0;
+        this.burgerMenuE = new BurgerMenuEvents();
     }
 
     buttonsHoverEvent() {
@@ -59,8 +60,19 @@ class DocumentEvents {
 
     menuEvent() {
         let burger = document.querySelector(".burger");
+        let menuDark = document.querySelector(".menu-conteiner_dark");
+
+        menuDark.addEventListener("click", () => {
+            this.burgerMenuE.closeBurgerMenu();
+            burger.classList.remove("active");
+        });
 
         burger.addEventListener("click", () => {
+            if (burger.classList.contains("active")) {
+                this.burgerMenuE.closeBurgerMenu();
+            } else {
+                this.burgerMenuE.openBurgerMenu();
+            }
             burger.classList.toggle("active");
         });
     }
@@ -81,6 +93,10 @@ class DocumentEvents {
                     this.searchInput.focus();
                 }, 300);
             }
+        });
+
+        window.addEventListener("load", () => {
+            this.burgerMenuE.calcBurgerMenuPosition();
         });
 
         this.searchBlockAria.addEventListener("click", () => {
