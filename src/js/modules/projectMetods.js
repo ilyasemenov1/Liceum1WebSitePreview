@@ -66,6 +66,7 @@ class PageScroll {
 
     _scroll() {
         let scroll = window.pageYOffset;
+        this.burgerMenuE.calcBurgerMenuPosition();
 
         if (scroll > 35) {
             this.burgerMenuE.calcBurgerMenuPosition(70);

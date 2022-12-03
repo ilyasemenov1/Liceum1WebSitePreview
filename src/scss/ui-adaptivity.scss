@@ -30,6 +30,10 @@
             gap: 0px;
         } 
     }
+    .menu-conteiner {
+        transform: translateY(70px) !important;
+        height: calc(100vh - 70px) !important;
+    }
 }
 @media (max-width: 445px) {
     .header-content_organization-info span {
@@ -46,5 +50,12 @@
     } 
     .header-content_organization {
         min-width: auto !important;
+    }
+    .menu-conteiner::after {
+        left: 0;
+        width: 100%;
+    }
+    .burger-menu {
+        width: 100%;
     }
 }
