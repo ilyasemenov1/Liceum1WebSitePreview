@@ -1,3 +1,8 @@
+@media (max-width: 1566px) {
+    .fixed-buttons {
+        left: 15px;
+    } 
+}
 @media (max-width: 1125px) {
     .burger-menu_links {
         li.mobile-visible {
@@ -30,7 +35,9 @@
     }
 }
 @media (max-width: 768px) {
-    
+    .fixed-buttons {
+        top: calc(100% - 140px);
+    }
 }
 @media (max-width: 530px) {
     .header {
@@ -90,5 +97,8 @@
     .footer-second-content {
         flex-direction: column-reverse;
         gap: 10px;
+    }
+    .fixed-buttons {
+        top: calc(100% - 135px);
     }
 }

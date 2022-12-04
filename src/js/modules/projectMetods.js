@@ -44,9 +44,9 @@ class GeneratePopup {
     }
 
     popupClassic() {
-        let left = this.rect.left - this.popup.clientWidth / 2 + this.element.clientWidth / 2;
-        let top = this.rect.top + this.rect.height + 7;
-        this.popup.innerHTML = `<span>${this.element.dataset.popup}</span>`
+        this.popup.innerHTML = `<span>${this.element.dataset.popup}</span>`;
+        let left = this.rect.left + this.element.clientWidth / 2 - this.popup.clientWidth / 2;
+        let top = this.rect.top + this.rect.height + this.elementMargin;
 
         this.popup.style = `left: ${left}px; top: ${top}px`;
 
@@ -60,20 +60,12 @@ class GeneratePopup {
     }
 
     popupRight() {
-        let left = this.rect.left + this.element.clientWidth + 12;
-        let top = this.rect.top  + this.element.clientHeight / 2 - this.popup.clientHeight;
         this.popup.innerHTML = `<span>${this.element.dataset.popupRight}</span>`
+        let left = this.rect.left + this.element.clientWidth + 10;
+        let top = this.rect.top  + this.element.clientHeight / 2 - this.popup.clientHeight / 2;
         this.popup.classList.add("right");
 
         this.popup.style = `left: ${left}px; top: ${top}px`;
-
-        window.addEventListener("scroll", () => {
-            setTimeout(() => {
-                let elementY = this.element.offsetTop;
-                top = elementY + this.rect.height / 2 - this.popup.clientHeight / 2 + this.elementMargin;
-                this.popup.style = `left: ${left}px; top: ${top}px`;
-            }, 100);
-        });
     }
 }
 
@@ -82,6 +74,7 @@ class PageScroll {
         this.header = document.querySelector(".header");
         this.burgerMenuE = new BurgerMenuEvents();
         this.burgerMenu = document.querySelector(".burger-menu");
+        this.topButton = document.querySelector(".scroll-top");
     }
 
     headerScrollEvent() {
@@ -90,7 +83,10 @@ class PageScroll {
         });
         window.addEventListener("load", () => {
             this._scroll();
-        })
+        });
+        this.topButton.addEventListener("click", () => {
+            window.scrollTo({top: 0, behavior: 'smooth'}); 
+        });
     }
 
     _scroll() {
@@ -100,10 +96,12 @@ class PageScroll {
             this.burgerMenuE.calcBurgerMenuPosition(70);
             this._constractHeader();
             this.burgerMenu.classList.add("scrolled");
+            this.topButton.classList.remove("removed");
         } else {
             this.burgerMenuE.calcBurgerMenuPosition(115);
             this.header.classList.remove("scrolled");
             this.burgerMenu.classList.remove("scrolled");
+            this.topButton.classList.add("removed");
         }
     }
 
