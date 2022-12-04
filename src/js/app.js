@@ -35,7 +35,7 @@ class DocumentEvents {
 
     }
 
-    _addPopup(element, isFocus) {
+    _addPopup(element, isFocus, hoverDelay=0) {
         if (!this.isAddPopup) {
             return;
         }
@@ -46,7 +46,7 @@ class DocumentEvents {
             this.delay = setTimeout(() => {
                 let popup = new ButtonPopup(element);
                 popup.event();
-            }, 0);
+            }, hoverDelay);
         }
         this.isAddPopup = false;
     }

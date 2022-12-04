@@ -7,6 +7,27 @@
     .header-content_main-menu {
         display: none;
     }
+    .footer-content_conteiner {
+        gap: 25px;
+    }
+    .footer-content_links-block {
+        div {
+            column-gap: 12px;
+        }
+    }
+}
+@media (max-width: 950px) {
+    .footer-content_links-block {
+        div {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+@media (max-width: 850px) {
+    .footer-content_conteiner {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 }
 @media (max-width: 530px) {
     .header {
@@ -15,11 +36,11 @@
             height: 40px;
         }
         .header-content_organization-info span {
-            font-size: 19px;
+            font-size: 21px;
             font-weight: 700;
         }
         .header-content_page-status {
-            font-size: 0 !important;
+            display: none;
             opacity: 0;
         }
         .header-content_organization {
@@ -34,6 +55,11 @@
         transform: translateY(70px) !important;
         height: calc(100vh - 70px) !important;
     }
+    .footer-second-content {
+        p, a {
+            font-size: 15px;
+        }
+    }
 }
 @media (max-width: 445px) {
     .header-content_organization-info span {
@@ -42,10 +68,10 @@
         font-size: 0px !important;
         &::after {
             position: absolute;
-            top: -10px;
+            top: -13px;
             content: "Лицей №1";
             width: 100px;
-            font-size: 19px !important;
+            font-size: 21px;
         }
     } 
     .header-content_organization {
@@ -57,5 +83,9 @@
     }
     .burger-menu {
         width: 100%;
+    }
+    .footer-second-content {
+        flex-direction: column-reverse;
+        gap: 10px;
     }
 }
