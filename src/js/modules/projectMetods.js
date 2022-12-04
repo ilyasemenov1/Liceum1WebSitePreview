@@ -60,10 +60,10 @@ class GeneratePopup {
     }
 
     popupRight() {
-        this.popup.innerHTML = `<span>${this.element.dataset.popupRight}</span>`
+        this.popup.innerHTML = `<span>${this.element.dataset.popupRight}</span>`;
+        this.popup.classList.add("right");
         let left = this.rect.left + this.element.clientWidth + 10;
         let top = this.rect.top  + this.element.clientHeight / 2 - this.popup.clientHeight / 2;
-        this.popup.classList.add("right");
 
         this.popup.style = `left: ${left}px; top: ${top}px`;
     }
@@ -79,17 +79,17 @@ class PageScroll {
 
     headerScrollEvent() {
         window.addEventListener("scroll", () => {
-            this._scroll();
+            this.scroll();
         });
         window.addEventListener("load", () => {
-            this._scroll();
+            this.scroll();
         });
         this.topButton.addEventListener("click", () => {
             window.scrollTo({top: 0, behavior: 'smooth'}); 
         });
     }
 
-    _scroll() {
+    scroll() {
         let scroll = window.pageYOffset;
 
         if (scroll > 35) {
@@ -118,6 +118,7 @@ class BurgerMenuEvents {
     constructor() {
         this.burgerMenuCont = document.querySelector(".menu-conteiner");
         this.pageHeader = document.querySelector(".header");
+        this.pageFixedButtons = document.querySelectorAll(".scroll-top, .visually-impaired-version");
     }
 
     calcBurgerMenuPosition(num) {
@@ -134,6 +135,9 @@ class BurgerMenuEvents {
             this.burgerMenuCont.classList.add("active");
             document.body.style = `overflow:hidden;`;
         }, 10);
+        this.pageFixedButtons.forEach(element => {
+            element.classList.add("removed");
+        });
     }
 
     closeBurgerMenu() {
@@ -143,6 +147,11 @@ class BurgerMenuEvents {
             this.burgerMenuCont.classList.add("disactive");
             this.burgerMenuCont.classList.remove("remove");
             document.body.style = ``;
+            this.pageFixedButtons.forEach(element => {
+                element.classList.remove("removed");
+                let scroll = new PageScroll();
+                scroll.scroll();
+            });
         }, 200);
     }
 }
