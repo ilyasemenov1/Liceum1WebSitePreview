@@ -75,6 +75,8 @@ class PageScroll {
         this.burgerMenuE = new BurgerMenuEvents();
         this.burgerMenu = document.querySelector(".burger-menu");
         this.topButton = document.querySelector(".scroll-top");
+        this.delta = 500;
+        this.lastKeypressTime = 0;
     }
 
     headerScrollEvent() {
@@ -87,6 +89,33 @@ class PageScroll {
         this.topButton.addEventListener("click", () => {
             window.scrollTo({top: 0, behavior: 'smooth'}); 
         });
+        window.addEventListener("keydown", (event) => {
+            this.doubleArrowKeypress(event);
+        });
+    }
+
+    doubleArrowKeypress(event) {
+        switch(event.key){
+            case "ArrowUp":
+                this.doubleKeyEvent(
+                    function() {window.scrollTo({top: 0, behavior: 'smooth'})}
+                );
+                break;
+            case "ArrowDown":
+                this.doubleKeyEvent(
+                    function() {window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})}
+                );
+                break; 
+        }
+    }
+
+    doubleKeyEvent(callback) {
+        let thisKeypressTime = new Date();
+        if (thisKeypressTime - this.lastKeypressTime <= this.delta ) {
+            callback(); 
+            thisKeypressTime = 0;
+        }
+        this.lastKeypressTime = thisKeypressTime;
     }
 
     scroll() {
