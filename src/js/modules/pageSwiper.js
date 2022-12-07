@@ -1,7 +1,7 @@
-import Swiper, {Navigation} from 'swiper';
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import '../../../node_modules/swiper/swiper.min.css';
     
-Swiper.use([Navigation]);
+Swiper.use([Navigation, Pagination, Autoplay]);
 
 var mainSwiper = new Swiper(".mainSwiper", {
     slidesPerView: 1,
@@ -11,7 +11,10 @@ var mainSwiper = new Swiper(".mainSwiper", {
     },
     spaceBetween: 10,
     pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true
+        clickable: true,
+        el: ".swiper-pagination"
+    },
+    autoplay: {
+        delay: 4000
     },
 });
