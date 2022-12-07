@@ -8,7 +8,23 @@
             "pageStatus": "Главная"
         })
         @@include("./html/burger-menu.html", {})
-        <main></main>
+        <main>
+            <div class="swiper-cont">
+                <div class="swiper mainSwiper">
+                    <button class="mainSwiper_arrow left"></button>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"></div>
+                        <div class="swiper-slide"></div>
+                        <div class="swiper-slide"></div>
+                    </div>
+                    <button class="mainSwiper_arrow right"></button>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <section class="about">
+                <h1 class="about_label">О лицее</h1>
+            </section>
+        </main>
         @@include("./html/fixed-buttons.html" {})
         @@include("./html/footer.html" {})
         <script src="js/app.min.js"></script>

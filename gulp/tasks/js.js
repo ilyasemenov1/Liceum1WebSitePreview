@@ -13,7 +13,15 @@ let js = () => {
             mode: app.isBuild ? "production" : "development",
             output: {
                 filename: "app.min.js"
-            }
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.css$/i,
+                        use: ["style-loader", "css-loader"],
+                    },
+                ],
+            },
         }))
         .pipe(app.gulp.dest(app.path.build.js))
         .pipe(app.plugins.browsersync.stream())

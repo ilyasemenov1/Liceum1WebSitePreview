@@ -1,5 +1,6 @@
 import { ButtonPopup, PageScroll, BurgerMenuEvents } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
+import "./modules/pageSwiper.js";
 
 isWebp();
 
