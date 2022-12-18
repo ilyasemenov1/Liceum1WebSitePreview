@@ -32,6 +32,12 @@
             grid-template-columns: 1fr;
         }
     }
+    .description-content {
+        grid-template-columns: 1fr;
+    }
+    .map-yandex {
+        min-height: 250px;
+    }
 }
 @media (max-width: 850px) {
     .footer-content_conteiner {
@@ -93,6 +99,14 @@
                 }
             }
         }
+    }
+    .map-yandex {
+        min-height: 200px;
+    }
+    .cookies_content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
     }
 }
 @media (max-width: 445px) {
