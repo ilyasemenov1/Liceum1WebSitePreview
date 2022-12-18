@@ -194,7 +194,9 @@ class TextCopy {
     copyTextButtonEvent() {
         let inputId = this.element.dataset.id;
         let input = document.getElementById(inputId);
-        if (!input) { return; }
+        if (!input) { 
+            throw Error("input id and element id don't match")
+        }
 
         input.select();
         input.setSelectionRange(0, 99999);

@@ -145,7 +145,7 @@ class DocumentEvents {
     }
 
     bufferEvent() {
-        let buttons = document.querySelectorAll(".liceum1-info_text-copy");
+        let buttons = document.querySelectorAll(".liceum1-info_text-copy, .map_adress-copy");
         buttons.forEach(element => {
             element.addEventListener("click", () => {
                 let copyText = new TextCopy(element);
