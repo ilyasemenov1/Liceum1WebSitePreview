@@ -803,17 +803,35 @@ section {
         display: none;
     }
     button {
+        position: relative;
         border: none;
         background: #00000000;
-        padding: 3px 8px 3px 25px;
+        padding: 3px 8px 3px 28px;
         border-radius: 10px;
-        font-size: 17px;
+        font-size: 18px;
         font-weight: 600;
         transition: .2s ease;
         &:hover,
         &:focus {
             cursor: pointer;
             background: #00000010;
+        }
+        &::after {
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            content: "";
+            width: 18px;
+            height: 18px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        &.call::after {
+            background-image: url("../img/icons/icons.svg#call-icon");
+        }
+        &.email::after {
+            background-image: url("../img/icons/icons.svg#email-icon");
         }
     }
     h3 {
@@ -822,7 +840,7 @@ section {
     }
     &::after {
         position: absolute;
-        top: calc(100% + 6px);
+        top: calc(100% + 5px);
         left: 0;
         content: "";
         width: 100%;
@@ -831,16 +849,61 @@ section {
     }
 }
 .liceum1-info_phones-link {
+    position: relative;
     font-weight: 600;
-    padding: 3px 8px 3px 25px;
+    padding: 3px 8px 3px 28px;
     border-radius: 10px;
-    font-size: 17px;
+    font-size: 18px;
     text-decoration: none;
     transition: .2s ease;
     &:hover,
     &:focus {
         cursor: pointer;
         background: #00000010;
+    }
+    &::after {
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        content: "";
+        width: 18px;
+        height: 18px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &.call::after {
+        background-image: url("../img/icons/icons.svg#call-icon");
+    }
+}
+.buffer-notify {
+    position: fixed;
+    top: calc(100% - 70px);
+    left: 0;
+    padding: 8px 12px 8px 38px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    background: #000000b5;
+    backdrop-filter: blur(10px);
+    color: #ffffffde;
+    animation: add-block .2s ease forwards;
+    z-index: 5;
+    &.remove {
+        animation: remove-block .2s ease forwards;
+    }
+    &::after {
+        position: absolute;
+        left: 9px;
+        top: 9px;
+        content: "";
+        width: 22px;
+        height: 22px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url("../img/icons/icons.svg#copy-icon");
+        z-index: 6;
     }
 }
 

@@ -185,4 +185,57 @@ class BurgerMenuEvents {
     }
 }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents }
+class TextCopy {
+    constructor(element) {
+        this.element = element;
+        this.isAddNotify = JSON.parse(sessionStorage.getItem("isAddNotify"));
+    }
+
+    copyTextButtonEvent() {
+        let inputId = this.element.dataset.id;
+        let input = document.getElementById(inputId);
+        if (!input) { return; }
+
+        input.select();
+        input.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(input.value);
+        if (this.isAddNotify) {
+            this._addEventNotify();
+        }
+    }
+
+    _addEventNotify() {
+        sessionStorage.setItem("isAddNotify", JSON.stringify(false));
+        let text = "Текст скопирован в буфер обмена";
+
+        if (this.element.classList.contains("call")) {
+            text = "Телефон скопирован в буфер обмена";
+        } else if (this.element.classList.contains("email")) {
+            text = "Почта скопирована в буфер обмена";
+        }
+
+
+        let notify = document.createElement("span");
+        notify.className = "buffer-notify";
+        notify.textContent = text;
+
+        document.body.append(notify);
+
+        let notify_e = document.querySelector(".buffer-notify");
+
+        let left = window.innerWidth / 2 - notify_e.clientWidth / 2;
+        notify_e.style = `left: ${left}px`;
+
+        setTimeout(() => {
+            notify_e.classList.add("remove");
+            setTimeout(() => {
+                notify_e.remove();
+                sessionStorage.setItem("isAddNotify", JSON.stringify(true));
+            }, 200)
+        }, 1000);
+    }
+}
+
+
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy }

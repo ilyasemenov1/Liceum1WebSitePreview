@@ -1,4 +1,4 @@
-import { ButtonPopup, PageScroll, BurgerMenuEvents } from "./modules/projectMetods.js";
+import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import "./modules/pageSwiper.js";
 
@@ -16,6 +16,7 @@ class DocumentEvents {
         this.isCloseSearch = true;
         this.delay = 0;
         this.burgerMenuE = new BurgerMenuEvents();
+        sessionStorage.setItem("isAddNotify", JSON.stringify(true));
     }
 
     buttonsHoverEvent() {
@@ -142,6 +143,16 @@ class DocumentEvents {
             this.searchBlockAria.classList.add("disactive");
         }, 200);
     }
+
+    bufferEvent() {
+        let buttons = document.querySelectorAll(".liceum1-info_text-copy");
+        buttons.forEach(element => {
+            element.addEventListener("click", () => {
+                let copyText = new TextCopy(element);
+                copyText.copyTextButtonEvent()
+            });
+        });
+    }
 }
 
 let pageScroll = new PageScroll();
@@ -149,4 +160,5 @@ let documentEvents = new DocumentEvents();
 documentEvents.buttonsHoverEvent();
 documentEvents.menuEvent();
 documentEvents.searchEvent();
+documentEvents.bufferEvent();
 pageScroll.headerScrollEvent();
