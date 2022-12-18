@@ -775,7 +775,7 @@ section {
     font-weight: 700;
     span {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 .liceum1-info,
@@ -854,7 +854,7 @@ section {
 .liceum1-info-link {
     display: block;
     position: relative;
-    width: max-content;
+    max-width: max-content;
     font-weight: 600;
     padding: 3px 8px 3px 28px;
     border-radius: 10px;
@@ -1056,7 +1056,7 @@ section {
         font-size: 20px;
         font-weight: 700;
         &.date {
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
         }
     }
