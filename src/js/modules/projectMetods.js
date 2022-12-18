@@ -222,10 +222,18 @@ class TextCopy {
 
         document.body.append(notify);
 
+        setTimeout(() => {
+            this._appendToPage();
+        }, 80);
+    }
+
+    _appendToPage() {
         let notify_e = document.querySelector(".buffer-notify");
 
-        let left = window.innerWidth / 2 - notify_e.clientWidth / 2;
-        notify_e.style = `left: ${left}px`;
+        let left = window.innerWidth / 2 - notify_e.clientWidth / 2 - 15;
+        let top = window.innerHeight - notify_e.clientHeight - 30;
+        notify_e.style = `left: ${left}px; top: ${top}px`;
+        notify_e.classList.add("active")
 
         setTimeout(() => {
             notify_e.classList.add("remove");
