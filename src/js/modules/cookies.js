@@ -4,7 +4,9 @@ function cookiesEvents() {
 
     if (!isCookies) {
         createCookiesMenu();
-
+        window.addEventListener("resize", () => {
+            add_pos();
+        });
     }
 }
 
@@ -30,10 +32,11 @@ function createCookiesMenu() {
 
 function add_pos() {
     let cookies_menu = document.querySelector(".cookies");
+    let left = window.innerWidth / 2 - cookies_menu.clientWidth / 2;
     let top = cookies_menu.clientHeight + 15;
 
     cookies_menu.classList.add("active");
-    cookies_menu.style = `top: calc(100vh - ${top}px);`;
+    cookies_menu.style = `left: ${left}px; top: calc(100vh - ${top}px);`;
 }
 
 export { cookiesEvents }

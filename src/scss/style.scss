@@ -736,16 +736,17 @@ section {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-.director {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 20px;
-    min-height: 140px;
-    height: 100%;
+.director, .founding-date, .appeals {
     padding: 12px;
     border-radius: 15px;
     box-shadow: 0px 4px 12px #00000015;
     box-sizing: border-box;
+}
+.director {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    height: 100%;
 }
 .director_img {
     display: flex;
@@ -850,9 +851,10 @@ section {
         background: #00000020;
     }
 }
-.liceum1-info_phones-link {
+.liceum1-info-link {
     display: block;
     position: relative;
+    width: max-content;
     font-weight: 600;
     padding: 3px 8px 3px 28px;
     border-radius: 10px;
@@ -970,8 +972,9 @@ section {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
+    max-width: 830px;
     padding: 0 15px;
+    width: 100%;
     z-index: 4;
     opacity: 0;
     box-sizing: border-box;
@@ -1045,6 +1048,24 @@ section {
             background: #00000016;
         }
     }
+}
+.founding-date {
+    display: flex;
+    flex-direction: column;
+    span {
+        font-size: 20px;
+        font-weight: 700;
+        &.date {
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+} 
+.about_first-content-block,
+.about_second-content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @import "ui-adaptivity";
