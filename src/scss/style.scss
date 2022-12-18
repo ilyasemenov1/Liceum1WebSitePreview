@@ -259,7 +259,7 @@ body {
     .header-content_organization-info {
         gap: 0px;
     }
-    background: #ffffffe0;
+    background: #ffffffc3;
     backdrop-filter: blur(15px);
 }
 .header-search {
@@ -718,14 +718,130 @@ main {
 section {
     box-sizing: border-box;
     h1 {
-        font-size: 25px;
-
+        font-size: 23px;
     }
 }
 .news, .notices {
     max-width: 1440px;
     margin: 0 auto;
     padding: 5px 15px 15px 15px;
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.about_block {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 20px;
+}
+.director {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+    min-height: 140px;
+    height: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px #00000015;
+    box-sizing: border-box;
+}
+.director_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 100%;
+        border-radius: 50%;
+        border: 5px solid #e7e7e71d;
+        aspect-ratio: 1 / 1;
+        object-position: center 0px;
+        object-fit: cover;
+        background-color: #d0d0d057;
+        overflow: hidden;
+    }
+}
+.director_description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.director_label {
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+    font-weight: 700;
+    span {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+.liceum1-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 140px;
+    height: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px #00000015;
+    box-sizing: border-box;
+}
+.liceum1-info_main {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    input {
+        display: none;
+    }
+    button {
+        border: none;
+        background: #00000000;
+        padding: 3px 8px 3px 25px;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: 600;
+        transition: .2s ease;
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background: #00000010;
+        }
+    }
+    h3 {
+        font-size: 21px;
+        margin: 0 0 5px 0;
+    }
+    &::after {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: #00000020;
+    }
+}
+.liceum1-info_phones-link {
+    font-weight: 600;
+    padding: 3px 8px 3px 25px;
+    border-radius: 10px;
+    font-size: 17px;
+    text-decoration: none;
+    transition: .2s ease;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        background: #00000010;
+    }
 }
 
 @import "ui-adaptivity";
