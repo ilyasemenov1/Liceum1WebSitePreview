@@ -4,6 +4,7 @@ function cookiesEvents() {
 
     if (!isCookies) {
         createCookiesMenu();
+        cookiesAccEevnt();
         window.addEventListener("resize", () => {
             add_pos();
         });
@@ -37,6 +38,19 @@ function add_pos() {
 
     cookies_menu.classList.add("active");
     cookies_menu.style = `left: ${left}px; top: calc(100vh - ${top}px);`;
+}
+
+function cookiesAccEevnt() {
+    let accButton = document.querySelector(".cookies_sup");
+    accButton.addEventListener("click", () => {
+        localStorage.setItem("isCookies", JSON.stringify(true));
+
+        let cookies_menu = document.querySelector(".cookies");
+        cookies_menu.classList.add("remove");
+        setTimeout(() => {
+            cookies_menu.remove();
+        }, 300);
+    });
 }
 
 export { cookiesEvents }

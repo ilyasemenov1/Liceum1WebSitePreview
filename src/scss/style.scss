@@ -982,6 +982,9 @@ section {
         opacity: 1;
         animation: add-block .3s ease;
     }
+    &.remove {
+        animation: remove-block .3s ease forwards;
+    }
 }
 .cookies_content {
     display: flex;
