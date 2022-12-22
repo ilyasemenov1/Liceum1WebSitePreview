@@ -1,9 +1,7 @@
 import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
-import { cookiesEvents } from "./modules/cookies.js";
 import "./modules/pageSwiper.js";
 
-cookiesEvents();
 isWebp();
 
 class DocumentEvents {
