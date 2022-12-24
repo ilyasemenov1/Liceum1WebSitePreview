@@ -247,5 +247,29 @@ class TextCopy {
     }
 }
 
+// class InitGridLayout {
+//     constructor() {
+//         this.elements = document.querySelectorAll(".notice");
+//         this.container = document.querySelector(".notices_block");
+//     }
+
+//     initLayout() {
+//         this.elements.forEach(element => {
+//             let height = element.clientHeight;
+//             let gridRow = Math.round(height / 10);
+//             element.style = `grid-row-end: span ${gridRow};`;
+//         });
+//     }
+
+//     startInit() {
+//         window.addEventListener("load", () => {
+//             this.initLayout();
+//             this.container.classList.add("active");
+//         });
+//         window.addEventListener("resize", () => {
+//             this.initLayout();
+//         });
+//     }
+// }
 
 export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy }
