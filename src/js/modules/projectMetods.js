@@ -252,7 +252,6 @@ class NewsArticleFullscreen {
     constructor() {
         this.news = document.querySelector(".news");
         this.blur = document.querySelector(".page-blur");
-        this.articleBlocks = document.querySelectorAll(".news-article");
         this.target = "";
         this.article = "";
     }
@@ -270,21 +269,38 @@ class NewsArticleFullscreen {
         this.target = event.target;
 
         if (this.target.classList.contains("news-article_fullscreen")) {
+            this.target.classList.add("article-remove-button");
+            this.target.textContent = "Свернуть";
+
             document.body.style = "overflow: hidden;"
-            this.article = this.target.parentElement.parentElement;
-            this.article.classList.add("fullscreen");
+            let thisArticle = this.target.parentElement.parentElement;
+
+            this.article = document.createElement("article");
+            this.article.className = "news-article fullscreen"
+            this.article.innerHTML = thisArticle.innerHTML;
+            document.body.append(this.article);
+
             this.blur.classList.add("active");
+            this.target.blur();
+            this.target.classList.remove("article-remove-button");
+            this.target.textContent = "Во весь экран";
+
+            let articleRemove = document.querySelector(".article-remove-button");
+            articleRemove.addEventListener("click", () => {
+                this.removeFullscreenArticles();
+            });
         }
     }
 
     removeFullscreenArticles() {
-        this.articleBlocks.forEach(element => {
+        let articleBlocks = document.querySelectorAll(".news-article");
+        articleBlocks.forEach(element => {
             if (element.classList.contains("fullscreen")) {
                 element.classList.add("remove");
                 this.blur.classList.remove("active");
                 setTimeout(() => {
                     document.body.style = ""
-                    element.classList.remove("remove", "fullscreen");
+                    element.remove();
                 }, 300);
             }
         });

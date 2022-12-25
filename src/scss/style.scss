@@ -1234,6 +1234,15 @@ section {
         box-shadow: 0px 3px 16px #2088ff5e;
         color: #ffffff;
     }
+    &.article-remove-button {
+        // background: #474747;
+        // box-shadow: 0px 3px 16px #0000005e;
+        &::after {
+            background-image: url("../img/icons/icons.svg#close-icon-article");
+            background-position: -6px -5px;
+            background-size: 25px 25px;
+        }
+    }
 }
 .page-blur {
     position: fixed;
