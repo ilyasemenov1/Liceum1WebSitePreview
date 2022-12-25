@@ -247,29 +247,48 @@ class TextCopy {
     }
 }
 
-// class InitGridLayout {
-//     constructor() {
-//         this.elements = document.querySelectorAll(".notice");
-//         this.container = document.querySelector(".notices_block");
-//     }
 
-//     initLayout() {
-//         this.elements.forEach(element => {
-//             let height = element.clientHeight;
-//             let gridRow = Math.round(height / 10);
-//             element.style = `grid-row-end: span ${gridRow};`;
-//         });
-//     }
+class NewsArticleFullscreen {
+    constructor() {
+        this.news = document.querySelector(".news");
+        this.blur = document.querySelector(".page-blur");
+        this.articleBlocks = document.querySelectorAll(".news-article");
+        this.target = "";
+        this.article = "";
+    }
 
-//     startInit() {
-//         window.addEventListener("load", () => {
-//             this.initLayout();
-//             this.container.classList.add("active");
-//         });
-//         window.addEventListener("resize", () => {
-//             this.initLayout();
-//         });
-//     }
-// }
+    fullscreenEvent() {
+        this.news.addEventListener("click", (event) => {
+            this._event(event);
+        });
+        this.blur.addEventListener("click", () => {
+            this.removeFullscreenArticles();
+        });
+    }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy }
+    _event(event) {
+        this.target = event.target;
+
+        if (this.target.classList.contains("news-article_fullscreen")) {
+            document.body.style = "overflow: hidden;"
+            this.article = this.target.parentElement.parentElement;
+            this.article.classList.add("fullscreen");
+            this.blur.classList.add("active");
+        }
+    }
+
+    removeFullscreenArticles() {
+        this.articleBlocks.forEach(element => {
+            if (element.classList.contains("fullscreen")) {
+                element.classList.add("remove");
+                this.blur.classList.remove("active");
+                setTimeout(() => {
+                    document.body.style = ""
+                    element.classList.remove("remove", "fullscreen");
+                }, 300);
+            }
+        });
+    }
+}
+
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen }

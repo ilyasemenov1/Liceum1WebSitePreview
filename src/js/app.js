@@ -1,4 +1,4 @@
-import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy } from "./modules/projectMetods.js";
+import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import "./modules/pageSwiper.js";
 
@@ -157,8 +157,10 @@ class DocumentEvents {
 
 let pageScroll = new PageScroll();
 let documentEvents = new DocumentEvents();
+let fullscreen = new NewsArticleFullscreen();
 documentEvents.buttonsHoverEvent();
 documentEvents.menuEvent();
 documentEvents.searchEvent();
 documentEvents.bufferEvent();
 pageScroll.headerScrollEvent();
+fullscreen.fullscreenEvent();
