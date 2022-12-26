@@ -257,6 +257,10 @@ class NewsArticleFullscreen {
     }
 
     fullscreenEvent() {
+        if (!this.news || !this.blur) {
+            return;
+        }
+        
         this.news.addEventListener("click", (event) => {
             this._event(event);
         });
