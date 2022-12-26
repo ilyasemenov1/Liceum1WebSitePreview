@@ -26,6 +26,14 @@ body {
     margin: 0;
     background-color: $bg-color-1;
 }
+main>div,
+main>section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
 .disactive {
     display: none !important;
 }
@@ -1301,6 +1309,90 @@ section {
     }
     article {
         max-height: 400px;
+    }
+}
+.sortcat {
+    font-size: 22px;
+    font-family: "Source Sans Pro";
+    font-weight: 700;
+    color: $text-color-1;
+    padding: 15px 15px 0 15px;
+    a {
+        position: relative;
+        text-decoration: none;
+        transition: .2s ease;
+        &::after {
+            position: absolute;
+            top: 100%;
+            left: 30%;
+            content: "";
+            width: 40%;
+            height: 2px;
+            border-radius: 0px;;
+            background: $bg-color-3;
+            color: #000;
+            opacity: 0;
+            transition: .2s ease;
+        }
+        &:hover::after,
+        &:focus::after {
+            opacity: 1;
+            left: 0%;
+            width: 100%;
+        }
+    }
+}
+.sitemap_label {
+    font-size: 25px;
+}
+.sitemap_content {
+    background: #ffffff;
+    box-shadow: 0 4px 12px #00000015;
+    padding: 15px;
+    border-radius: 25px;
+    margin: 0 0 20px 0;
+}
+.sitemap {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    a {
+        display: block;
+        position: relative;
+        padding: 2px 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: .2s ease;
+        box-sizing: border-box;
+        &:hover,
+        &:focus {
+            background: #00000015;
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li {
+        position: relative;
+        &::after {
+            left: -5px;
+            top: 11px;
+            position: absolute;
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: $text-color-1;
+            transition: .2s ease;
+        }
+        &:hover::after,
+        &:focus::after {
+            transform: translateX(-7px);
+        }
     }
 }
 
