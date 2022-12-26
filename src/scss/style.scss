@@ -25,6 +25,9 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: $bg-color-1;
+    &.gradient {
+        background: linear-gradient(90deg, rgba(211,255,240,1) 0%, rgba(255,255,255,1) 66%, rgba(237,255,213,1) 100%);
+    }
 }
 main>div,
 main>section {
@@ -1400,5 +1403,86 @@ section {
         }
     }
 }
-
+main {
+    backdrop-filter: blur(60px);
+}
+.rasp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    border-radius: 25px;
+    background: #ffffffd1;
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 3px 16px #0000001d;
+    transform: translate(-50%, -50%);
+}
+@media (max-height: 900px) {
+    .rasp {
+        top: calc(50% + 60px);
+    }
+}
+.rasp_content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    a {
+        display: block;
+        box-shadow: 0px 2px 6px #0000001f;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        background: #ffffff;
+        transition: .2s ease;
+        &:hover,
+        &:focus {
+            transform: translateY(-3px);
+            box-shadow: 0px 2px 10px #00000026;
+        }
+    }
+    span {
+        position: relative;
+        margin: -12px 0 0 0;
+        padding: 5px 12px 5px 60px;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        background: #ffffff;
+        box-shadow: 0px 2px 6px #0000001f;
+        &::after {
+            position: absolute;
+            left: 14px;
+            top: 10px;
+            content: "";
+            width: 35px;
+            height: 35px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url("../img/icons/icons.svg#alert-icon");
+        }
+    }
+}
+.rasp_main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    &::after {
+        position: absolute;
+        left: calc(50% - 35px);
+        top: calc(100% + 11px);
+        content: "";
+        width: 70px;
+        height: 5px;
+        border-radius: 10px;
+        background: rgba(0,0,0,.1254901961);
+    }
+}
 @import "ui-adaptivity";
