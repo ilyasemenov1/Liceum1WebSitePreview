@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Лицей №1 г. Всеволожска — Новости за 2013-2014гг."
+    })
+<body>
+    @@include("./html/header.html", {
+        "pageStatus": "Новости за 2013-2014гг."
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links"><a href="index.html">Главная</a> / <a href="history.html">Архивы новостей</a> / <a href="history13_14.html">Новости за 2013-2014гг.</a></div>
+        </div>
+
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/footer.html" {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>
