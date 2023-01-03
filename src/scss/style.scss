@@ -28,6 +28,9 @@ body {
     &.gradient {
         background: linear-gradient(90deg, rgba(211,255,240,1) 0%, rgba(247,247,247,1) 66%, rgba(237,255,213,1) 100%);
     }
+    &.white {
+        background: #ffffff;
+    }
 }
 main>div,
 main>section {
@@ -1558,5 +1561,47 @@ section {
     .ex-info-cont {
         grid-template-columns: 1fr;
     }
+}
+.page-article {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 680px;
+    margin: 10px auto 30px auto;
+    border-radius: 25px;
+
+}
+.page-article_label {
+    font-size: 40px;
+}
+.page-article_content {
+    h2 {
+        margin: 15px 0 5px 0;
+    }
+    a {
+        font-size: 17px;
+        text-decoration: underline;
+        text-decoration-color: #c6c6c6;
+        transition: .2s ease;
+        &:hover,
+        &:focus {
+            text-decoration-color: #646464;
+            color: #1c1c1c;
+        }
+    }
+}
+.page-article_links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 5px 0;
+}
+.page-article_marked {
+    margin: 9px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    background: #ebebeb;
 }
 @import "ui-adaptivity";
