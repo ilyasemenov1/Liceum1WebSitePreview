@@ -1634,8 +1634,13 @@ section {
             border-left: 3px solid #0000006c;
         }
         &.active {
-            background: #3f93fa1a;
-            border-left: 3px solid #3da4f3ae;
+            background: #3f93fa11;
+            border-left: 3px solid #1b85d68f;
+        }
+        &.active:hover,
+        &.active:focus {
+            background: #3f93fa1c;
+            border-left: 3px solid #1b85d6a9;
         }
     }
 }
@@ -1645,6 +1650,15 @@ section {
 .page-article_content {
     h2 {
         margin: 15px 0 5px 0;
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            &:hover,
+            &:focus {
+                color: $text-color-1;
+                text-decoration: underline;
+            }
+        }
     }
     a {
         width: fit-content;

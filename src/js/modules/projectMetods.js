@@ -328,12 +328,23 @@ class ArticleNavigation {
             });
         });
         this.#changeLinkState();
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+        
+                const yOffset = -100;
+                let element = document.querySelector(this.getAttribute('href'));
+                let yPos = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({top: yPos, behavior: 'smooth'});
+            });
+        });
     }
 
     #refreshLabel(element) {
         const cyrillicToTranslit = new CyrillicToTranslit();
         let text = element.textContent;
         let transformedText = cyrillicToTranslit.transform(text, '_').toLowerCase();
+        transformedText = transformedText.replace('-', '_');
         element.id = transformedText;
         element.innerHTML = `
             <a href="#${transformedText}">${text}</a>
