@@ -320,14 +320,16 @@ class ArticleNavigation {
     }
 
     articleDocInit() {
-        this.articleLabels.forEach(element => {
-            this.#refreshLabel(element);
-            this.#generateLink(element);
-            window.addEventListener("scroll", () => {
-                this.#changeLinkState();
+        if (this.linksConteiner) {
+            this.articleLabels.forEach(element => {
+                this.#refreshLabel(element);
+                this.#generateLink(element);
+                window.addEventListener("scroll", () => {
+                    this.#changeLinkState();
+                });
             });
-        });
-        this.#changeLinkState();
+            this.#changeLinkState();
+        }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -344,7 +346,11 @@ class ArticleNavigation {
         const cyrillicToTranslit = new CyrillicToTranslit();
         let text = element.textContent;
         let transformedText = cyrillicToTranslit.transform(text, '_').toLowerCase();
-        transformedText = transformedText.replace('-', '_');
+        transformedText = transformedText.replaceAll(',', '_');
+        transformedText = transformedText.replaceAll('.', '_');
+        transformedText = transformedText.replaceAll('/', '-');
+        transformedText = transformedText.replaceAll('(', '');
+        transformedText = transformedText.replaceAll(')', '');
         element.id = transformedText;
         element.innerHTML = `
             <a href="#${transformedText}">${text}</a>
