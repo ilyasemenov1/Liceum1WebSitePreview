@@ -315,20 +315,19 @@ class NewsArticleFullscreen {
 
 class ArticleNavigation {
     constructor() {
-        this.articleLabels = document.querySelectorAll("h2");
+        this.articleLabels = document.querySelectorAll(".page-article_topic-label");
         this.linksConteiner = document.querySelector(".article-content_links");
     }
 
     articleDocInit() {
         this.articleLabels.forEach(element => {
-            if (element.classList.contains("page-article_topic-label")) {
-                this.#refreshLabel(element);
-                this.#generateLink(element);
-                window.addEventListener("scroll", () => {
-                    this.#scrollEvent(element);
-                });
-            }
+            this.#refreshLabel(element);
+            this.#generateLink(element);
+            window.addEventListener("scroll", () => {
+                this.#changeLinkState();
+            });
         });
+        this.#changeLinkState();
     }
 
     #refreshLabel(element) {
@@ -346,21 +345,20 @@ class ArticleNavigation {
         link.textContent = element.textContent;
         link.href = `#${element.id}`;
         link.id = `${element.id}_nav`;
+        link.className = "article-content_link";
         this.linksConteiner.append(link);
     }
 
-    #scrollEvent(element) {
-        let viewportOffset = element.getBoundingClientRect();
-        let top = viewportOffset.top;
-        let prevTop = 0;
-        if (top < 200 && top > prevTop) {
-            let link = document.getElementById(`${element.id}_nav`);
-            link.classList.add("active");
-        }
-        if (top < prevTop) {
-            let link = document.getElementById(`${element.id}_nav`);
-            link.classList.remove("active"); 
-        }
+    #changeLinkState() {
+        const links = document.querySelectorAll('.article-content_link');
+        const sections = document.querySelectorAll('.page-article_topic-label');
+
+        let index = sections.length;
+
+        while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
+        
+        links.forEach((link) => link.classList.remove('active'));
+        links[index].classList.add('active');
     }
 }
 
