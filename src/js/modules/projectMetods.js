@@ -1,4 +1,6 @@
 
+import CyrillicToTranslit from 'cyrillic-to-translit-js';
+
 class ButtonPopup {
     constructor(element) {
         this.element = element;
@@ -311,4 +313,55 @@ class NewsArticleFullscreen {
     }
 }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen }
+class ArticleNavigation {
+    constructor() {
+        this.articleLabels = document.querySelectorAll("h2");
+        this.linksConteiner = document.querySelector(".article-content_links");
+    }
+
+    articleDocInit() {
+        this.articleLabels.forEach(element => {
+            if (element.classList.contains("page-article_topic-label")) {
+                this.#refreshLabel(element);
+                this.#generateLink(element);
+                window.addEventListener("scroll", () => {
+                    this.#scrollEvent(element);
+                });
+            }
+        });
+    }
+
+    #refreshLabel(element) {
+        const cyrillicToTranslit = new CyrillicToTranslit();
+        let text = element.textContent;
+        let transformedText = cyrillicToTranslit.transform(text, '_').toLowerCase();
+        element.id = transformedText;
+        element.innerHTML = `
+            <a href="#${transformedText}">${text}</a>
+        `
+    }
+
+    #generateLink(element) {
+        let link = document.createElement("a");
+        link.textContent = element.textContent;
+        link.href = `#${element.id}`;
+        link.id = `${element.id}_nav`;
+        this.linksConteiner.append(link);
+    }
+
+    #scrollEvent(element) {
+        let viewportOffset = element.getBoundingClientRect();
+        let top = viewportOffset.top;
+        let prevTop = 0;
+        if (top < 200 && top > prevTop) {
+            let link = document.getElementById(`${element.id}_nav`);
+            link.classList.add("active");
+        }
+        if (top < prevTop) {
+            let link = document.getElementById(`${element.id}_nav`);
+            link.classList.remove("active"); 
+        }
+    }
+}
+
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation }
