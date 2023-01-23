@@ -14,6 +14,10 @@ a, button, h1, h2, h3, h4, h5, span, p, article, input {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
     color: $text-color-1;
+    &::selection {
+        background: #1454ada4;
+        color: #ffffff;
+    }
 }
 a, button {
     outline: none;
@@ -1603,7 +1607,9 @@ section {
     max-width: 900px;
     margin: 10px auto 30px auto;
     border-radius: 25px;
-
+    h1 {
+        margin: 0 0 20px 0;
+    }
 }
 .article-content {
     position: sticky;
@@ -1611,9 +1617,13 @@ section {
     flex-direction: column;
     gap: 15px;
     height: fit-content;
+    max-height: calc(100vh - 200px);
     top: 90px;
     h3 {
         font-size: 22px;
+    }
+    &.scrolled {
+        max-height: calc(100vh - 120px);
     }
 }
 .article-content_links {
@@ -1646,8 +1656,7 @@ section {
                 background: #00000045;
             }
         }
-        &.active:hover,
-        &.active:focus {
+        &.active:hover {
             background: #3f93fa1c;
             &::before {
                 background: #1b85d6a9;
@@ -1666,14 +1675,26 @@ section {
 }
 .page-article_content {
     h2 {
+        position: relative;
         margin: 15px 0 5px 0;
         a {
             text-decoration: none;
             font-size: 22px;
+            &::after {
+                position: absolute;
+                top: calc(100% - 25px);
+                content: "#";
+                font-size: 19px;
+                color: #3c3c3cb9;
+                opacity: 0;
+            }
             &:hover,
             &:focus {
                 color: $text-color-1;
                 text-decoration: underline;
+                &::after {
+                    opacity: 1;
+                }
             }
         }
     }
@@ -1688,6 +1709,9 @@ section {
             text-decoration-color: #646464;
             color: #131313;
         }
+    }
+    li {
+        font-size: 17px;
     }
 }
 .page-article_links {
@@ -1708,6 +1732,20 @@ section {
 .article-content_wrapper {
     overflow-x: hidden;
     overflow-y: visible;
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: none;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba(169, 169, 169, 0);
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: #00000028;
+        &:hover {
+            background: #00000048;
+        }
+    }
 }
 .veiw-doc-button {
     display: none;
@@ -1753,7 +1791,7 @@ section {
     .article-content {
         position: fixed;
         width: 100%;
-        max-height: 400px;
+        max-height: 400px !important;
         left: 0;
         top: 100%;
         padding: 12px;

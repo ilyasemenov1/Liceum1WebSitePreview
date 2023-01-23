@@ -93,6 +93,7 @@ class PageScroll {
         this.burgerMenuE = new BurgerMenuEvents();
         this.burgerMenu = document.querySelector(".burger-menu");
         this.topButton = document.querySelector(".scroll-top");
+        this.articleContent = document.querySelector(".article-content");
         this.delta = 500;
         this.lastKeypressTime = 0;
     }
@@ -144,11 +145,13 @@ class PageScroll {
             this._constractHeader();
             this.burgerMenu.classList.add("scrolled");
             this.topButton.classList.remove("removed");
+            if (this.articleContent) {this.articleContent.classList.add("scrolled")}
         } else {
             this.burgerMenuE.calcBurgerMenuPosition(115);
             this.header.classList.remove("scrolled");
             this.burgerMenu.classList.remove("scrolled");
             this.topButton.classList.add("removed");
+            if (this.articleContent) {this.articleContent.classList.remove("scrolled")}
         }
     }
 
@@ -399,6 +402,9 @@ class ArticleNavigation {
         
         links.forEach((link) => link.classList.remove('active'));
         links[index].classList.add('active');
+        if (window.innerWidth > 768) {
+            links[index].focus();
+        }
     }
 
     #veiwDocEvent() {
