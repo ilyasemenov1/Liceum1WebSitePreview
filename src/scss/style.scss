@@ -1313,7 +1313,7 @@ section {
             display: none;
         }
     }
-    article {
+    .news-article {
         max-height: 400px;
     }
 }
@@ -1620,27 +1620,44 @@ section {
     display: flex;
     flex-direction: column;
     a {
+        position: relative;
         display: inline-flex;
         align-items: center;
         min-height: 30px;
-        padding: 8px 15px;
-        border-left: 3px solid #00000035;
+        padding: 8px 15px 8px 18px;
+        border-radius: 10px 10px 0 0;
         text-decoration: none;
         font-size: 17px;
         transition: .2s ease;
+        &::before {
+            position: absolute;
+            top: 11px;
+            left: 8px;
+            content: "";
+            height: calc(100% - 20px);
+            width: 3px;
+            border-radius: 5px;
+            background: #00000035;
+        }
         &:hover,
         &:focus {
             background: #00000011;
-            border-left: 3px solid #0000006c;
-        }
-        &.active {
-            background: #3f93fa11;
-            border-left: 3px solid #1b85d68f;
+            &::before {
+                background: #00000045;
+            }
         }
         &.active:hover,
         &.active:focus {
             background: #3f93fa1c;
-            border-left: 3px solid #1b85d6a9;
+            &::before {
+                background: #1b85d6a9;
+            }
+        }
+        &.active {
+            background: #3f93fa11;
+            &::before {
+                background: #1b85d68f;
+            }
         }
     }
 }
@@ -1687,5 +1704,74 @@ section {
     font-size: 17px;
     font-weight: 500;
     background: #ebebeb;
+}
+.article-content_wrapper {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+.veiw-doc-button {
+    display: none;
+    position: fixed;
+    left: calc(100% - 65px);
+    top: calc(100% - 70px);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    font-size: 28px;
+    background: #ffffffa4;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+    box-shadow: 0 3px 10px #0000001a;
+    transition: .2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+}
+@media (max-width: 1260px) {
+    .page-article {
+        left: 0;
+        max-width: 100%;
+        margin: 10px 50px 30px 50px;
+    }
+}
+@media (max-width: 950px) {
+    .page-article {
+        margin: 10px 0 30px 0;
+    }
+}
+@media (max-width: 768px) {
+    .page-article {
+        grid-template-columns: 1fr;
+        margin: 10px 50px 30px 50px;
+    }
+    .article-content {
+        position: fixed;
+        width: 100%;
+        max-height: 400px;
+        left: 0;
+        top: 100%;
+        padding: 12px;
+        border-radius: 15px;
+        background: #ffffffa4;
+        box-shadow: 0px 0px 15px #00000021;
+        backdrop-filter: blur(20px);
+        transition: .2s ease;
+        visibility: hidden;
+        z-index: 2;
+        box-sizing: border-box;
+        &.active {
+            visibility: visible;
+            transform: translateY(-100%);
+        }
+    }
+    .veiw-doc-button {
+        display: block;
+    }
+}
+@media (max-width: 630px) {
+    .page-article {
+        margin: 10px 0 30px 0;
+    }
 }
 @import "ui-adaptivity";
