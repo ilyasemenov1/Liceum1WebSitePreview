@@ -8,13 +8,19 @@ class ButtonPopup {
     }
 
     event() {
+        let isMobile = navigator.userAgentData.mobile;
+        if (isMobile) {return}
+
         if (this.element.dataset.popupRight !== undefined) {
             let popup = new GeneratePopup(this.element);
             popup.popupRight();
+        } else if (this.element.dataset.popupLeft !== undefined) {
+            let popup = new GeneratePopup(this.element);
+            popup.popupLeft();
         } else if (this.element.dataset.popup !== undefined) {
             let popup = new GeneratePopup(this.element);
             popup.popupClassic();
-        } 
+        }
     }
 
     removePopup() {
@@ -43,6 +49,7 @@ class GeneratePopup {
         document.body.append(this.popup);
 
         this.elementMargin = 7;
+        this.popupMargin = 10;
     }
 
     popupClassic() {
@@ -55,7 +62,7 @@ class GeneratePopup {
         window.addEventListener("scroll", () => {
             setTimeout(() => {
                 let elementY = this.element.offsetTop;
-                top = elementY + this.rect.height + 7;
+                top = elementY + this.rect.height + this.elementMargin;
                 this.popup.style = `left: ${left}px; top: ${top}px`;
             }, 100);
         });
@@ -64,7 +71,16 @@ class GeneratePopup {
     popupRight() {
         this.popup.innerHTML = `<span>${this.element.dataset.popupRight}</span>`;
         this.popup.classList.add("right");
-        let left = this.rect.left + this.element.clientWidth + 10;
+        let left = this.rect.left + this.element.clientWidth + this.popupMargin;
+        let top = this.rect.top  + this.element.clientHeight / 2 - this.popup.clientHeight / 2;
+
+        this.popup.style = `left: ${left}px; top: ${top}px`;
+    }
+
+    popupLeft() {
+        this.popup.innerHTML = `<span>${this.element.dataset.popupLeft}</span>`;
+        this.popup.classList.add("left");
+        let left = this.rect.left - this.popupMargin - this.popup.clientWidth;
         let top = this.rect.top  + this.element.clientHeight / 2 - this.popup.clientHeight / 2;
 
         this.popup.style = `left: ${left}px; top: ${top}px`;
@@ -169,6 +185,9 @@ class BurgerMenuEvents {
         this.pageFixedButtons.forEach(element => {
             element.classList.add("removed");
         });
+
+        let articleNavigation = new ArticleNavigation();
+        articleNavigation.closeNav();
     }
 
     closeBurgerMenu() {
@@ -318,6 +337,7 @@ class ArticleNavigation {
         this.articleLabels = document.querySelectorAll(".page-article_topic-label");
         this.linksConteiner = document.querySelector(".article-content_links");
         this.docVeiw = document.querySelector(".veiw-doc-button");
+        this.conteiner = document.querySelector(".article-content");
     }
 
     articleDocInit() {
@@ -382,25 +402,30 @@ class ArticleNavigation {
     }
 
     #veiwDocEvent() {
-        let conteiner = document.querySelector(".article-content");
         this.docVeiw.addEventListener("click", () => {
-            if (conteiner.classList.contains("active")) {
-                conteiner.classList.remove("active");
-                this.docVeiw.style = "";
-                this.docVeiw.innerText = "§";
-            } else {
-                conteiner.classList.add("active");
-                this.docVeiw.style = `transform: translateY(-${conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon");`;
-                this.docVeiw.innerText = "";
-            }
+            this.conteiner.classList.contains("active") ? this.closeNav() : this.openNav();
         });
         window.addEventListener("resize", () => {
             if (window.innerWidth > 768) {
-                conteiner.classList.remove("active");
-                this.docVeiw.style = "";
-                this.docVeiw.innerText = "§";
+                this.closeNav()
             }
         });
+    }
+
+    openNav() {
+        if (!this.conteiner) {return}
+        this.conteiner.classList.add("active");
+        this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon");`;
+        this.docVeiw.innerText = "";
+        this.docVeiw.dataset.popupLeft = "Закрыть";
+    }
+
+    closeNav() {
+        if (!this.conteiner) {return}
+        this.conteiner.classList.remove("active");
+        this.docVeiw.style = "";
+        this.docVeiw.innerText = "§";
+        this.docVeiw.dataset.popupLeft = "Показать содержание";
     }
 }
 

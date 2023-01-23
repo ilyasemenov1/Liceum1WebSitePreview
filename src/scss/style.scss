@@ -1625,7 +1625,7 @@ section {
         align-items: center;
         min-height: 30px;
         padding: 8px 15px 8px 18px;
-        border-radius: 10px 10px 0 0;
+        border-radius: 10px;
         text-decoration: none;
         font-size: 17px;
         transition: .2s ease;
@@ -1727,6 +1727,11 @@ section {
     transition: .2s ease;
     backdrop-filter: blur(10px);
     z-index: 1;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        box-shadow: 0px 3px 14px #0000002a;
+    }
 }
 @media (max-width: 1260px) {
     .page-article {
@@ -1752,7 +1757,7 @@ section {
         left: 0;
         top: 100%;
         padding: 12px;
-        border-radius: 15px;
+        border-radius: 15px 15px 0 0;
         background: #ffffffa4;
         box-shadow: 0px 0px 15px #00000021;
         backdrop-filter: blur(20px);
@@ -1772,6 +1777,11 @@ section {
 @media (max-width: 630px) {
     .page-article {
         margin: 10px 0 30px 0;
+    }
+}
+@media (max-width: 445px) {
+    .veiw-doc-button {
+        top: calc(100% - 65px);  
     }
 }
 @import "ui-adaptivity";
