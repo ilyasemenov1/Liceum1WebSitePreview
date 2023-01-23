@@ -396,7 +396,7 @@ class ArticleNavigation {
         const sections = document.querySelectorAll('.page-article_topic-label');
 
         let index = sections.length;
-        const topicVeiwOnScreen = 30;
+        const topicVeiwOnScreen = 0;
 
         while(--index && window.scrollY + topicVeiwOnScreen < sections[index].offsetTop) {}
         
