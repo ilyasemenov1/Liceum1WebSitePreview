@@ -48,7 +48,7 @@
 }
 @media (max-width: 768px) {
     .fixed-buttons {
-        transform: translateY(calc(100vh - 140px));
+        transform: translateY(calc(100dvh - 140px));
     }
     .about_block {
         grid-template-columns: 1fr;
@@ -81,7 +81,7 @@
     }
     .menu-conteiner {
         transform: translateY(70px) !important;
-        height: calc(100vh - 70px) !important;
+        height: calc(100dvh - 70px) !important;
     }
     .footer-second-content {
         p, a {
@@ -138,6 +138,6 @@
         gap: 10px;
     }
     .fixed-buttons {
-        transform: translateY(calc(100vh - 135px));
+        transform: translateY(calc(100dvh - 135px));
     }
 }

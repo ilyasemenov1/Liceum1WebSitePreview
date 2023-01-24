@@ -7,8 +7,24 @@ class ButtonPopup {
         this.isAdd = true;
     }
 
+    detectMob() {
+        const toMatch = [
+            /Android/i,
+            /webOS/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i
+        ];
+        
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        });
+    }
+
     event() {
-        let isMobile = navigator.userAgentData.mobile;
+        let isMobile = this.detectMob();
         if (isMobile) {return}
 
         if (this.element.dataset.popupRight !== undefined) {
@@ -176,7 +192,7 @@ class BurgerMenuEvents {
         if (!isNaN(num)) {
             headerHeight = num;
         }
-        this.burgerMenuCont.style = `transform: translateY(${headerHeight}px); height: calc(100vh - ${headerHeight}px)`;
+        this.burgerMenuCont.style = `transform: translateY(${headerHeight}px); height: calc(100dvh - ${headerHeight}px)`;
     }
 
     openBurgerMenu() {
@@ -424,7 +440,7 @@ class ArticleNavigation {
     openNav() {
         if (!this.conteiner) {return}
         this.conteiner.classList.add("active");
-        this.conteiner.style = `transform: translateY(calc(100vh - ${this.conteiner.clientHeight}px));`;
+        this.conteiner.style = `transform: translateY(calc(100dvh - ${this.conteiner.clientHeight}px));`;
         this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon");`;
         this.docVeiw.innerText = "";
         this.docVeiw.dataset.popupLeft = "Закрыть";
