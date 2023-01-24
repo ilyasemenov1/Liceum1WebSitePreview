@@ -1,6 +1,7 @@
 @media (max-width: 1566px) {
     .fixed-buttons {
         left: 15px;
+        width: calc(100% - 30px);
     } 
 }
 @media (max-width: 1200px) {
@@ -47,7 +48,7 @@
 }
 @media (max-width: 768px) {
     .fixed-buttons {
-        top: calc(100% - 140px);
+        transform: translateY(calc(100vh - 140px));
     }
     .about_block {
         grid-template-columns: 1fr;
@@ -137,6 +138,6 @@
         gap: 10px;
     }
     .fixed-buttons {
-        top: calc(100% - 135px);
+        transform: translateY(calc(100vh - 135px));
     }
 }

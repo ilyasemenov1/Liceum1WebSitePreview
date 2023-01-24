@@ -354,6 +354,7 @@ class ArticleNavigation {
             });
             this.#changeLinkState();
             this.#veiwDocEvent();
+            this.docVeiw.classList.add("set");
         }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -423,6 +424,7 @@ class ArticleNavigation {
     openNav() {
         if (!this.conteiner) {return}
         this.conteiner.classList.add("active");
+        this.conteiner.style = `transform: translateY(calc(100vh - ${this.conteiner.clientHeight}px));`;
         this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon");`;
         this.docVeiw.innerText = "";
         this.docVeiw.dataset.popupLeft = "Закрыть";
@@ -431,6 +433,7 @@ class ArticleNavigation {
     closeNav() {
         if (!this.conteiner) {return}
         this.conteiner.classList.remove("active");
+        this.conteiner.style = ``;
         this.docVeiw.style = "";
         this.docVeiw.innerText = "§";
         this.docVeiw.dataset.popupLeft = "Показать содержание";
