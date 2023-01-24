@@ -1800,9 +1800,8 @@ section {
         top: 100%;
         padding: 12px;
         border-radius: 15px 15px 0 0;
-        background: #ffffffa4;
+        background: #ffffff;
         box-shadow: 0px 0px 15px #00000021;
-        backdrop-filter: blur(20px);
         transition: .2s ease;
         visibility: hidden;
         z-index: 2;
@@ -1814,6 +1813,11 @@ section {
     }
     .veiw-doc-button {
         display: block;
+    }
+}
+@media (max-width: 768px) and (max-height: 550px) {
+    .article-content {
+        max-height: calc(100vh - 150px) !important;
     }
 }
 @media (max-width: 630px) {

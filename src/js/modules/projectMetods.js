@@ -371,11 +371,13 @@ class ArticleNavigation {
         const cyrillicToTranslit = new CyrillicToTranslit();
         let text = element.textContent;
         let transformedText = cyrillicToTranslit.transform(text, '_').toLowerCase();
-        transformedText = transformedText.replaceAll(',', '_');
         transformedText = transformedText.replaceAll('.', '_');
-        transformedText = transformedText.replaceAll('/', '-');
+        transformedText = transformedText.replaceAll('/', '');
+        transformedText = transformedText.replaceAll(',', '');
         transformedText = transformedText.replaceAll('(', '');
         transformedText = transformedText.replaceAll(')', '');
+        transformedText = transformedText.replaceAll('"', '');
+        transformedText = transformedText.replaceAll(`'`, '');
         element.id = transformedText;
         element.innerHTML = `
             <a href="#${transformedText}">${text}</a>
