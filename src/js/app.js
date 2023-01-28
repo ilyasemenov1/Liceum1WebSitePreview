@@ -116,32 +116,18 @@ class DocumentEvents {
     }
 
     openSearch() {
-        this.nav.classList.add("remove");
         this.searchButton.blur();
-        setTimeout(() => {
-            this.searchButton.classList.add("search-active");
-            this.nav.classList.remove("remove");
-            this.nav.classList.add("disactive");
-            this.searchCont.classList.remove("disactive");
-            this.searchCont.classList.add("active");
-            this.searchInput.focus();
-            this.searchButton.dataset.popup = "Поиск";
-            this.searchBlockAria.classList.remove("disactive");
-        }, 200);
+        this.searchCont.classList.remove("disactive");
+        this.searchCont.classList.add("active");
+        this.searchInput.focus();
+        this.searchBlockAria.classList.remove("disactive");
     }
 
     closeSearch() {
         this.searchCont.classList.add("remove");
         this.searchButton.blur();
-        setTimeout(() => {
-            this.searchButton.classList.remove("search-active");
-            this.searchCont.classList.remove("remove");
-            this.searchCont.classList.add("disactive");
-            this.nav.classList.remove("disactive");
-            this.nav.classList.add("active");
-            this.searchButton.dataset.popup = "Открыть поиск";
-            this.searchBlockAria.classList.add("disactive");
-        }, 200);
+        this.searchCont.classList.remove("remove");
+        this.searchCont.classList.add("disactive");
     }
 
     bufferEvent() {
