@@ -31,7 +31,7 @@ body {
     margin: 0;
     background-color: var(--bg-color-1);
     &.gradient {
-        background: linear-gradient(90deg, rgba(211,255,240,1) 0%, rgba(247,247,247,1) 66%, rgba(237,255,213,1) 100%);
+        background: var(--gradient-2);
     }
     &.white {
         background: var(--bg-color-2);
@@ -427,17 +427,17 @@ main>section {
     }
 
     &::-webkit-scrollbar-track {
-        background-color: #a9a9a900;
+        background-color: var(--scrollbar-track-color-1);
     }
 
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background: #00000028;
+        background: var(--scrollbar-thumb-color-1);
         &:hover {
-            background: #00000048;
+            background: var(--scrollbar-thumb-color-2);
         }
     }
-    border-top: 2px solid #ffffff00;
+    border-top: 2px solid var(--border-color-1);
     border-right: 3px solid #ffffff00;
     box-shadow: 0px 12px 8px 8px #0000000e;
     overflow-y: visible;
@@ -1025,7 +1025,7 @@ section {
     width: 100%;
     height: 100%;
     min-height: 200px;
-    background: #f0f0f0;
+    background: var(--bg-color-25);
     border-radius: 12px;
 
 }
@@ -1304,11 +1304,11 @@ section {
     .date {
         padding: 3px 5px;
         border-radius: 8px;
-        background: linear-gradient(120deg, rgb(246, 249, 255) 0%, rgb(222, 232, 255) 100%);
+        background: var(--gradient-1);
         box-shadow: 0px 2px 4px #00000027;
         font-size: 16px;
         text-transform: uppercase;
-        color: #00000091;
+        color: var(--text-color-5);
         font-weight: 400;
     }
 }
@@ -1341,7 +1341,7 @@ section {
         cursor: pointer;
         padding: 5px 12px 5px 31px;
         font-size: 16px !important;
-        box-shadow: 0px 3px 16px #2088ff5e;
+        box-shadow: 0px 3px 16px var(--box-shadow-color-1);
         color: #ffffff;
     }
     &.article-remove-button {
@@ -1488,7 +1488,7 @@ section {
     gap: 10px;
     width: 500px;
     border-radius: 25px;
-    background: #ffffffd1;
+    background: var(--bg-color-24);
     box-shadow: 0px 3px 16px #0000001d;
     transform: translate(-50%, -50%);
 }
@@ -1618,7 +1618,7 @@ section {
         height: min-content;
         padding: 15px;
         border-radius: 25px;
-        background: #ffffffd1;
+        background: var(--bg-color-24);
         box-shadow: 0px 3px 16px #0000001d;
         p {
             font-size: 18px;
@@ -1814,13 +1814,13 @@ section {
         background: none;
     }
     &::-webkit-scrollbar-track {
-        background-color: rgba(169, 169, 169, 0);
+        background-color: var(--scrollbar-track-color-1);
     }
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background: #00000028;
+        background: var(--scrollbar-thumb-color-1);
         &:hover {
-            background: #00000048;
+            background: var(--scrollbar-thumb-color-2);
         }
     }
 }
