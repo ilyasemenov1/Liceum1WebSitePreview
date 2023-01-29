@@ -14,6 +14,7 @@ class DocumentEvents {
         this.searchBlockAria = document.querySelector(".search-block-aria");
         this.searchClose = document.querySelectorAll(".header-search_close-button");
         this.searchBlock = document.querySelector(".search-block");
+        this.clearButton = document.querySelector(".search-block_clear-button");
         this.isAddPopup = true;
         this.isCloseSearch = true;
         this.delay = 0;
@@ -127,6 +128,10 @@ class DocumentEvents {
 
         this.searchInput.addEventListener("input", () => {
             this.isSearch();
+        });
+
+        this.clearButton.addEventListener("click", () => {
+            this.searchInput.value = "";
         });
     }
 

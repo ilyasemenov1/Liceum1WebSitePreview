@@ -1,0 +1,74 @@
+:root {
+    --text-color-1: #000000bb;
+    --text-color-2: #3c3c3cb9;
+    --text-color-3: #131313;
+    --text-color-4: #000000;
+    --bg-color-1: #fcfcfc;
+    --bg-color-2: #ffffff;
+    --bg-color-3: #1a8fd3;
+    --bg-color-4: #0a0a0a15;
+    --bg-color-5: #00000035;
+    --bg-color-6: #00000045;
+    --bg-color-7: #00000011;
+    --bg-color-8: #3f93fa1c;
+    --bg-color-9: #1b85d6a9;
+    --bg-color-10: #3f93fa11;
+    --bg-color-11: #1b85d68f;
+    --bg-color-12: #ebebeb;
+    --bg-color-13: #000000;
+    --bg-color-14: #00000057;
+    --bg-color-15: #ffffffc3;
+    --bg-color-16: #00000013;
+    --bg-color-17: #0000003e;
+    --bg-color-18: #e7e7e7;
+    --bg-color-19: #ffffffeb;
+    --bg-color-20: #00000020;
+    --bg-color-21: #ffffffa4;
+    --bg-color-22: #00000035;
+    --bg-color-23: #ffffff23;
+    --text-decoration-color-1: #c6c6c6;
+    --text-decoration-color-2: #646464;
+    --scrollbar-track-color-1: #a9a9a900;
+    --scrollbar-thumb-color-1: #00000028;
+    --scrollbar-thumb-color-2: #00000048;
+    --selection-color: #1454ada4;
+}
+
+body.dark-theme {
+    --text-color-1: #d1d1d1d7;
+    --text-color-2: #c8c8c8b9;
+    --text-color-3: #b5b5b5;
+    --text-color-4: #ffffffdf;
+    --bg-color-1: #3d3d3f;;
+    --bg-color-2: #4a4c4e;
+    --bg-color-3: #1a8fd3;
+    --bg-color-4: #ffffff1a;
+    --bg-color-5: #00000035;
+    --bg-color-6: #ffffff45;
+    --bg-color-7: #ffffff11;
+    --bg-color-8: #3f93fa1c;
+    --bg-color-9: #25a1ffa9;
+    --bg-color-10: #6aadff11;
+    --bg-color-11: #1f9eff8f;
+    --bg-color-12: #515151;
+    --bg-color-13: #000000;
+    --bg-color-14: #00000057;
+    --bg-color-15: #4a4c4eb0;
+    --bg-color-16: #00000013;
+    --bg-color-17: #0000003e;
+    --bg-color-18: #e7e7e7;
+    --bg-color-19: #4a4c4eb0;
+    --bg-color-20: #00000020;
+    --bg-color-21: #6d6d6da4;
+    --bg-color-22: #ffffff35;
+    --bg-color-23: #4a4c4e32;
+    --text-decoration-color-1: #777777;
+    --text-decoration-color-2: #b1b1b1;
+    --scrollbar-track-color-1: #a9a9a900;
+    --scrollbar-thumb-color-1: #00000028;
+    --scrollbar-thumb-color-2: #00000048;
+    --selection-color: #1454ada4;
+    &.white {
+        background: var(--bg-color-1);
+    }
+}
