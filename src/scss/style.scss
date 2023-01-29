@@ -154,7 +154,7 @@ main>section {
         transition: .2s ease;
         z-index: 10;
         &.search {
-            background-image: url("../img/icons/icons.svg#search-icon");
+            background-image: var(--search-icon-path);
             background-size: 24px 24px;
             background-position: 7px 9px;
             z-index: 51;
@@ -324,11 +324,11 @@ main>section {
         border: none;
         transition: .2s ease;
         &.header-search_close-button {
-            background-image: url("../img/icons/icons.svg#close-icon");
+            background-image: var(--close-icon-path);
         }
         &.search-block_search-button {
             position: absolute;
-            background-image: url("../img/icons/icons.svg#search-icon");
+            background-image: var(--search-icon-path);
             visibility: hidden;
             transform: translateX(-100%);
             opacity: 0;
@@ -376,7 +376,7 @@ main>section {
         &.search-block_clear-button {
             box-shadow: none;
             background-size: 17px 17px;
-            background-image: url("../img/icons/icons.svg#close-icon");
+            background-image: var(--close-icon-path);
             opacity: 0;
             visibility: hidden;
             &:hover,
@@ -664,12 +664,12 @@ main {
         &.scroll-top {
             top: 0;
             left: 0;
-            background-image: url("../img/icons/icons.svg#arrow-top");
+            background-image: var(--arrow-top-icon-path);
         }
         &.visually-impaired-version {
             top: 70px;
             left: 0;
-            background-image: url("../img/icons/icons.svg#eye-icon");
+            background-image: var(--eye-icon-path);
             background-size: 31px 31px;
         }
         &.veiw-doc-button {
@@ -741,11 +741,11 @@ main {
     }
     &.left::after {
         background-position: 5px center;
-        background-image: url("../img/icons/icons.svg#left-arrow-icon");
+        background-image: var(--left-arrow-icon-path);
     }
     &.right::after {
         background-position: 7px center;
-        background-image: url("../img/icons/icons.svg#right-arrow-icon");
+        background-image: var(--right-arrow-icon-path);
     }
     &:hover {
         cursor: pointer;
@@ -919,10 +919,10 @@ section {
             background-size: contain;
         }
         &.call::after {
-            background-image: url("../img/icons/icons.svg#call-icon");
+            background-image: var(--call-icon-path);
         }
         &.email::after {
-            background-image: url("../img/icons/icons.svg#email-icon");
+            background-image: var(--email-icon-path);
         }
     }
     h3 {
@@ -967,13 +967,13 @@ section {
         background-size: contain;
     }
     &.call::after {
-        background-image: url("../img/icons/icons.svg#call-icon");
+        background-image: var(--call-icon-path);
     }
     &.user::after {
-        background-image: url("../img/icons/icons.svg#user-icon");
+        background-image: var(--user-icon-path);
     }
     &.adenoids::after {
-        background-image: url("../img/icons/icons.svg#adenoids-icon");
+        background-image: var(--adenoids-icon-path);
     }
 }
 .buffer-notify {
@@ -1007,7 +1007,7 @@ section {
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url("../img/icons/icons.svg#copy-icon");
+        background-image: var(--copy-icon-path);
         z-index: 6;
     }
 }
@@ -1058,7 +1058,7 @@ section {
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
-            background-image: url("../img/icons/icons.svg#location-icon")
+            background-image: var(--location-icon-path);
         }
     }
 }
@@ -1334,7 +1334,7 @@ section {
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
-        background-image: url("../img/icons/icons.svg#expand-icon");
+        background-image: var(--expand-icon-path);
     }
     &:hover,
     &:focus {
