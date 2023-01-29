@@ -142,7 +142,7 @@ main>section {
 .header-content_buttons {
     display: flex;
     gap: 10px;
-    &>button {
+    button {
         width: 40px;
         height: 40px;
         border: 1px transparent;
@@ -408,12 +408,13 @@ main>section {
     left: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
     width: 300px;
     height: 100%;
     padding: 15px;
     background: var(--bg-color-2);
-    &>h2 {
+    h2 {
         margin: 0 0 0 10px;
         font-size: 28px;
     }
@@ -1881,6 +1882,79 @@ section {
 @media (max-width: 445px) {
     .veiw-doc-button {
         top: calc(100% - 65px);  
+    }
+}
+.theme-switch_conteiner {
+    position: relative;
+    top: 2px;
+    left: 0;
+    button {
+        background-size: 30px 30px;
+        &.active {
+            background-image: var(--dark-theme-icon-path);
+        }
+        &.auto {
+            background-image: var(--auto-theme-icon-path);
+
+        }
+        &.disactive {
+            background-image: var(--light-theme-icon-path);
+        }
+        &:hover ~ .theme-switch,
+        &:focus ~ .theme-switch {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+.theme-switch {
+    position: absolute;
+    left: -45px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px #0000001a;
+    background: var(--bg-color-2);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: .2s ease;
+    &:hover,
+    &:has(button:focus) {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    button {
+        flex: 0 0 auto;
+        width: 33px;
+        height: 33px;
+        border: none;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 25px 25px;
+        background-color: var(--bg-color-2);
+        transition: .2s ease;
+        &.light {
+            background-image: var(--light-theme-icon-path);
+        }
+        &.auto {
+            background-image: var(--auto-theme-icon-path);
+        }
+        &.dark {
+            background-image: var(--dark-theme-icon-path);
+            background-size: 26px 26px;
+        }
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: var(--bg-color-7);
+        }
     }
 }
 @import "ui-adaptivity";

@@ -52,6 +52,9 @@
     --copy-icon-path: url("../img/icons/icons.svg#copy-icon-light");
     --location-icon-path: url("../img/icons/icons.svg#location-icon-light");
     --expand-icon-path: url("../img/icons/icons.svg#expand-icon-light");
+    --auto-theme-icon-path: url("../img/icons/icons.svg#auto-theme-icon-light");
+    --dark-theme-icon-path: url("../img/icons/icons.svg#dark-theme-icon-light");
+    --light-theme-icon-path: url("../img/icons/icons.svg#light-theme-icon-light");
 }
 
 body.dark-theme {
@@ -108,6 +111,9 @@ body.dark-theme {
     --copy-icon-path: url("../img/icons/icons.svg#copy-icon-dark");
     --location-icon-path: url("../img/icons/icons.svg#location-icon-dark");
     --expand-icon-path: url("../img/icons/icons.svg#expand-icon-dark");
+    --auto-theme-icon-path: url("../img/icons/icons.svg#auto-theme-icon-dark");
+    --dark-theme-icon-path: url("../img/icons/icons.svg#dark-theme-icon-dark");
+    --light-theme-icon-path: url("../img/icons/icons.svg#light-theme-icon-dark");
     &.white {
         background: var(--bg-color-1);
     }

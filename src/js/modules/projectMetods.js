@@ -456,4 +456,25 @@ class ArticleNavigation {
     }
 }
 
+class SetPageTheme {
+    constructor() {
+        this.themeButtons = document.querySelectorAll(".theme-button");
+        this.themeMenuButton = document.querySelector(".theme-switch_active-menu");
+        this.theme = JSON.parse(localStorage.getItem("theme"));
+    }
+
+    initTheme() {
+        if (!this.theme) {
+            let button = getElementById("dark-theme-auto");
+            button.classList.add("active");
+            this.themeMenuButton.classList.add(this.theme);
+            localStorage.setItem("theme", JSON.stringify("auto"));
+        } else {
+            let button = getElementById(`dark-theme-${this.theme}`);
+            button.classList.add("active");
+            this.themeMenuButton.classList.add(this.theme);
+        }
+    }
+}
+
 export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation }
