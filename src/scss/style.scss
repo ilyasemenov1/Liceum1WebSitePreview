@@ -236,7 +236,7 @@ main>section {
     animation: add-popup .2s ease forwards;
     box-sizing: border-box;
     text-align: center;
-    z-index: 10;
+    z-index: 100;
     & span {
         font-weight: 600;
         font-size: 16px;
@@ -290,7 +290,7 @@ main>section {
     background: #00000057;
     backdrop-filter: blur(25px);
     box-sizing: border-box;
-    z-index: 51;
+    z-index: 50;
     &.active {
         animation: add-block .2s ease forwards;
     }
@@ -299,6 +299,7 @@ main>section {
     }
 }
 .header-search_search-conteiner {
+    position: relative;
     display: flex;
     gap: 18px;
     max-height: 50px;
@@ -307,23 +308,47 @@ main>section {
     width: 100%; 
     margin: clamp(10px, 3vw, 50px) 0 0 0;
     box-sizing: border-box;
+    transition: .2s ease;
+    z-index: 51;
     button {
         flex: 0 0 auto;
         width: 50px;
         height: 50px;
+        box-shadow: 0px 0px 15px #0000001a;
         background-position: center;
         background-repeat: no-repeat;
         background-size: 22px 22px;
         background-color: #ffffff;
         border-radius: 50%;
         border: none;
+        transition: .2s ease;
         &.header-search_close-button {
             background-image: url("../img/icons/icons.svg#close-icon");
+        }
+        &.search-block_search-button {
+            position: absolute;
+            background-image: url("../img/icons/icons.svg#search-icon");
+            visibility: hidden;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            box-shadow: 0px 0px 15px #00000032;
+        }
+    }
+    &:has(.search-block.active) {
+        .search-block_search-button {
+            visibility: visible;
+            transform: translateX(0);
+            opacity: 1;
         }
     }
 }
 .search-block {
     display: flex;
+    flex: 0.0001 1 100%;
     height: 100%;
     width: 100%;
     gap: 15px;
@@ -340,6 +365,7 @@ main>section {
         border-radius: 100%;
         outline: none;
         border: none;
+        background-size: 20px 20px;
         transition: .2s ease;
         &:hover,
         &:focus {
@@ -358,15 +384,8 @@ main>section {
     }
     &.active {
         box-shadow: 0px 0px 10px #00000019;
+        margin-left: 68px;
     }
-}
-.search-block-aria {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100dvh;
-    z-index: 50;
 }
 .burger-menu {
     position: absolute;

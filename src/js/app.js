@@ -12,6 +12,8 @@ class DocumentEvents {
         this.searchButton = document.querySelector(".search");
         this.searchInput = document.querySelector(".search-block_input");
         this.searchBlockAria = document.querySelector(".search-block-aria");
+        this.searchClose = document.querySelectorAll(".header-search_close-button");
+        this.searchBlock = document.querySelector(".search-block");
         this.isAddPopup = true;
         this.isCloseSearch = true;
         this.delay = 0;
@@ -81,38 +83,55 @@ class DocumentEvents {
 
     searchEvent() {
         this.searchButton.addEventListener("click", () => {
-            if (this.searchButton.classList.contains("search-active")) {
-                //this.search();
-            } else {
-                this.openSearch();
-            }
+            this.openSearch();
         });
 
         window.addEventListener("keydown", (event) => {
-            if (event.keyCode == 111) {
-                this.openSearch();
-                setTimeout(() => {
-                    this.searchInput.focus();
-                }, 300);
-            }
+            setTimeout(() => {
+                switch (event.keyCode) {
+                    case 111:
+                    case 191:
+                        this.openSearch();
+                        setTimeout(() => {
+                            this.searchInput.focus();
+                        }, 300);
+                        break
+                    case 27:
+                        this.closeSearch();
+                        break
+                }
+            }, 50)
         });
 
         window.addEventListener("load", () => {
             this.burgerMenuE.calcBurgerMenuPosition();
         });
 
+        this.searchClose.forEach(element => {
+            element.addEventListener("click", () => {
+                this.closeSearch();
+            });
+        });
+
         this.searchBlockAria.addEventListener("click", () => {
             this.closeSearch();
         });
 
-        let searchBlock = document.querySelector(".search-block");
         this.searchInput.addEventListener("focus", () => {
-            searchBlock.classList.add("active");
+            this.isSearch();
         });
 
         this.searchInput.addEventListener("blur", () => {
-            searchBlock.classList.remove("active");
+            this.searchBlock.classList.remove("active");
         });
+
+        this.searchInput.addEventListener("input", () => {
+            this.isSearch();
+        });
+    }
+
+    isSearch() {
+        return this.searchInput.value ? this.searchBlock.classList.add("active") : this.searchBlock.classList.remove("active");
     }
 
     openSearch() {
@@ -121,13 +140,17 @@ class DocumentEvents {
         this.searchCont.classList.add("active");
         this.searchInput.focus();
         this.searchBlockAria.classList.remove("disactive");
+        document.body.style = "overflow: hidden;";
     }
 
     closeSearch() {
         this.searchCont.classList.add("remove");
         this.searchButton.blur();
-        this.searchCont.classList.remove("remove");
-        this.searchCont.classList.add("disactive");
+        setTimeout(() => {            
+            this.searchCont.classList.remove("remove");
+            this.searchCont.classList.add("disactive");
+        document.body.style = "overflow: visible;";
+        }, 200);
     }
 
     bufferEvent() {
