@@ -2,6 +2,15 @@ import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscr
 import { isWebp } from "./modules/isWebpSupport.js";
 import "./modules/pageSwiper.js";
 
+import LazyLoad from "vanilla-lazyload";
+const lazyLoadInstance = new LazyLoad({
+    callback_error: (img) => {
+        img.setAttribute("srcset", "fallback_image@1x.jpg 1x, fallback_image@2x.jpg 2x");
+        img.setAttribute("src", "fallback_image@1x.jpg");
+      }
+});
+lazyLoadInstance.update();
+
 isWebp();
 
 class DocumentEvents {
