@@ -488,13 +488,13 @@ class SetPageTheme {
     setUpTheme(theme) {
         switch(theme) {
             case "active":
-                document.body.classList.add("dark-theme");
+                document.documentElement.classList.add("dark-theme");
                 break
             case "auto":
                 getAutoTheme();
                 break
             case "disactive":
-                document.body.classList.remove("dark-theme");
+                document.documentElement.classList.remove("dark-theme");
                 break
             default:
                 getAutoTheme();
