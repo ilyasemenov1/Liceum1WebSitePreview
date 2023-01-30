@@ -463,18 +463,44 @@ class SetPageTheme {
         this.theme = JSON.parse(localStorage.getItem("theme"));
     }
 
-    initTheme() {
-        if (!this.theme) {
-            let button = getElementById("dark-theme-auto");
-            button.classList.add("active");
-            this.themeMenuButton.classList.add(this.theme);
-            localStorage.setItem("theme", JSON.stringify("auto"));
-        } else {
-            let button = getElementById(`dark-theme-${this.theme}`);
-            button.classList.add("active");
-            this.themeMenuButton.classList.add(this.theme);
+    themeSelectEvent() {
+        this.themeButtons.forEach(element => {
+            element.addEventListener("click", () => {
+                this.clearThemeSelect();
+                element.classList.add("active");
+
+                let mode = element.dataset.value;
+                this.themeMenuButton.classList.add(`dark-theme-${mode}`);
+                localStorage.setItem("theme", JSON.stringify(mode));
+
+                this.setUpTheme(mode);
+            });
+        });
+    }
+
+    clearThemeSelect() {
+        this.themeButtons.forEach(element => {
+            element.classList.remove("active");
+        });
+        this.themeMenuButton.classList.remove("dark-theme-active", "dark-theme-auto", "dark-theme-disactive");
+    }
+
+    setUpTheme(theme) {
+        switch(theme) {
+            case "active":
+                document.body.classList.add("dark-theme");
+                break
+            case "auto":
+                getAutoTheme();
+                break
+            case "disactive":
+                document.body.classList.remove("dark-theme");
+                break
+            default:
+                getAutoTheme();
+                localStorage.setItem("theme", JSON.stringify("auto"));
         }
     }
 }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation }
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme }

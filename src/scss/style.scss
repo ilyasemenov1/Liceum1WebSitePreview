@@ -307,7 +307,7 @@ main>section {
     max-width: 800px;
     height: 100%;
     width: 100%; 
-    margin: clamp(10px, 3vw, 50px) 0 0 0;
+    margin: clamp(10px, 3vw, 30px) 0 0 0;
     box-sizing: border-box;
     transition: .2s ease;
     z-index: 51;
@@ -1890,14 +1890,14 @@ section {
     left: 0;
     button {
         background-size: 30px 30px;
-        &.active {
+        &.dark-theme-active {
             background-image: var(--dark-theme-icon-path);
         }
-        &.auto {
+        &.dark-theme-auto {
             background-image: var(--auto-theme-icon-path);
 
         }
-        &.disactive {
+        &.dark-theme-disactive {
             background-image: var(--light-theme-icon-path);
         }
         &:hover ~ .theme-switch,
@@ -1954,6 +1954,9 @@ section {
         &:focus {
             cursor: pointer;
             background-color: var(--bg-color-7);
+        }
+        &.active {
+            box-shadow: 0px 2px 8px #00000042;
         }
     }
 }

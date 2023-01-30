@@ -1,4 +1,4 @@
-import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation } from "./modules/projectMetods.js";
+import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import "./modules/pageSwiper.js";
 
@@ -173,6 +173,7 @@ let pageScroll = new PageScroll();
 let documentEvents = new DocumentEvents();
 let fullscreen = new NewsArticleFullscreen();
 let articleNavigation = new ArticleNavigation();
+let setPageTheme = new SetPageTheme();
 documentEvents.buttonsHoverEvent();
 documentEvents.menuEvent();
 documentEvents.searchEvent();
@@ -180,3 +181,4 @@ documentEvents.bufferEvent();
 pageScroll.headerScrollEvent();
 fullscreen.fullscreenEvent();
 articleNavigation.articleDocInit();
+setPageTheme.themeSelectEvent();

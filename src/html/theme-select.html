@@ -1,0 +1,54 @@
+<script>
+    function getAutoTheme() {
+        if (window.matchMedia && 
+            window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add("dark-theme");
+            } else {
+                document.body.classList.remove("dark-theme");
+            }
+    }
+
+    function setUpMode(mode) {
+        const switchMenu = document.querySelector(".theme-switch_active-menu");
+        const element = document.getElementById(`dark-theme-${mode}`);
+        element.classList.add("active");
+        switchMenu.classList.add(`dark-theme-${mode}`);
+    }
+
+    function getUserTheme() {
+        const theme = JSON.parse(localStorage.getItem("theme"));
+
+        if (!isNaN(theme)) {
+
+            localStorage.setItem("theme", JSON.stringify("auto"));
+            getAutoTheme();
+            return;
+        }
+
+        switch(theme) {
+            case "active":
+                document.body.classList.add("dark-theme");
+                setUpMode(theme);
+                break
+            case "auto":
+                getAutoTheme();
+                setUpMode(theme);
+                break
+            case "disactive":
+                document.body.classList.remove("dark-theme");
+                setUpMode(theme);
+                break
+            default:
+                getAutoTheme();
+                localStorage.setItem("theme", JSON.stringify("auto"));
+
+                setUpMode(theme);
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        getAutoTheme();
+    });
+
+    getUserTheme();
+</script>
