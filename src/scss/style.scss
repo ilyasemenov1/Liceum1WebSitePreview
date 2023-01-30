@@ -5,13 +5,13 @@
 $border-color-1: #e0e0e0;
 
 
-a, button, h1, h2, h3, h4, h5, span, p, article, input {
+a, button, h1, h2, h3, h4, h5, span, p, article, input, span, li, ul, img {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
     color: var(--text-color-1);
     &::selection {
-        background: #1454ada4;
-        color: var(--bg-color-2);
+        background: var(--selection-color);
+        color: var(--text-color-6);
     }
 }
 a, button {
