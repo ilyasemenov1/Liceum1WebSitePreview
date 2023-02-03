@@ -316,7 +316,7 @@ class NewsArticleFullscreen {
             this.target.classList.add("article-remove-button");
             this.target.textContent = "Свернуть";
 
-            document.body.style = "overflow: hidden;"
+            document.body.style = "overflow: hidden;";
             let thisArticle = this.target.parentElement.parentElement;
 
             this.article = document.createElement("article");
@@ -502,5 +502,6 @@ class SetPageTheme {
         }
     }
 }
+
 
 export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme }

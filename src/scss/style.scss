@@ -638,10 +638,11 @@ main {
 .fixed-buttons {
     position: fixed;
     left: 30px;
-    transform: translateY(calc(100dvh - 150px));
+    top: 100%;
     height: 150px;
     width: calc(100% - 60px);
     z-index: 1;
+    overflow: visible;
     button {
         position: absolute;
         width: 50px;
@@ -666,18 +667,18 @@ main {
             visibility: hidden;
         }
         &.scroll-top {
-            top: 0;
+            top: -150px;
             left: 0;
             background-image: var(--arrow-top-icon-path);
         }
         &.visually-impaired-version {
-            top: 70px;
+            top: -80px;
             left: 0;
             background-image: var(--eye-icon-path);
             background-size: 31px 31px;
         }
         &.veiw-doc-button {
-            top: 70px;
+            top: -80px;
             font-size: 28px;
             left: calc(100% - 50px);
             background-size: 20px 20px;
