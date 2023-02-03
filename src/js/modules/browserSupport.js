@@ -1,6 +1,7 @@
 
 export class IsBrowserSupport {
     constructor() {
+        this.isBrowserUnsupportedPage = document.querySelector(".browser-unsupported");
         this.browserSpecs = (function(){
             var ua = navigator.userAgent, tem, 
                 M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
@@ -17,7 +18,9 @@ export class IsBrowserSupport {
                 M.splice(1, 1, tem[1]);
             return {name:M[0], version:M[1]};
         })();
-        this.browserSupport();
+        if (!this.isBrowserUnsupportedPage) {
+            this.browserSupport();
+        }
     }
 
     browserSupport() {
@@ -25,7 +28,7 @@ export class IsBrowserSupport {
         switch(this.browserSpecs.name) {
             case "Chrome":
                 console.log(this.browserSpecs);
-                this.browserSpecs.version < 57 ? this.loadPageForUnsupported() : void(0);
+                this.browserSpecs.version < 150 ? this.loadPageForUnsupported() : void(0);
                 break
             case "Firefox":
                 this.browserSpecs.version < 52 ? this.loadPageForUnsupported() : void(0);

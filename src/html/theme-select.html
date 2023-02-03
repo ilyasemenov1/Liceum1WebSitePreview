@@ -11,8 +11,10 @@
     function setUpMode(mode) {
         const switchMenu = document.querySelector(".theme-switch_active-menu");
         const element = document.getElementById(`dark-theme-${mode}`);
-        element.classList.add("active");
-        switchMenu.classList.add(`dark-theme-${mode}`);
+        if (element && switchMenu) {
+            element.classList.add("active");
+            switchMenu.classList.add(`dark-theme-${mode}`);
+        }
     }
 
     function getUserTheme() {
