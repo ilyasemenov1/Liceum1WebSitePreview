@@ -1,6 +1,5 @@
 import { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme } from "./modules/projectMetods.js";
 import { isWebp } from "./modules/isWebpSupport.js";
-import { IsBrowserSupport } from "./modules/browserSupport.js";
 import "./modules/pageSwiper.js";
 
 import LazyLoad from "vanilla-lazyload";
@@ -179,7 +178,6 @@ class DocumentEvents {
     }
 }
 
-let support = new IsBrowserSupport();
 let pageScroll = new PageScroll();
 let documentEvents = new DocumentEvents();
 let fullscreen = new NewsArticleFullscreen();

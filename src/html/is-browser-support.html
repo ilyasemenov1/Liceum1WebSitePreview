@@ -1,8 +1,7 @@
-
-export class IsBrowserSupport {
-    constructor() {
-        this.isBrowserUnsupportedPage = document.querySelector(".browser-unsupported");
-        this.browserSpecs = (function(){
+<script>
+    function isBrowserSupport() {
+        let isBrowserUnsupportedPage = document.querySelector(".browser-unsupported");
+        let browserSpecs = (function(){
             var ua = navigator.userAgent, tem, 
                 M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
             if(/trident/i.test(M[1])){
@@ -18,39 +17,40 @@ export class IsBrowserSupport {
                 M.splice(1, 1, tem[1]);
             return {name:M[0], version:M[1]};
         })();
-        if (!this.isBrowserUnsupportedPage) {
-            this.browserSupport();
+        if (!isBrowserUnsupportedPage) {
+            browserSupport(browserSpecs);
         }
     }
 
-    browserSupport() {
-        this.browserSpecs.version = parseFloat(this.browserSpecs.version);
-        switch(this.browserSpecs.name) {
+    function browserSupport(browserSpecs) {
+        browserSpecs.version = parseFloat(browserSpecs.version);
+        switch(browserSpecs.name) {
             case "Chrome":
-                console.log(this.browserSpecs);
-                this.browserSpecs.version < 150 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 54 ? loadPageForUnsupported() : void(0);
                 break
             case "Firefox":
-                this.browserSpecs.version < 52 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 52 ? loadPageForUnsupported() : void(0);
                 break
             case "Safari":
-                this.browserSpecs.version < 10.1 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 10.1 ? loadPageForUnsupported() : void(0);
                 break
             case "Opera":
-                this.browserSpecs.version < 44 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 44 ? loadPageForUnsupported() : void(0);
                 break
             case "Edge":
-                this.browserSpecs.version < 16 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 16 ? loadPageForUnsupported() : void(0);
                 break
             case "Opera":
-                this.browserSpecs.version < 44 ? this.loadPageForUnsupported() : void(0);
+                browserSpecs.version < 44 ? loadPageForUnsupported() : void(0);
                 break
             case "IE":
-                this.loadPageForUnsupported();
+                loadPageForUnsupported();
         }
     }
 
-    loadPageForUnsupported() {
+    function loadPageForUnsupported() {
         window.location = "unsupported.html";
     }
-}
+
+    isBrowserSupport();
+</script>
