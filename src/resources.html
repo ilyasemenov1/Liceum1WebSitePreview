@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Лицей №1 г. Всеволожска — Предметные ресурсы"
+    })
+<body class="gradient">
+    @@include("./html/header.html", {
+        "pageStatus": "Предметные ресурсы"
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links"><a href="index.html">Главная</a> / <a href="#">Предметные ресурсы</a></div>
+        </div>
+        <section class="resources">
+            <h1 class="resources_label">Предметные ресурсы</h1>
+            <div class="resources_content">
+                <a href="#" class="resources_link">Математика</a>
+                <a href="#" class="resources_link">Русский язык</a>
+                <a href="#" class="resources_link">Информатика</a>
+                <a href="#" class="resources_link">Интернет</a>
+            </div>
+        </section>
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/footer.html" {})
+    @@include("./html/theme-select.html", {})
+    @@include("./html/is-browser-support.html", {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>
