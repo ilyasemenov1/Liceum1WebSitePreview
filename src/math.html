@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Предметные ресурсы — математика — Лицей №1 г. Всеволожска"
+    })
+<body class="white">
+    @@include("./html/header.html", {
+        "pageStatus": "Предметные ресурсы — математика"
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links"><a href="index.html">Главная</a> / <a href="#">Предметные ресурсы — математика</a></div>
+        </div>
+        <section class="page-article">
+            <div class="article">
+                <h1 class="page-article_label">Предметные ресурсы — математика</h1>
+                <div class="page-article_content">
+                    <h2 class="page-article_topic-label">Информационные ресурсы</h2>
+                    <ul>
+                        <li><a href="#">Общероссийский математический портал</a></li>
+                        <li><a href="#">Вся элементарная математика</a></li>
+                        <li><a href="#">Задачи конкурсных экзаменов по математике</a></li>
+                        <li><a href="#">Проверь уровень знаний по математике</a></li>
+                    </ul>
+                </div>
+            </div>
+            @@include("./html/article-content.html", {})
+        </section>
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/footer.html" {})
+    @@include("./html/theme-select.html", {})
+    @@include("./html/is-browser-support.html", {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>
