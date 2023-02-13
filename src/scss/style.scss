@@ -1539,6 +1539,9 @@ section {
     }
     li {
         position: relative;
+        &::marker {
+            display: none;
+        }
         &::after {
             left: -5px;
             top: calc(50% - 2px);
@@ -1550,9 +1553,11 @@ section {
             background: var(--text-color-1);
             transition: .2s ease;
         }
-        &:hover::after,
-        &:focus::after {
-            transform: translateX(-7px);
+        &:has(>a:hover),
+        &:has(>a:focus) {
+            &::after {
+                transform: translateX(-7px);
+            }
         }
     }
 }
