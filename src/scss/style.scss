@@ -85,8 +85,6 @@ main>section {
         flex-direction: column;
         transition: .2s ease;
     }
-}
-.header-content_organization-info {
     a {
         font-weight: 700;
         font-family: "Source Sans Pro", sans-serif;
@@ -96,7 +94,7 @@ main>section {
         &:hover,
         &:focus {
             cursor: pointer;
-            opacity: .65;
+            opacity: .7;
         }
     }
 }
@@ -2152,6 +2150,44 @@ section {
     img {
         width: 80px;
         height: 80px;
+    }
+}
+.copy {
+    position: relative;
+    display: inline;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    transition: .2s ease;
+    font-size: 17px;
+    text-decoration: underline;
+    text-decoration-color: var(--text-decoration-color-1);
+    transition: .2s ease;
+    &::before {
+        position: absolute;
+        content: "";
+        left: calc(100% - 16px);
+        top: 4px;
+        width: 15px;
+        height: 15px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: var(--copy-icon-path);
+        transition: .2s ease;
+        opacity: 0;
+    }
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        text-decoration-color: var(--text-decoration-color-2);
+        color: var(--text-color-3);
+        padding: 0 20px 0 0;
+        &::before {
+            opacity: 1; 
+        }
     }
 }
 @import "ui-adaptivity";
