@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Школьный спортивный клуб"
+    })
+<body class="white">
+    @@include("./html/header.html", {
+        "pageStatus": "Школьный спортивный клуб"
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links"><a href="index.html">Главная</a> / <a href="#">Школьный спортивный клуб</a></div>
+        </div>
+        <section class="page-article">
+            <div class="article">
+                <h1 class="page-article_label">Школьный спортивный клуб</h1>
+                <div class="page-article_content">
+                    <h2 class="page-article_topic-label">Спортивный клуб "Чемпион"</h2>
+                    <p class="page-article_marked">Школьный спортивный клуб — общественная организация учителей и учащихся, способствующая развитию физической культуры, спорта и туризма в лицее. Школьный спортивный клуб создается с целью организации и проведения спортивно-массовой работы в образовательном учреждении во внеурочное время. Общее руководство клубом осуществляется Советом клуба. Состав Совета клуба утверждается приказом директора образовательного учреждения. Школьный спортивный клуб имеет название, девиз, эмблему,сайт.</p>
+                    <div class="page-article_links">
+                        <a href="#" target="_blank">Государственная лицензия МОУ "Лицей №1" г. Всеволожска</a>
+                        <a href="#" target="_blank">Государственная лицензия. Приложение</a>
+                        <a href="#" target="_blank">Протокол</a>
+                        <a href="#" target="_blank">Приказ "О создании школьного спортивного клуба" №262 от 02.09.2014</a>
+                        <a href="#" target="_blank">Положение о клубе</a>
+                        <a href="#" target="_blank">Устав спортивного клуба</a>
+                        <a href="#" target="_blank">Свидетельство о регистрации</a>
+                        <a href="#" target="_blank">Расписание занятий</a>
+                        <a href="#" target="_blank">План работы</a>
+                        <a href="#" target="_blank">План физкультурно-спортивных мероприятий</a>
+                        <a href="#" target="_blank">Протокол соревнований по волейболу</a>
+                        <a href="#" target="_blank">Протокол соревнований по баскетболу "Президентские игры"</a>
+                    </div>
+                    <div class="page-article_img-grid pic">
+                        <button class="page-article_img-button">
+                            <img src="@img/website-content/eclub.jpg" alt="img" class="lazy">
+                        </button>
+                        <button class="page-article_img-button">
+                            <img src="@img/website-content/sks.jpg" alt="img" class="lazy">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @@include("./html/article-content.html", {})
+        </section>
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/footer.html" {})
+    @@include("./html/theme-select.html", {})
+    @@include("./html/is-browser-support.html", {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>

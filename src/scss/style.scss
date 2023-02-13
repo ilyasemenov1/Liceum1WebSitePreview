@@ -1898,6 +1898,7 @@ section {
         width: 100%;
         height: 100%;
         object-position: center;
+        object-fit: cover;
         background: var(--bg-color-25);
     }
     ol {
@@ -1910,8 +1911,7 @@ section {
     gap: 20px;
     margin: 15px 0 0 0;
     &.pic {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 .page-article_img-button {
