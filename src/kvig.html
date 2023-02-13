@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Коронавирусная инфекция, грипп, вакцинация"
+    })
+<body class="white">
+    @@include("./html/header.html", {
+        "pageStatus": "Коронавирусная инфекция, грипп, вакцинация"
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links"><a href="index.html">Главная</a> / <a href="#">Коронавирусная инфекция, грипп, вакцинация</a></div>
+        </div>
+        <section class="page-article">
+            <div class="article">
+                <h1 class="page-article_label">Коронавирусная инфекция, грипп, вакцинация</h1>
+                <div class="page-article_content">
+                    <h2 class="page-article_topic-label">Коронавирусная инфекция, грипп,вакцинация</h2>
+                    <p class="page-article_marked">В Ленинградской области действует единая горячая линия по противодействию коронавирусу — 8-800-200-01-12. Открыта горячая линия по вопросам организации оказания медицинской помощи в регионе — 8-812-403-06-03.</p>
+                    <h3>Что нужно делать в период активной циркуляции возбудителей гриппа, коронавирусной инфекции и других возбудителей острых респираторных вирусных инфекций (ОРВИ) для того, чтобы предотвратить собственное заражение и обезопасить окружающих, если заболели вы? Возбудители всех этих заболеваний высоко заразны и передаются преимущественно воздушно-капельным путем.</h3>
+                    <ul>
+                        <li><a href="#" target="_blank">Вирусы. Защита от них</a></li>
+                        <li><a href="#" target="_blank">Коронавирусная инфекция</a></li>
+                        <li><a href="#" target="_blank">Кому нужно пройти тест на коронавирусную инфекцию</a></li>
+                        <li><a href="#" target="_blank">Маска</a></li>
+                        <li><a href="#" target="_blank">Правила использования маски</a></li>
+                    </ul>
+                    <h2 class="page-article_topic-label">Роспотребнадзор информирует</h2>
+                    <ul>
+                        <li><a href="#" targrt="_blank">Гигиена</a></li>
+                        <li><a href="#" targrt="_blank">Профилактика</a></li>
+                        <li><a href="#" targrt="_blank">Правила профилактики</a></li>
+                        <li><a href="#" targrt="_blank">Как подготовиться к прививке</a></li>
+                        <li><a href="#" targrt="_blank">Если в семье кто-то заболел гриппом или коронавирусной инфекцией?</a></li>
+                        <li><a href="#" targrt="_blank">Симптомы COVID-19, ОРВИ и гриппа</a></li>
+                        <li><a href="#" targrt="_blank">О вакцинации против гриппа в вопросах и ответах</a></li>
+                        <li><a href="#" targrt="_blank">Грипп - симптомы и профилактика</a></li>
+                    </ul>
+                    <div class="page-article_img-grid pic">
+                        <button class="page-article_img-button">
+                            <img src="@img/website-content/kv2.jpg" alt="img" class="lazy">
+                        </button>
+                        <button class="page-article_img-button">
+                            <img src="@img/website-content/kv3.jpg" alt="img" class="lazy">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @@include("./html/article-content.html", {})
+        </section>
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/footer.html" {})
+    @@include("./html/theme-select.html", {})
+    @@include("./html/is-browser-support.html", {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>

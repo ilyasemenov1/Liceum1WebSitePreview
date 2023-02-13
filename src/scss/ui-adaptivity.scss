@@ -63,7 +63,7 @@
             width: 30px;
             height: 40px;
         }
-        .header-content_organization-info span {
+        .header-content_organization-info a {
             font-size: 21px;
             font-weight: 700;
         }
@@ -111,7 +111,7 @@
     }
 }
 @media (max-width: 490px) {
-    .header-content_organization-info span {
+    .header-content_organization-info a {
         position: relative;
         transition: none;
         font-size: 0px !important;
