@@ -1957,7 +1957,7 @@ section {
     background: var(--bg-color-25);
     overflow: hidden;
     transition: .2s ease;
-    &:hover
+    &:hover,
     &:focus {
         cursor: pointer;
         transform: translateY(-3px);
