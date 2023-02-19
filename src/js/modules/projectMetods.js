@@ -185,6 +185,7 @@ class BurgerMenuEvents {
         this.burgerMenuCont = document.querySelector(".menu-conteiner");
         this.pageHeader = document.querySelector(".header");
         this.pageFixedButtons = document.querySelectorAll(".scroll-top, .visually-impaired-version");
+        this.selectInut = document.querySelectorAll(".bruger-menu_select-conteiner>input");
     }
 
     calcBurgerMenuPosition(num) {
@@ -212,6 +213,7 @@ class BurgerMenuEvents {
     closeBurgerMenu() {
         this.burgerMenuCont.classList.remove("active");
         this.burgerMenuCont.classList.add("remove");
+        this.#removeSelectOnCloseBurger();
         setTimeout(() => {
             this.burgerMenuCont.classList.add("disactive");
             this.burgerMenuCont.classList.remove("remove");
@@ -222,6 +224,10 @@ class BurgerMenuEvents {
                 scroll.scroll();
             });
         }, 200);
+    }
+
+    #removeSelectOnCloseBurger() {
+        this.selectInut.forEach(element => element.checked = false);
     }
 }
 
@@ -441,7 +447,7 @@ class ArticleNavigation {
         let theme = "light";
         const getCurrentTheme = () => JSON.parse(localStorage.getItem("theme"));
         switch (getCurrentTheme()){
-            case "dark":
+            case "active":
                 theme = "dark";
                 break;
             case "auto":
