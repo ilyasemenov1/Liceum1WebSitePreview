@@ -437,13 +437,33 @@ class ArticleNavigation {
         });
     }
 
+    #getTheme() {
+        let theme = "light";
+        const getCurrentTheme = () => JSON.parse(localStorage.getItem("theme"));
+        switch (getCurrentTheme()){
+            case "dark":
+                theme = "dark";
+                break;
+            case "auto":
+                window.matchMedia("(prefers-color-scheme: dark)").matches ? theme = "dark" : void(0);
+                break;
+        }
+
+        return theme;
+    }
+
+    themeChangeNavOpend() {
+        let isNavOpend = () => this.docVeiw.classList.contains("active");
+        if (isNavOpend()) {
+            this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
+        }
+    }
+
     openNav() {
         if (!this.conteiner) {return}
         this.conteiner.classList.add("active");
         this.conteiner.style = `transform: translateY(calc(100dvh - ${this.conteiner.clientHeight}px));`;
-        let theme = "light";
-        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? theme = "dark" : void(0);
-        this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${theme}");`;
+        this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
         this.docVeiw.innerText = "";
         this.docVeiw.dataset.popupLeft = "Закрыть";
         this.docVeiw.classList.add("active");
@@ -478,6 +498,9 @@ class SetPageTheme {
                 localStorage.setItem("theme", JSON.stringify(mode));
 
                 this.setUpTheme(mode);
+
+                let articleNav = new ArticleNavigation();
+                articleNav.themeChangeNavOpend();
             });
         });
     }
