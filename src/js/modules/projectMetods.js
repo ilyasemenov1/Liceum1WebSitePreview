@@ -441,9 +441,12 @@ class ArticleNavigation {
         if (!this.conteiner) {return}
         this.conteiner.classList.add("active");
         this.conteiner.style = `transform: translateY(calc(100dvh - ${this.conteiner.clientHeight}px));`;
-        this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon");`;
+        let theme = "light";
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? theme = "dark" : void(0);
+        this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${theme}");`;
         this.docVeiw.innerText = "";
         this.docVeiw.dataset.popupLeft = "Закрыть";
+        this.docVeiw.classList.add("active");
     }
 
     closeNav() {
@@ -453,6 +456,7 @@ class ArticleNavigation {
         this.docVeiw.style = "";
         this.docVeiw.innerText = "§";
         this.docVeiw.dataset.popupLeft = "Показать содержание";
+        this.docVeiw.classList.remove("active");
     }
 }
 
