@@ -361,6 +361,7 @@ class ArticleNavigation {
     constructor() {
         this.articleLabels = document.querySelectorAll(".page-article_topic-label");
         this.linksConteiner = document.querySelector(".article-content_links");
+        this.linksWrapper = document.querySelector(".article-content_wrapper");
         this.docVeiw = document.querySelector(".veiw-doc-button");
         this.conteiner = document.querySelector(".article-content");
     }
@@ -427,9 +428,15 @@ class ArticleNavigation {
         
         links.forEach((link) => link.classList.remove('active'));
         links[index].classList.add('active');
-        if (window.innerWidth > 768) {
-            links[index].focus();
+
+        let offestTop = links[index].offsetTop; 
+        let linksSroll = 45;
+        if (links[index-1]) {
+            linksSroll += links[index-1].clientHeight;
+            if (this.linksWrapper.clientHeight < (linksSroll + links[index].clientHeight)) {linksSroll = 45}
         }
+
+        this.linksWrapper.scrollTop = offestTop - linksSroll;
     }
 
     #veiwDocEvent() {
