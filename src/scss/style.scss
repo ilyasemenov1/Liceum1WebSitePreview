@@ -733,7 +733,7 @@ main {
 .fixed-buttons {
     position: fixed;
     left: 30px;
-    top: 100%;
+    top: 0;
     height: 150px;
     width: calc(100% - 60px);
     z-index: 1;
@@ -1829,6 +1829,8 @@ section {
 .article-content_links {
     display: flex;
     flex-direction: column;
+    padding: 0 5px 0 0;
+    box-sizing: border-box;
     a {
         position: relative;
         display: inline-flex;

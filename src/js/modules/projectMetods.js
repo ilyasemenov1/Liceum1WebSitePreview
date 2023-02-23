@@ -110,6 +110,7 @@ class PageScroll {
         this.burgerMenu = document.querySelector(".burger-menu");
         this.topButton = document.querySelector(".scroll-top");
         this.articleContent = document.querySelector(".article-content");
+        this.fixedButtons = document.querySelector(".fixed-buttons");
         this.delta = 500;
         this.lastKeypressTime = 0;
     }
@@ -117,9 +118,14 @@ class PageScroll {
     headerScrollEvent() {
         window.addEventListener("scroll", () => {
             this.scroll();
+            this.calcFixedElementsHeight();
         });
         window.addEventListener("load", () => {
             this.scroll();
+            this.calcFixedElementsHeight();
+        });
+        window.addEventListener("resize", () => {
+            this.calcFixedElementsHeight();
         });
         this.topButton.addEventListener("click", () => {
             window.scrollTo({top: 0, behavior: 'smooth'}); 
@@ -127,6 +133,11 @@ class PageScroll {
         window.addEventListener("keydown", (event) => {
             this.doubleArrowKeypress(event);
         });
+    }
+
+    calcFixedElementsHeight() {
+        let windowHeight = window.innerHeight;
+        this.fixedButtons.style = `top: ${windowHeight}px`;
     }
 
     doubleArrowKeypress(event) {
@@ -543,5 +554,32 @@ class SetPageTheme {
     }
 }
 
+class InitFullscreenSwiper {
+    constructor() {
+        self.imgContainers = document.querySelectorAll(".page-article_img-grid");
+        self.target, self.container;
+        self.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
+    }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme }
+    initSwiper() {
+
+    }
+
+    imgEvent() {
+        self.imgContainers.forEach(element => {
+            element.addEventListener("click", (event) => {
+                self.target = event.target;
+                self.container = element;
+                let swiperContent = "";
+                let conteinerChildren = self.container.children;
+                for (let i = 0; i < conteinerChildren.length; i++) {
+                    let img  = conteinerChildren.item(i).innerHTML;
+                    swiperContent += img;
+                }
+                console.log(swiperContent);
+            });
+        });
+    }
+}
+
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, InitFullscreenSwiper }
