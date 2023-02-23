@@ -110,7 +110,6 @@ class PageScroll {
         this.burgerMenu = document.querySelector(".burger-menu");
         this.topButton = document.querySelector(".scroll-top");
         this.articleContent = document.querySelector(".article-content");
-        this.fixedButtons = document.querySelector(".fixed-buttons");
         this.delta = 500;
         this.lastKeypressTime = 0;
     }
@@ -118,14 +117,9 @@ class PageScroll {
     headerScrollEvent() {
         window.addEventListener("scroll", () => {
             this.scroll();
-            this.calcFixedElementsHeight();
         });
         window.addEventListener("load", () => {
             this.scroll();
-            this.calcFixedElementsHeight();
-        });
-        window.addEventListener("resize", () => {
-            this.calcFixedElementsHeight();
         });
         this.topButton.addEventListener("click", () => {
             window.scrollTo({top: 0, behavior: 'smooth'}); 
@@ -133,11 +127,6 @@ class PageScroll {
         window.addEventListener("keydown", (event) => {
             this.doubleArrowKeypress(event);
         });
-    }
-
-    calcFixedElementsHeight() {
-        let windowHeight = window.innerHeight;
-        this.fixedButtons.style = `top: ${windowHeight}px`;
     }
 
     doubleArrowKeypress(event) {
@@ -479,14 +468,14 @@ class ArticleNavigation {
     themeChangeNavOpend() {
         let isNavOpend = () => this.docVeiw.classList.contains("active");
         if (isNavOpend()) {
-            this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
+            this.docVeiw.style = `background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
         }
     }
 
     openNav() {
         if (!this.conteiner) {return}
+        document.body.style = "overflow: hidden;";
         this.conteiner.classList.add("active");
-        this.conteiner.style = `transform: translateY(calc(100dvh - ${this.conteiner.clientHeight}px));`;
         this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
         this.docVeiw.innerText = "";
         this.docVeiw.dataset.popupLeft = "Закрыть";
@@ -495,8 +484,8 @@ class ArticleNavigation {
 
     closeNav() {
         if (!this.conteiner) {return}
+        document.body.style = "overflow: visible;";
         this.conteiner.classList.remove("active");
-        this.conteiner.style = ``;
         this.docVeiw.style = "";
         this.docVeiw.innerText = "§";
         this.docVeiw.dataset.popupLeft = "Показать содержание";

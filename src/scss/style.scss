@@ -733,7 +733,7 @@ main {
 .fixed-buttons {
     position: fixed;
     left: 30px;
-    top: 0;
+    bottom: -150px;
     height: 150px;
     width: calc(100% - 60px);
     z-index: 1;
@@ -2030,20 +2030,19 @@ section {
     .article-content {
         position: fixed;
         left: 0;
-        top: 0;
+        top: 100%;
         width: 100%;
         max-height: 400px !important;
-        transform: translateY(100vh);
-        transform: translateY(100dvh);
         padding: 12px;
         border-radius: 15px 15px 0 0;
         background: var(--bg-color-2);
         box-shadow: 0px 0px 15px #00000021;
         transition: .2s ease;
-        visibility: hidden;
+        visibility: visible;
         z-index: 2;
         box-sizing: border-box;
         &.active {
+            transform: translateY(-100%);
             visibility: visible;
         }
     }
