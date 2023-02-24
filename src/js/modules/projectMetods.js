@@ -474,7 +474,6 @@ class ArticleNavigation {
 
     openNav() {
         if (!this.conteiner) {return}
-        document.body.style = "overflow: hidden;";
         this.conteiner.classList.add("active");
         this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
         this.docVeiw.innerText = "";
@@ -484,7 +483,6 @@ class ArticleNavigation {
 
     closeNav() {
         if (!this.conteiner) {return}
-        document.body.style = "overflow: visible;";
         this.conteiner.classList.remove("active");
         this.docVeiw.style = "";
         this.docVeiw.innerText = "§";
@@ -548,24 +546,36 @@ class InitFullscreenSwiper {
         self.imgContainers = document.querySelectorAll(".page-article_img-grid");
         self.target, self.container;
         self.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
+        self.swiperContainer = document.querySelector(".fullscreen-swiper");
     }
 
     initSwiper() {
+        const container = document.getElementById("imgGallerySwiper");
+        const options = { infinite: true };
+        
+        new Carousel(container, options);
+    }
 
+    removeSwiper() {
+        self.swiperContainer.classList.remove("active");
+        self.swiperWrapper.innerHTML = "";
+        document.body.style = "overflow: visivle;";
     }
 
     imgEvent() {
         self.imgContainers.forEach(element => {
             element.addEventListener("click", (event) => {
+                self.swiperContainer.classList.add("active");
+                document.body.style = "overflow: hidden;";
                 self.target = event.target;
                 self.container = element;
-                let swiperContent = "";
                 let conteinerChildren = self.container.children;
                 for (let i = 0; i < conteinerChildren.length; i++) {
                     let img  = conteinerChildren.item(i).innerHTML;
-                    swiperContent += img;
+                    let slide = `<div class="f-carousel__slide fullscreen-swiper_slide">${img}</div>`;
+                    self.swiperWrapper.innerHTML += slide;
                 }
-                console.log(swiperContent);
+                console.log(self.swiperWrapper);
             });
         });
     }
