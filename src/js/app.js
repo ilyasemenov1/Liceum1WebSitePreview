@@ -192,4 +192,3 @@ pageScroll.headerScrollEvent();
 fullscreen.fullscreenEvent();
 articleNavigation.articleDocInit();
 setPageTheme.themeSelectEvent();
-fullscreenSwiper.imgEvent();

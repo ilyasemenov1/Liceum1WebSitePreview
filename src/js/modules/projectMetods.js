@@ -1,6 +1,9 @@
 
 import CyrillicToTranslit from 'cyrillic-to-translit-js';
-
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import '../../../node_modules/swiper/swiper.min.css';
+    
+Swiper.use([Navigation, Pagination, Autoplay]);
 class ButtonPopup {
     constructor(element) {
         this.element = element;
@@ -547,13 +550,28 @@ class InitFullscreenSwiper {
         self.target, self.container;
         self.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
         self.swiperContainer = document.querySelector(".fullscreen-swiper");
+        this.slideGenerateEvent();
+        this.initSwiper();
     }
 
     initSwiper() {
-        const container = document.getElementById("imgGallerySwiper");
-        const options = { infinite: true };
-        
-        new Carousel(container, options);
+        var GallerySwiper = new Swiper(".gallerySwiper", {
+            slidesPerView: 1,
+            navigation: {
+                nextEl: '.fullscreen-swiper_prev',
+                prevEl: '.fullscreen-swiper_next'
+            },
+            spaceBetween: 10,
+            pagination: {
+                clickable: true,
+                el: ".swiper-pagination"
+            }
+        });
+
+        var GallerySwiperPagination = new Swiper(".gallerySwiperPagination", {
+            slidesPerView: 5,
+            spaceBetween: 10
+        });
     }
 
     removeSwiper() {
@@ -562,7 +580,7 @@ class InitFullscreenSwiper {
         document.body.style = "overflow: visivle;";
     }
 
-    imgEvent() {
+    slideGenerateEvent() {
         self.imgContainers.forEach(element => {
             element.addEventListener("click", (event) => {
                 self.swiperContainer.classList.add("active");
@@ -572,10 +590,9 @@ class InitFullscreenSwiper {
                 let conteinerChildren = self.container.children;
                 for (let i = 0; i < conteinerChildren.length; i++) {
                     let img  = conteinerChildren.item(i).innerHTML;
-                    let slide = `<div class="f-carousel__slide fullscreen-swiper_slide">${img}</div>`;
+                    let slide = `<div class="swiper-slide fullscreen-swiper_slide">${img}</div>`;
                     self.swiperWrapper.innerHTML += slide;
                 }
-                console.log(self.swiperWrapper);
             });
         });
     }
