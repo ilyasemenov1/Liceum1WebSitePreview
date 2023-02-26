@@ -594,8 +594,21 @@ class InitFullscreenSwiper {
                     this.swiperWrapper.innerHTML += slide;
                 }
                 this.sildeNumEvent();
+                this.findTargetImgIdex();
             });
         });
+    }
+    
+    findTargetImgIdex() {
+        if (this.target.src) {
+            let buttons = document.querySelectorAll(".page-article_img-button");
+            for (let i = 0; i < buttons.length; i++) {
+                if (buttons[i].children[0].children[1].src == this.target.src) {
+                    console.log(i);
+                    this.swiper.slideTo(i);
+                }
+            }
+        }
     }
 }
 
