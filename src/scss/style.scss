@@ -2369,12 +2369,14 @@ section {
 .fullscreen-swiper_wrapper {
     position: relative;
     div {
+        display: flex;
+        justify-content: center;
         aspect-ratio: 16/9;
         overflow: hidden;
         border-radius: 15px;
         background: #0000003b;
         img {
-            width: 100%;
+            object-fit: contain;
             height: 100%;
         }
     }
