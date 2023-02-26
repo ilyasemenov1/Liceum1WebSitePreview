@@ -183,7 +183,6 @@ let documentEvents = new DocumentEvents();
 let fullscreen = new NewsArticleFullscreen();
 let articleNavigation = new ArticleNavigation();
 let setPageTheme = new SetPageTheme();
-let fullscreenSwiper = new InitFullscreenSwiper();
 documentEvents.buttonsHoverEvent();
 documentEvents.menuEvent();
 documentEvents.searchEvent();

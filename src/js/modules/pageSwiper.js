@@ -1,3 +1,6 @@
+
+import { InitFullscreenSwiper } from "./projectMetods.js";
+
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import '../../../node_modules/swiper/swiper.min.css';
     
@@ -42,6 +45,7 @@ class SwiperPagimationAdaptivity {
     }
 
     initClasses() {
+        if (!this.container) {return;}
         if (this.slideNum == 0) {this.container.classList.add("first")}
         if (this.slideNum == 1) {this.container.classList.add("second")}
         if (this.slideNum == this.slides.length - 2) {this.container.classList.add("pre-last")}
@@ -50,6 +54,25 @@ class SwiperPagimationAdaptivity {
     }
 
     crearClasses() {
+        if (!this.container) {return;}
         this.container.classList.remove("first", "second", "pre-last", "last");
     }
 }
+
+var gallerySwiper = new Swiper(".gallerySwiper", {
+    spaceBetween: 10,
+    navigation: {
+        nextEl: '.fullscreen-swiper_next',
+        prevEl: '.fullscreen-swiper_prev'
+    }
+});
+
+window.addEventListener("load", () => {
+    let swiper = new InitFullscreenSwiper(gallerySwiper);
+    swiper.initSwiper();
+});
+
+gallerySwiper.on("slideChange", () => {
+    let swiper_ = new InitFullscreenSwiper(gallerySwiper);
+    swiper_.sildeNumEvent();
+});

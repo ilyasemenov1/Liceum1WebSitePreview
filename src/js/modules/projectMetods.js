@@ -545,37 +545,25 @@ class SetPageTheme {
 }
 
 class InitFullscreenSwiper {
-    constructor() {
+    constructor(swiper) {
         this.imgContainers = document.querySelectorAll(".page-article_img-grid");
         this.target, this.container;
-        this.swiperWrappers = document.querySelectorAll(".fullscreen-swiper_wrapper, .fullscreen-swiper_wrapper--pagination");
+        this.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
         this.swiperContainer = document.querySelector(".fullscreen-swiper");
         this.swiperRemoveButton = document.querySelector(".fullscreen-swiper-navigation_close-button");
-        this.slideGenerateEvent();
-        this.initSwiper();
-        this.swiperRemoveEvent();
+        this.counter = document.querySelector(".fullscreen-swiper-navigation_slides-counter");
+        this.slideIndex = swiper.activeIndex;
+        this.swiper = swiper;
     }
 
     initSwiper() {
-        var gallerySwiperPagination = new Swiper(".gallerySwiperPagination", {
-            spaceBetween: 15,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            slideToClickedSlide: true,
-            watchSlidesProgress: true
-        });
+        this.slideGenerateEvent();
+        this.swiperRemoveEvent();
+    }
 
-        var gallerySwiper = new Swiper(".gallerySwiper", {
-            spaceBetween: 10,
-            navigation: {
-                nextEl: '.fullscreen-swiper_next',
-                prevEl: '.fullscreen-swiper_prev'
-            },
-            thumbs: {
-                swiper: gallerySwiperPagination,
-            },
-        });
-
+    sildeNumEvent() {
+        let slides = document.querySelectorAll(".fullscreen-swiper_wrapper>div");
+        this.counter.innerText = `${this.slideIndex+1}/${slides.length}`;
     }
 
     swiperRemoveEvent() {
@@ -588,9 +576,7 @@ class InitFullscreenSwiper {
         this.swiperContainer.classList.remove("active");
         document.body.style = "overflow: visivle;";
         setTimeout(() => {
-            this.swiperWrappers.forEach(element => {
-                element.innerHTML = "";
-            });
+            this.swiperWrapper.innerHTML = "";
         }, 200);
     }
 
@@ -605,10 +591,9 @@ class InitFullscreenSwiper {
                 for (let i = 0; i < conteinerChildren.length; i++) {
                     let img  = conteinerChildren.item(i).innerHTML;
                     let slide = `<div class="swiper-slide fullscreen-swiper_slide">${img}</div>`;
-                    this.swiperWrappers.forEach(element => {
-                        element.innerHTML += slide
-                    });
+                    this.swiperWrapper.innerHTML += slide;
                 }
+                this.sildeNumEvent();
             });
         });
     }
