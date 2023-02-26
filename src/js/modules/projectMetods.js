@@ -1,7 +1,7 @@
 
 import CyrillicToTranslit from 'cyrillic-to-translit-js';
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
-import '../../../node_modules/swiper/swiper.min.css';
+import '../../../node_modules/swiper/swiper-bundle.min.css';
     
 Swiper.use([Navigation, Pagination, Autoplay]);
 class ButtonPopup {
@@ -550,8 +550,10 @@ class InitFullscreenSwiper {
         this.target, this.container;
         this.swiperWrappers = document.querySelectorAll(".fullscreen-swiper_wrapper, .fullscreen-swiper_wrapper--pagination");
         this.swiperContainer = document.querySelector(".fullscreen-swiper");
+        this.swiperRemoveButton = document.querySelector(".fullscreen-swiper-navigation_close-button");
         this.slideGenerateEvent();
         this.initSwiper();
+        this.swiperRemoveEvent();
     }
 
     initSwiper() {
@@ -560,10 +562,10 @@ class InitFullscreenSwiper {
             centeredSlides: true,
             slidesPerView: "auto",
             slideToClickedSlide: true,
+            watchSlidesProgress: true
         });
 
         var gallerySwiper = new Swiper(".gallerySwiper", {
-            slidesPerView: 1,
             spaceBetween: 10,
             navigation: {
                 nextEl: '.fullscreen-swiper_next',
@@ -576,10 +578,20 @@ class InitFullscreenSwiper {
 
     }
 
+    swiperRemoveEvent() {
+        this.swiperRemoveButton.addEventListener("click", () => {
+            this.removeSwiper();
+        });
+    }
+
     removeSwiper() {
         this.swiperContainer.classList.remove("active");
-        this.swiperWrapper.innerHTML = "";
         document.body.style = "overflow: visivle;";
+        setTimeout(() => {
+            this.swiperWrappers.forEach(element => {
+                element.innerHTML = "";
+            });
+        }, 200);
     }
 
     slideGenerateEvent() {
