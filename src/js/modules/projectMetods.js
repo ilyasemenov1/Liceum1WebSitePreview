@@ -546,52 +546,56 @@ class SetPageTheme {
 
 class InitFullscreenSwiper {
     constructor() {
-        self.imgContainers = document.querySelectorAll(".page-article_img-grid");
-        self.target, self.container;
-        self.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
-        self.swiperContainer = document.querySelector(".fullscreen-swiper");
+        this.imgContainers = document.querySelectorAll(".page-article_img-grid");
+        this.target, this.container;
+        this.swiperWrappers = document.querySelectorAll(".fullscreen-swiper_wrapper, .fullscreen-swiper_wrapper--pagination");
+        this.swiperContainer = document.querySelector(".fullscreen-swiper");
         this.slideGenerateEvent();
         this.initSwiper();
     }
 
     initSwiper() {
-        var GallerySwiper = new Swiper(".gallerySwiper", {
-            slidesPerView: 1,
-            navigation: {
-                nextEl: '.fullscreen-swiper_prev',
-                prevEl: '.fullscreen-swiper_next'
-            },
-            spaceBetween: 10,
-            pagination: {
-                clickable: true,
-                el: ".swiper-pagination"
-            }
+        var gallerySwiperPagination = new Swiper(".gallerySwiperPagination", {
+            spaceBetween: 15,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            slideToClickedSlide: true,
         });
 
-        var GallerySwiperPagination = new Swiper(".gallerySwiperPagination", {
-            slidesPerView: 5,
-            spaceBetween: 10
+        var gallerySwiper = new Swiper(".gallerySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.fullscreen-swiper_next',
+                prevEl: '.fullscreen-swiper_prev'
+            },
+            thumbs: {
+                swiper: gallerySwiperPagination,
+            },
         });
+
     }
 
     removeSwiper() {
-        self.swiperContainer.classList.remove("active");
-        self.swiperWrapper.innerHTML = "";
+        this.swiperContainer.classList.remove("active");
+        this.swiperWrapper.innerHTML = "";
         document.body.style = "overflow: visivle;";
     }
 
     slideGenerateEvent() {
-        self.imgContainers.forEach(element => {
+        this.imgContainers.forEach(element => {
             element.addEventListener("click", (event) => {
-                self.swiperContainer.classList.add("active");
+                this.swiperContainer.classList.add("active");
                 document.body.style = "overflow: hidden;";
-                self.target = event.target;
-                self.container = element;
-                let conteinerChildren = self.container.children;
+                this.target = event.target;
+                this.container = element;
+                let conteinerChildren = this.container.children;
                 for (let i = 0; i < conteinerChildren.length; i++) {
                     let img  = conteinerChildren.item(i).innerHTML;
                     let slide = `<div class="swiper-slide fullscreen-swiper_slide">${img}</div>`;
-                    self.swiperWrapper.innerHTML += slide;
+                    this.swiperWrappers.forEach(element => {
+                        element.innerHTML += slide
+                    });
                 }
             });
         });
