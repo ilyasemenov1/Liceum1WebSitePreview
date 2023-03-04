@@ -257,7 +257,12 @@ class TextCopy {
     }
 
     copyTextArticleButtonEvent() {
-        
+        let text = this.element.dataset.value;
+
+        navigator.clipboard.writeText(text);
+        if (this.isAddNotify) {
+            this.#addEventNotify();
+        }
     }
 
     #addEventNotify() {

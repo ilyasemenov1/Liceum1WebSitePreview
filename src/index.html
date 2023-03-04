@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include("./html/head.html", {
-        "title": "Главная"
-    })
+    @@include("./html/mainPageHead.html", {})
     <body>
         @@include("./html/header.html", {
             "pageStatus": "Главная"
@@ -77,7 +75,7 @@
                 <section class="map">
                     <h1 class="map_label">Лицей на карте</h1>
                     <div class="map_block">
-                        <div class="map-yandex"></div>
+                        <div class="map-yandex" id="map"></div>
                         <div class="map_adress">
                             <input type="text" id="adress" value="Ленинградская область, г. Всеволожск, ул. Межевая, 14">
                             <button class="map_adress-copy" data-id="adress">Ленинградская область, г. Всеволожск, ул. Межевая, 14</button>

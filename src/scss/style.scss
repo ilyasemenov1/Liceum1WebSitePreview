@@ -1181,7 +1181,8 @@ section {
     min-height: 200px;
     background: var(--bg-color-25);
     border-radius: 12px;
-
+    box-shadow: 0px 0px 3px #00000017;
+    overflow: hidden;
 }
 .map_adress {
     input {
@@ -1244,7 +1245,7 @@ section {
     margin: 0 auto;
     padding: 10px 15px;
     border-radius: 20px;
-    background: #ffffffa7;
+    background: var(--bg-color-15);
     backdrop-filter: blur(10px);
     box-shadow: 0px 3px 16px #00000024;
     box-sizing: border-box;

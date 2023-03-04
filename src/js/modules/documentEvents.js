@@ -155,11 +155,20 @@ export class DocumentEvents {
     }
 
     bufferEvent() {
-        let buttons = document.querySelectorAll(".liceum1-info_text-copy, .map_adress-copy");
+        this.#bufferEventAdd(".liceum1-info_text-copy, .map_adress-copy", "mainPage");
+        this.#bufferEventAdd("button.copy", "article");
+    }
+
+    #bufferEventAdd(className, type) {
+        let buttons = document.querySelectorAll(className);
         buttons.forEach(element => {
             element.addEventListener("click", () => {
                 let copyText = new TextCopy(element);
-                copyText.copyTextButtonEvent()
+                if (type == "mainPage") {
+                    copyText.copyTextButtonEvent();
+                } else if (type == "article") {
+                    copyText.copyTextArticleButtonEvent();
+                }
             });
         });
     }

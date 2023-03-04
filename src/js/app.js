@@ -1,7 +1,9 @@
 import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme } from "./modules/projectMetods.js";
 import { DocumentEvents } from "./modules/documentEvents.js";
 import { isWebp } from "./modules/isWebpSupport.js";
+import { cookiesEvents } from "./modules/cookies.js";
 import "./modules/pageSwiper.js";
+import "./modules/maps.js";
 
 import LazyLoad from "vanilla-lazyload";
 const lazyLoadInstance = new LazyLoad({
@@ -13,7 +15,7 @@ const lazyLoadInstance = new LazyLoad({
 lazyLoadInstance.update();
 
 isWebp();
-
+cookiesEvents();
 
 class InitPage {
     constructor() {
@@ -35,7 +37,6 @@ class InitPage {
         this.setPageTheme.themeSelectEvent();
     }
 }
-
 
 let init = new InitPage();
 init.init();
