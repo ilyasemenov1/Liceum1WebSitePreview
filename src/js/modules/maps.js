@@ -26,4 +26,9 @@ function init(){
     map.geoObjects.add(mark);
 }
 
-ymaps.ready(init);
+try {
+    ymaps.ready(init);
+} catch {
+    void(0);
+}
+
