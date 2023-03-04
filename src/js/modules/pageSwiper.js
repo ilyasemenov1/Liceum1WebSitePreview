@@ -64,7 +64,7 @@ var gallerySwiper = new Swiper(".gallerySwiper", {
     navigation: {
         nextEl: '.fullscreen-swiper_next',
         prevEl: '.fullscreen-swiper_prev'
-    }
+    },
 });
 
 window.addEventListener("load", () => {

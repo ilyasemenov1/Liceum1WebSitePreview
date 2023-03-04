@@ -252,11 +252,15 @@ class TextCopy {
 
         navigator.clipboard.writeText(input.value);
         if (this.isAddNotify) {
-            this._addEventNotify();
+            this.#addEventNotify();
         }
     }
 
-    _addEventNotify() {
+    copyTextArticleButtonEvent() {
+        
+    }
+
+    #addEventNotify() {
         sessionStorage.setItem("isAddNotify", JSON.stringify(false));
         let text = "Текст скопирован в буфер обмена";
 
@@ -274,11 +278,11 @@ class TextCopy {
         document.body.append(notify);
 
         setTimeout(() => {
-            this._appendToPage();
+            this.#appendToPage();
         }, 80);
     }
 
-    _appendToPage() {
+    #appendToPage() {
         let notify_e = document.querySelector(".buffer-notify");
 
         let left = window.innerWidth / 2 - notify_e.clientWidth / 2 - 15;
@@ -590,7 +594,10 @@ class InitFullscreenSwiper {
                 let conteinerChildren = this.container.children;
                 for (let i = 0; i < conteinerChildren.length; i++) {
                     let img  = conteinerChildren.item(i).innerHTML;
-                    let slide = `<div class="swiper-slide fullscreen-swiper_slide">${img}</div>`;
+                    let slide = `
+                    <div class="swiper-slide fullscreen-swiper_slide">
+                        <div class="swiper-zoom-container">${img}</div>
+                    </div>`;
                     this.swiperWrapper.innerHTML += slide;
                 }
                 this.sildeNumEvent();
@@ -604,7 +611,6 @@ class InitFullscreenSwiper {
             let buttons = document.querySelectorAll(".page-article_img-button");
             for (let i = 0; i < buttons.length; i++) {
                 if (buttons[i].children[0].children[1].src == this.target.src) {
-                    console.log(i);
                     this.swiper.slideTo(i);
                 }
             }
