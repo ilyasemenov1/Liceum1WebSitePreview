@@ -383,9 +383,9 @@ class ArticleNavigation {
             this.articleLabels.forEach(element => {
                 this.#refreshLabel(element);
                 this.#generateLink(element);
-                window.addEventListener("scroll", () => {
-                    this.#changeLinkState();
-                });
+            });
+            window.addEventListener("scroll", () => {
+                this.#changeLinkState();
             });
             this.#changeLinkState();
             this.#veiwDocEvent();
