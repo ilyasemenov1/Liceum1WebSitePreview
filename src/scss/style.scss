@@ -2100,15 +2100,15 @@ section {
         }
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .page-article {
         grid-template-columns: 1fr;
         margin: 10px 50px 30px 50px;
     }
     .article-content {
         position: fixed;
-        left: 0;
         top: 100%;
+        left: 0;
         width: 100%;
         max-height: 400px !important;
         padding: 12px;
@@ -2122,6 +2122,17 @@ section {
         &.active {
             transform: translateY(-100%);
             visibility: visible;
+        }
+        h3 {
+            padding: 0;
+            font-size: 20px;
+        }
+        a {
+            font-size: 18px;
+            opacity: 1;
+            &.active {
+                background: var(--bg-color-8);
+            }
         }
     }
     .veiw-doc-button.set {

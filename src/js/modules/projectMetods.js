@@ -459,11 +459,20 @@ class ArticleNavigation {
             this.conteiner.classList.contains("active") ? this.closeNav() : this.openNav();
         });
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 950) {
                 this.closeNav()
             }
         });
+        this.#docResiseEvent();
     }
+
+    #docResiseEvent() {
+        window.addEventListener("resize", () =>  {
+            if (this.conteiner.classList.contains("active")) {
+                this.docVeiw.style = `transform: translateY(-${this.conteiner.clientHeight}px); background-image: url("../img/icons/icons.svg#close-icon-${this.#getTheme()}");`;
+            }
+        });
+     }
 
     #getTheme() {
         let theme = "light";
