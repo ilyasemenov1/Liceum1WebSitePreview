@@ -386,9 +386,12 @@ class ArticleNavigation {
             });
             window.addEventListener("scroll", () => {
                 this.#changeLinkState();
+                this.#findActiveLabel();
             });
             this.#changeLinkState();
             this.#veiwDocEvent();
+            this.#generateLinksMark();
+            this.#findActiveLabel();
             this.docVeiw.classList.add("set");
         }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -475,6 +478,26 @@ class ArticleNavigation {
         }
 
         return theme;
+    }
+
+    #generateLinksMark() {
+        let mark = document.createElement("span");
+        mark.className = "article-content_links-mark";
+        this.linksConteiner.append(mark);
+    }
+
+    #findActiveLabel() {
+        let mark = document.querySelector(".article-content_links-mark");
+        let links = document.querySelectorAll(".article-content_link");
+        let positionY = 0;
+        let height = 0
+        links.forEach(element => {
+            if (element.classList.contains("active")) {
+                height = element.clientHeight;
+                positionY = element.offsetTop;
+                mark.style = `transform: translateY(${positionY + 10}px); height: ${height - 20}px;`
+            }
+        });
     }
 
     themeChangeNavOpend() {
