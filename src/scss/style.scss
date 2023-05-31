@@ -1284,7 +1284,7 @@ section {
     .cookies_sup {
         background: #277dff;
         padding: 7px 10px;
-        color: var(--bg-color-2);
+        color: #ffffff;
         &:hover,
         &:focus {
             cursor: pointer;
@@ -2403,6 +2403,34 @@ section {
         button {
             display: none;
         }
+    }
+}
+.notices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &_block {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+    }
+}
+.notice {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: min-content;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px #00000015;
+    background: var(--bg-color-2);
+    &_label {
+        font-size: 21px;
+    }
+}
+@media (max-width: 425px) {
+    .notices_block {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 @import "ui-adaptivity";
