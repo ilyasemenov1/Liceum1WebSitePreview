@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header-content">
         <div class="header-content_organization">
-            <a href="index.html" class="header-content_logo"></a>
+            <a href="index.html" class="header-content_logo" aria-label="Логотип"></a>
             <div class="header-content_organization-info">
                 <a href="index.html">Лицей №1 г. Всеволожска</a>
                 <button class="header-content_page-status">Официальный сайт</button>
@@ -17,15 +17,15 @@
             </nav>
             <div class="header-content_buttons">
                 <div class="theme-switch_conteiner">
-                    <button class="theme-switch_active-menu"></button>
+                    <button class="theme-switch_active-menu" aria-label="Выбор темы"></button>
                     <div class="theme-switch">
-                        <button class="theme-button dark" id="dark-theme-active" data-value="active"></button>
-                        <button class="theme-button auto" id="dark-theme-auto" data-value="auto"></button>
-                        <button class="theme-button light" id="dark-theme-disactive" data-value="disactive"></button>
+                        <button class="theme-button dark" id="dark-theme-active" data-value="active" aria-label="Тёмная тема"></button>
+                        <button class="theme-button auto" id="dark-theme-auto" data-value="auto" aria-label="Выбор темы автоматически"></button>
+                        <button class="theme-button light" id="dark-theme-disactive" data-value="disactive" aria-label="Светлая тема"></button>
                     </div>
                 </div>
-                <button class="header-content_search search" data-popup="Открыть поиск"></button>
-                <button class="header-content_burger-menu burger" data-popup="Меню">
+                <button class="header-content_search search" data-popup="Открыть поиск" aria-label="Открыть поиск"></button>
+                <button class="header-content_burger-menu burger" data-popup="Меню" aria-label="Открыть меню">
                     <span></span>
                 </button>
             </div>
@@ -34,12 +34,12 @@
 </header>
 <div class="header-search disactive">
     <div class="header-search_search-conteiner">
-        <button class="search-block_search-button" data-popup="Поиск"></button>
+        <button class="search-block_search-button" data-popup="Поиск" aria-label="Поиск"></button>
         <div class="search-block">
             <input type="search" class="search-block_input" placeholder="Введите здесь для поиска">
-            <button class="search-block_clear-button" data-popup="Отчистить"></button>
+            <button class="search-block_clear-button" data-popup="Отчистить" aria-label="Отчистить"></button>
         </div>
-        <button class="header-search_close-button" data-popup="Закрыть"></button>
+        <button class="header-search_close-button" data-popup="Закрыть" aria-label="Закрыть"></button>
     </div>
     <div class="header-search_modal-block"></div>
 </div>
