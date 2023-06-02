@@ -673,7 +673,6 @@ export class ButtonRippleEffect {
         circle.style.top = `${event.clientY - (rect.top + radius)}px`;
         circle.classList.add("ripple");
 
-        console.log(diameter);
         if (diameter > 320) {
             circle.classList.add("blur400");
         } else if (320 >= diameter && diameter > 180) {
