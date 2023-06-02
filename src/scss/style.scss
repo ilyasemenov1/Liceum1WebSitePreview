@@ -21,6 +21,12 @@ a, button {
         outline: var(--bg-color-3) solid;
     }
 }
+
+button, .burger-menu_link, .news-history_link, .rasp a {
+    position: relative;
+    overflow: hidden;
+}
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -2500,4 +2506,22 @@ section {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--bg-color-28);
+    transform: scale(0);
+    &.blur400 {
+        animation: ripple400 700ms linear;
+    }
+    &.blur200 {
+        animation: ripple200 700ms linear;
+    }
+    &.blur100 {
+        animation: ripple100 700ms linear;
+    }
+    &.blur10 {
+        animation: ripple 700ms linear;
+    }
+  }
 @import "ui-adaptivity";

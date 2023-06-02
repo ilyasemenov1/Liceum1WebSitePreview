@@ -397,11 +397,12 @@ class ArticleNavigation {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-        
-                const yOffset = -100;
-                let element = document.querySelector(this.getAttribute('href'));
-                let yPos = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({top: yPos, behavior: 'smooth'});
+                try {
+                    const yOffset = -100;
+                    let element = document.querySelector(this.getAttribute('href'));
+                    let yPos = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({top: yPos, behavior: 'smooth'});
+                } catch {}
             });
         });
     }
@@ -652,6 +653,52 @@ class InitFullscreenSwiper {
                 }
             }
         }
+    }
+}
+
+export class ButtonRippleEffect {
+    constructor() {
+        this.buttons = document.querySelectorAll("button, .burger-menu_link, .news-history_link, .rasp a");
+        this.button;
+    }
+
+    createRipple(event) {
+        this.button = event.currentTarget;
+        let circle = document.createElement("i");
+        let diameter = Math.max(this.button.clientWidth, this.button.clientHeight);
+        let radius = diameter / 2;
+        let rect = this.button.getBoundingClientRect();
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - (rect.left + radius)}px`;
+        circle.style.top = `${event.clientY - (rect.top + radius)}px`;
+        circle.classList.add("ripple");
+
+        console.log(diameter);
+        if (diameter > 320) {
+            circle.classList.add("blur400");
+        } else if (320 >= diameter && diameter > 180) {
+            circle.classList.add("blur200");
+        } else if (180 >= diameter && diameter > 80) {
+            circle.classList.add("blur100");
+        } else {
+            circle.classList.add("blur10");
+        }
+
+        this.removeRipple();
+        this.button.appendChild(circle);
+    }
+
+    removeRipple() {
+        let ripple = this.button.getElementsByClassName("ripple")[0];
+        if (ripple) ripple.remove();
+    }
+
+    rippleEvent() {
+        this.buttons.forEach(element => {
+            element.addEventListener("click", (event) => {
+                this.createRipple(event);
+            });
+        });
     }
 }
 

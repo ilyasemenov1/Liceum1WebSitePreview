@@ -76,3 +76,40 @@
         transform: translateY(100px) scale(.3);
     }
 }
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        filter: blur(15px);
+        opacity: 0;
+    }
+}
+@keyframes ripple100 {
+    from {
+        filter: blur(10px);   
+    }
+    to {
+        transform: scale(4);
+        filter: blur(100px);
+        opacity: 0;
+    }
+}
+@keyframes ripple200 {
+    from {
+        filter: blur(10px);   
+    }
+    to {
+        transform: scale(4);
+        filter: blur(200px);
+        opacity: 0;
+    }
+}
+@keyframes ripple400 {
+    from {
+        filter: blur(10px);   
+    }
+    to {
+        transform: scale(4);
+        filter: blur(400px);
+        opacity: 0;
+    }
+}

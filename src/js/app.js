@@ -1,4 +1,4 @@
-import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme } from "./modules/projectMetods.js";
+import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, ButtonRippleEffect } from "./modules/projectMetods.js";
 import { DocumentEvents } from "./modules/documentEvents.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import { cookiesEvents } from "./modules/cookies.js";
@@ -24,6 +24,7 @@ class InitPage {
         this.fullscreen = new NewsArticleFullscreen();
         this.articleNavigation = new ArticleNavigation();
         this.setPageTheme = new SetPageTheme();
+        this.ripple = new ButtonRippleEffect();
     }
 
     init() {
@@ -35,6 +36,7 @@ class InitPage {
         this.fullscreen.fullscreenEvent();
         this.articleNavigation.articleDocInit();
         this.setPageTheme.themeSelectEvent();
+        this.ripple.rippleEvent();
     }
 }
 
