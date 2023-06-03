@@ -22,7 +22,7 @@ a, button {
     }
 }
 
-button, .burger-menu_link, .news-history_link, .rasp a {
+button, .burger-menu_link, .news-history_link, .rasp a, .footer-content-social_link, .liceum1-info-link, .ege_link, .oge_link {
     position: relative;
     overflow: hidden;
 }
@@ -102,7 +102,7 @@ main>section {
         text-decoration: none;
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             opacity: .7;
         }
@@ -118,7 +118,7 @@ main>section {
     background: none;
     transition: .2s ease;
     &:hover,
-    &:focus {
+    &:focus-visible {
         cursor: pointer;
         opacity: .65;
     }
@@ -204,7 +204,7 @@ main>section {
             }
         }
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background-color: var(--bg-color-4);
         }
@@ -369,7 +369,7 @@ main>section {
             opacity: 0;
         }
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             box-shadow: 0px 0px 15px #00000032;
         }
@@ -405,7 +405,7 @@ main>section {
         background-size: 20px 20px;
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
         }
         &.search-block_clear-button {
@@ -415,7 +415,7 @@ main>section {
             opacity: 0;
             visibility: hidden;
             &:hover,
-            &:focus {
+            &:focus-visible {
                 background-color: #00000021;
             }
         }
@@ -541,7 +541,7 @@ main>section {
             text-decoration: none;
             transition: .2s ease;
             &:hover,
-            &:focus {
+            &:focus-visible {
                 cursor: pointer;
                 background: var(--bg-color-7);
             }
@@ -575,7 +575,7 @@ main>section {
                 transform: rotate(90deg);
             }
             &:hover,
-            &:focus {
+            &:focus-visible {
                 box-shadow: 0px 2px 14px #0000002b;
                 background: var(--bg-color-2);
             }
@@ -614,7 +614,7 @@ main>section {
         background: var(--bg-color-7);
         backdrop-filter: blur(20px);
         &:hover,
-        &:focus {
+        &:focus-visible {
             background: var(--bg-color-7) !important;
         }
     }
@@ -697,7 +697,7 @@ main {
             }
             transition: .2s ease;
             &:hover,
-            &:focus {
+            &:focus-visible {
                 transform: translateY(-3px);
                 box-shadow: 0px 3px 12px #00000023;
             }
@@ -722,7 +722,7 @@ main {
             text-decoration: none;
             font-size: 18px;
             &:hover,
-            &:focus {
+            &:focus-visible {
                 color: var(--text-color-4);
                 text-decoration: underline;
             }
@@ -760,7 +760,7 @@ main {
         text-decoration: none;
         font-size: 17px;
         &:hover,
-        &:focus {
+        &:focus-visible {
             color: var(--bg-color-13);
             text-decoration: underline;
         }
@@ -788,7 +788,7 @@ main {
         transition: .2s ease;
         backdrop-filter: blur(10px);
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             box-shadow: 0px 3px 14px #0000002a;
         }
@@ -1094,7 +1094,7 @@ section {
         text-align: left;
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background: var(--bg-color-7);
         }
@@ -1142,7 +1142,7 @@ section {
     transition: .2s ease;
     box-sizing: border-box;
     &:hover,
-    &:focus {
+    &:focus-visible {
         cursor: pointer;
         background: var(--bg-color-7);
     }
@@ -1236,7 +1236,7 @@ section {
         text-align: left;
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background: var(--bg-color-7);
         }
@@ -1323,7 +1323,7 @@ section {
         padding: 7px 10px;
         color: #ffffff;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background: #226fe1;
         }
@@ -1332,7 +1332,7 @@ section {
         background: none;
         padding: 7px 10px;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background: #00000016;
         }
@@ -1531,7 +1531,7 @@ section {
         background-image: var(--expand-icon-path);
     }
     &:hover,
-    &:focus {
+    &:focus-visible {
         cursor: pointer;
         padding: 5px 12px 5px 31px;
         font-size: 16px !important;
@@ -1638,7 +1638,7 @@ section {
         transition: .2s ease;
         box-sizing: border-box;
         &:hover,
-        &:focus {
+        &:focus-visible {
             background: var(--bg-color-7);
         }
     }
@@ -1761,7 +1761,7 @@ section {
         background: var(--bg-color-2);
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             transform: translateY(-3px);
             box-shadow: 0px 2px 10px #00000026;
         }
@@ -1833,7 +1833,7 @@ section {
     background: var(--bg-color-2);
     transition: .2s ease;
     &:hover,
-    &:focus {
+    &:focus-visible {
         transform: translateY(-3px);
         box-shadow: 0px 2px 10px #00000026;
     }
@@ -1875,7 +1875,7 @@ section {
             background: var(--bg-color-2);
             transition: .2s ease;
             &:hover,
-            &:focus {
+            &:focus-visible {
                 transform: translateY(-3px);
                 box-shadow: 0px 2px 10px #00000026;
             }
@@ -2006,7 +2006,7 @@ section {
                 opacity: 0;
             }
             &:hover,
-            &:focus {
+            &:focus-visible {
                 color: var(--text-color-1);
                 text-decoration: underline;
                 &::after {
@@ -2025,7 +2025,7 @@ section {
         text-decoration-color: var(--text-decoration-color-1);
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             text-decoration-color: var(--text-decoration-color-2);
             color: var(--text-color-3);
         }
@@ -2073,7 +2073,7 @@ section {
     overflow: hidden;
     transition: .2s ease;
     &:hover,
-    &:focus {
+    &:focus-visible {
         cursor: pointer;
         transform: translateY(-3px);
         box-shadow: 0px 3px 18px #0000003c;
@@ -2091,8 +2091,8 @@ section {
 .page-article_marked {
     display: block;
     margin: 9px 0;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 15px 20px;
+    border-radius: 15px;
     font-size: 17px;
     font-weight: 500;
     background: var(--bg-color-12);
@@ -2215,7 +2215,7 @@ section {
             background-image: var(--light-theme-icon-path);
         }
         &:hover ~ .theme-switch,
-        &:focus ~ .theme-switch {
+        &:focus-visible ~ .theme-switch {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
@@ -2265,7 +2265,7 @@ section {
             background-size: 26px 26px;
         }
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             background-color: var(--bg-color-7);
         }
@@ -2336,7 +2336,7 @@ section {
         opacity: 0;
     }
     &:hover,
-    &:focus {
+    &:focus-visible {
         cursor: pointer;
         text-decoration-color: var(--text-decoration-color-2);
         color: var(--text-color-3);
@@ -2381,7 +2381,7 @@ section {
         background-size: 23px 23px;
         transition: .2s ease;
         &:hover,
-        &:focus {
+        &:focus-visible {
             cursor: pointer;
             box-shadow: 0px 3px 14px #00000025;
         }
@@ -2404,7 +2404,7 @@ section {
         background-size: 16px 16px;
         background-image: var(--close-icon-path);
         &:hover,
-        &:focus {
+        &:focus-visible {
             box-shadow: none;
             background-color: var(--bg-color-7);
         }
@@ -2431,7 +2431,7 @@ section {
             left: -70px;
             background-image: var(--left-arrow-icon-path);
             &:hover,
-            &:focus {
+            &:focus-visible {
                 transform: translateX(-3px);
             }
         }
@@ -2439,7 +2439,7 @@ section {
             left: calc(100% + 20px);
             background-image: var(--right-arrow-icon-path);
             &:hover,
-            &:focus {
+            &:focus-visible {
                 transform: translateX(3px);
             }
         }
@@ -2511,6 +2511,7 @@ section {
     border-radius: 50%;
     background-color: var(--bg-color-28);
     transform: scale(0);
+    pointer-events: none;
     &.blur400 {
         animation: ripple400 700ms linear;
     }
@@ -2522,6 +2523,10 @@ section {
     }
     &.blur10 {
         animation: ripple 700ms linear;
+    }
+    &.hold {
+        animation-fill-mode: forwards;
+        opacity: 1 !important;
     }
   }
 @import "ui-adaptivity";

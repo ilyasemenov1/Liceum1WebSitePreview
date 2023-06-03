@@ -658,11 +658,11 @@ class InitFullscreenSwiper {
 
 export class ButtonRippleEffect {
     constructor() {
-        this.buttons = document.querySelectorAll("button, .burger-menu_link, .news-history_link, .rasp a");
+        this.buttons = document.querySelectorAll("button, .burger-menu_link, .news-history_link, .rasp a, .footer-content-social_link, .liceum1-info-link, .ege_link, .oge_link");
         this.button;
     }
 
-    createRipple(event) {
+    createRipple(event, isHold) {
         this.button = event.currentTarget;
         let circle = document.createElement("i");
         let diameter = Math.max(this.button.clientWidth, this.button.clientHeight);
@@ -682,6 +682,7 @@ export class ButtonRippleEffect {
         } else {
             circle.classList.add("blur10");
         }
+        if (isHold) circle.classList.add("hold");
 
         this.removeRipple();
         this.button.appendChild(circle);
@@ -694,7 +695,7 @@ export class ButtonRippleEffect {
 
     rippleEvent() {
         this.buttons.forEach(element => {
-            element.addEventListener("click", (event) => {
+            element.addEventListener("mousedown", (event) => {
                 this.createRipple(event);
             });
         });
