@@ -80,7 +80,6 @@
     to {
         transform: scale(4);
         filter: blur(15px);
-        opacity: 0;
     }
 }
 @keyframes ripple100 {
@@ -90,7 +89,6 @@
     to {
         transform: scale(4);
         filter: blur(100px);
-        opacity: 0;
     }
 }
 @keyframes ripple200 {
@@ -100,7 +98,6 @@
     to {
         transform: scale(4);
         filter: blur(200px);
-        opacity: 0;
     }
 }
 @keyframes ripple400 {
@@ -110,6 +107,5 @@
     to {
         transform: scale(4);
         filter: blur(400px);
-        opacity: 0;
     }
 }

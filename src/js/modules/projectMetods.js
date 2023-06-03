@@ -662,7 +662,7 @@ export class ButtonRippleEffect {
         this.button;
     }
 
-    createRipple(event, isHold) {
+    createRipple(event) {
         this.button = event.currentTarget;
         let circle = document.createElement("i");
         let diameter = Math.max(this.button.clientWidth, this.button.clientHeight);
@@ -682,7 +682,6 @@ export class ButtonRippleEffect {
         } else {
             circle.classList.add("blur10");
         }
-        if (isHold) circle.classList.add("hold");
 
         this.removeRipple();
         this.button.appendChild(circle);
@@ -693,10 +692,24 @@ export class ButtonRippleEffect {
         if (ripple) ripple.remove();
     }
 
+    removeRippleVisible(event) {
+        this.button = event.currentTarget;
+        let children = this.button.children;
+        [...children].forEach(element => {
+            if (element.classList.contains("ripple")) element.classList.add("r-remove")
+        });
+    }
+
     rippleEvent() {
         this.buttons.forEach(element => {
             element.addEventListener("mousedown", (event) => {
                 this.createRipple(event);
+            });
+            element.addEventListener("mouseup", (event) => {
+                this.removeRippleVisible(event);
+            });
+            element.addEventListener("mouseout", (event) => {
+                this.removeRippleVisible(event);
             });
         });
     }
