@@ -2,6 +2,8 @@
 @import "animations";
 @import "root";
 
+//TODO: add ripple to mobile nav menu
+
 body, div, span {
     transition: background .2s ease;
 }
@@ -15,6 +17,9 @@ a, button, h1, h2, h3, h4, h5, p, article, input, span, li, ul, img, svg {
         background: var(--selection-color);
         color: var(--text-color-6);
     }
+}
+h1, h2, h3, h4, h5 {
+    text-wrap: balance;
 }
 a, button {
     outline: #00000000 solid;
