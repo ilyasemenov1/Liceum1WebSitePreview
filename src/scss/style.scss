@@ -75,7 +75,7 @@ main>section {
     width: 100%;
     background: var(--bg-color-2);
     box-shadow: 0px 0px 15px #00000015;
-    z-index: 2;
+    z-index: 10;
     transition: .2s ease;
 } 
 .header-content { 
@@ -2215,13 +2215,12 @@ section {
         }
         &.dark-theme-auto {
             background-image: var(--auto-theme-icon-path);
-
         }
         &.dark-theme-disactive {
             background-image: var(--light-theme-icon-path);
         }
         &:hover ~ .theme-switch,
-        &:focus-visible ~ .theme-switch {
+        &:focus ~ .theme-switch {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
