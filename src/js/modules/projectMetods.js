@@ -306,27 +306,37 @@ class TextCopy {
         `
 
         document.body.append(notify);
-
-        setTimeout(() => {
-            this.#appendToPage();
-        }, 80);
+        this.#appendToPage();
     }
 
     #appendToPage() {
-        let notify_e = document.querySelector(".buffer-notify");
-
-        let left = window.innerWidth / 2 - notify_e.clientWidth / 2 - 15;
-        let top = window.innerHeight - notify_e.clientHeight - 30;
-        notify_e.style = `left: ${left}px; top: ${top}px`;
-        notify_e.classList.add("active")
-
-        setTimeout(() => {
-            notify_e.classList.add("remove");
+        const ADD_DELAY = 80
+        const REMOVE_ANIMATION_DELAY = 1000
+        const ELEMENT_REMOVE_DELAY = 200
+        new Promise((res, rej) => {
+            let notifyElemet = document.querySelector(".buffer-notify");
             setTimeout(() => {
-                notify_e.remove();
-                sessionStorage.setItem("isAddNotify", JSON.stringify(true));
-            }, 200)
-        }, 1000);
+                let left = window.innerWidth / 2 - notifyElemet.clientWidth / 2 - 15;
+                let top = window.innerHeight - notifyElemet.clientHeight - 30;
+                notifyElemet.style = `left: ${left}px; top: ${top}px`;
+                notifyElemet.classList.add("active")
+                res(notifyElemet)
+            }, ADD_DELAY)
+        })
+        .then((notifyElemet) => {
+            new Promise((res, rej) => {
+                setTimeout(() => {
+                    notifyElemet.classList.add("remove");
+                    res(notifyElemet);
+                }, REMOVE_ANIMATION_DELAY)
+            })
+            .then((notifyElemet) => {
+                setTimeout(() => {
+                    notifyElemet.remove();
+                    sessionStorage.setItem("isAddNotify", JSON.stringify(true));
+                }, ELEMENT_REMOVE_DELAY)
+            });
+        })
     }
 }
 
