@@ -158,8 +158,9 @@ class PageScroll {
 
     scroll() {
         let scroll = window.pageYOffset;
+        const SCROLL_HEIGHT = 35;
 
-        if (scroll > 35) {
+        if (scroll > SCROLL_HEIGHT) {
             this.burgerMenuE.calcBurgerMenuPosition(70);
             this._constractHeader();
             this.burgerMenu.classList.add("scrolled");
@@ -506,7 +507,7 @@ class ArticleNavigation {
             case "active":
                 theme = "dark";
                 break;
-            case "auto":
+            case "sys":
                 window.matchMedia("(prefers-color-scheme: dark)").matches ? theme = "dark" : void(0);
                 break;
         }
@@ -597,7 +598,7 @@ class SetPageTheme {
             case "active":
                 document.documentElement.classList.add("dark-theme");
                 break
-            case "auto":
+            case "sys":
                 getAutoTheme();
                 break
             case "disactive":
@@ -605,7 +606,7 @@ class SetPageTheme {
                 break
             default:
                 getAutoTheme();
-                localStorage.setItem("theme", JSON.stringify("auto"));
+                localStorage.setItem("theme", JSON.stringify("sys"));
         }
     }
 }
@@ -757,13 +758,13 @@ export class imgLasyLoading {
         });
     }
 
-    lasyLoadEvent() {
+    // lasyLoadEvent() {
 
-    }
+    // }
 
-    createContainer(container, innerImg) {
+    // createContainer(container, innerImg) {
 
-    }
+    // }
 
     removeBlur(element) {
         element.classList.remove("blurred");
