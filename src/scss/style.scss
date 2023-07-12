@@ -2580,7 +2580,12 @@ section {
         opacity: 0;
     }
 }
-img.img-loading {
-    filter: blur(15px);
+img {
+    &.img-loading {
+        filter: blur(15px);
+    }
+    &.error {
+        filter: blur(0) !important;
+    }
 }
 @import "ui-adaptivity";
