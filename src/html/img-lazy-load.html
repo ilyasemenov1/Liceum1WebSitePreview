@@ -25,8 +25,8 @@
             parent.prepend(source);
             // Add preview image load event
             element.addEventListener("load", () => {
-                source.remove();
                 // Add main image load event
+                source.remove();
                 element.addEventListener("load", () => {
                     element.classList.remove("img-loading");
                 })

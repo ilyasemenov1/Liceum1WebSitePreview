@@ -861,11 +861,21 @@ main {
         background-color: var(--bg-color-25);
         border-radius: 15px;
         overflow: hidden;
+        &:nth-child(n+2) {
+            top: 0;
+            position: absolute;
+        }
         img {
             width: 100%;
             aspect-ratio: inherit;
             object-position: center;
         }
+    }
+}
+.swiper-initialized .swiper-wrapper.mainSwiper_wrapper {
+    div:nth-child(n+2) {
+        top: 0;
+        position: relative;
     }
 }
 .mainSwiper_arrow {
