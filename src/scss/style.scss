@@ -154,14 +154,15 @@ main {
 }
 .header-content_logo { 
     display: flex;
+    align-items: flex-start;
     flex: 0 0 auto;
     height: 85px;
     width: 60px;
-    background-image: url("@img/logo/logo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     transition: .2s ease;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
 }
 .header-content_info {
     display: flex;
@@ -859,10 +860,12 @@ main {
         aspect-ratio: 21 / 9;
         background-color: var(--bg-color-25);
         border-radius: 15px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url("@img/page/mainSwiper/pexels-maxime-francis-2246476.jpg");
+        overflow: hidden;
+        img {
+            width: 100%;
+            aspect-ratio: inherit;
+            object-position: center;
+        }
     }
 }
 .mainSwiper_arrow {
