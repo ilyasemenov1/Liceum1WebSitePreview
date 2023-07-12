@@ -8,8 +8,12 @@ import "./modules/maps.js";
 import LazyLoad from "vanilla-lazyload";
 const lazyLoadInstance = new LazyLoad({
     callback_error: (img) => {
-        img.setAttribute("srcset", "fallback_image@1x.jpg 1x, fallback_image@2x.jpg 2x");
-        img.setAttribute("src", "fallback_image@1x.jpg");
+        img.setAttribute("src", "img/fallback.webp");
+        let parent = img.parentElement;
+        [...parent.children].forEach(element => {
+            let tag = element.tagName;
+            tag === "SOURCE" ? element.remove() : void(0)
+        });
       }
 });
 lazyLoadInstance.update();
