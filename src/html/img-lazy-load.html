@@ -12,6 +12,7 @@
                 this.addLoadConteiner(element);
             });
         }
+
         addLoadConteiner(element) {
             let parent = element.parentElement;
             let src = element.src;
@@ -19,11 +20,16 @@
             let baseName = imgUrl.split(".")[0];
             let lastName = imgUrl.split(".")[1];
             let source = document.createElement("source");
+            source.classList.add("img-preload");
             source.srcset = `${baseName}-low.${lastName}`;
             parent.prepend(source);
+            // Add preview image load event
             element.addEventListener("load", () => {
                 source.remove();
-                element.classList.remove("img-loading");
+                // Add main image load event
+                element.addEventListener("load", () => {
+                    element.classList.remove("img-loading");
+                })
             })
         }
     }
