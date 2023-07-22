@@ -109,3 +109,35 @@
         filter: blur(400px);
     }
 }
+@keyframes header-scroll-animation-img {
+    from {
+        height: 85px;
+        width: 60px;
+    }
+    to {
+        width: 30px;
+        height: 40px;
+    }
+}
+@keyframes header-scroll-animation-logo {
+    from {
+        font-size: 25px;
+    }
+    to {
+        font-size: 21px;
+        font-weight: 700;
+    }
+}
+@keyframes header-scroll-animation-logo-subtext {
+    from {
+        font-size: 16px;
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    to {
+        font-size: 0px;
+        opacity: 0;
+    }
+}

@@ -90,7 +90,7 @@ main {
             display: none;
         }
         .header-content_organization-info a{
-            position: relative;
+            animation-range: 0px 350px;
             &::after {
                 position: absolute;
                 top: .2rem;
@@ -160,6 +160,9 @@ main {
     width: 60px;
     transition: .2s ease;
     overflow: hidden;
+    animation: header-scroll-animation-img ease;
+    animation-timeline: scroll(nearest);
+    animation-range: 0px 200px;
     img {
         width: 100%;
     }
@@ -332,10 +335,24 @@ main {
     .header-content_organization-info a {
         font-size: 21px;
         font-weight: 700;
+        @supports (animation-range: 0px 350px) {
+            animation: header-scroll-animation-logo ease forwards;
+            animation-timeline: scroll();
+            animation-range: 0px 350px;
+        }
+        & ~ button {
+            @supports (animation-range: 0px 350px) {            
+                animation: header-scroll-animation-logo-subtext ease forwards;
+                animation-timeline: scroll();
+                animation-range: 0px 350px;
+            }
+        }
     }
-    .header-content_page-status {
-        font-size: 0 !important;
-        opacity: 0;
+    @supports not (animation-range: 0px 350px) {
+        .header-content_page-status {
+            font-size: 0 !important;
+            opacity: 0;
+        }
     }
     .header-content_organization {
         gap: 15px
