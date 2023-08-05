@@ -1,4 +1,4 @@
-import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, ButtonRippleEffect, imgLasyLoading } from "./modules/projectMetods.js";
+import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, ButtonRippleEffect, imgLasyLoading, InitPageNavigation } from "./modules/projectMetods.js";
 import { DocumentEvents } from "./modules/documentEvents.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import { cookiesEvents } from "./modules/cookies.js";
@@ -30,6 +30,7 @@ class InitPage {
         this.setPageTheme = new SetPageTheme();
         this.ripple = new ButtonRippleEffect();
         this.imgLasy = new imgLasyLoading();
+        this.pageNavigation = new InitPageNavigation();
     }
 
     init() {
@@ -43,6 +44,7 @@ class InitPage {
         this.setPageTheme.themeSelectEvent();
         this.ripple.rippleEvent();
         this.imgLasy.lasyLoad();
+        this.pageNavigation.event();
     }
 }
 

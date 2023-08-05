@@ -781,4 +781,35 @@ export class imgLasyLoading {
     }
 }
 
+export class InitPageNavigation {
+    constructor() {
+        this.path = window.location.pathname;
+        this.sortcat = document.querySelector(".sortcat");
+    }
+
+    event() {
+        if (!this.sortcat) {
+            return;
+        }
+
+        let pageName = this.path.split("/").pop();
+        let linksArr = [];
+        try {
+            linksArr = this.sortcat.children[0].innerHTML.split(" / ");
+        } catch {
+            linksArr = [];
+        }
+        let pageLabel = linksArr.pop();
+        let contentlinks = "<a href=\"index.html\">Главная</a> / ";
+        linksArr.forEach(element => {
+            contentlinks += `${element} / `;
+        });
+        contentlinks += `<a href="${pageName}">${pageLabel}</a>`;
+
+        this.sortcat.innerHTML = `
+            <div class="links">${contentlinks}</div>
+        `
+    }
+}
+
 export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, InitFullscreenSwiper }
