@@ -79,7 +79,7 @@ main {
     position: fixed;
     width: 100%;
     background: var(--bg-color-2);
-    box-shadow: 0px 0px 15px #00000015;
+    box-shadow: 0 0 15px #00000015;
     z-index: 10;
     transition: .2s ease;
     @media print {
@@ -282,7 +282,7 @@ main {
         &::after {
             transform: translateX(10px);
             width: calc(100% + 12px);
-            left: 0px;
+            left: 0;
             top: -1px;
         }
         &::before {
@@ -300,7 +300,7 @@ main {
     width: min-content;
     padding: 6px 10px;
     border-radius: 8px;
-    box-shadow: 0px 3px 15px #35353528;
+    box-shadow: 0 3px 15px #35353528;
     background: var(--bg-color-2);
     animation: add-popup .2s ease forwards;
     box-sizing: border-box;
@@ -397,7 +397,7 @@ main {
         flex: 0 0 auto;
         width: 50px;
         height: 50px;
-        box-shadow: 0px 0px 15px #0000001a;
+        box-shadow: 0 0 15px #0000001a;
         background-position: center;
         background-repeat: no-repeat;
         background-size: 22px 22px;
@@ -418,7 +418,7 @@ main {
         &:hover,
         &:focus-visible {
             cursor: pointer;
-            box-shadow: 0px 0px 15px #00000032;
+            box-shadow: 0 0 15px #00000032;
         }
     }
     &:has(.search-block.active) {
@@ -439,9 +439,8 @@ main {
     padding: 6px 10px;
     border-radius: 17px;
     box-sizing: border-box;
-    box-shadow: 0px 0px 15px #0000001a;
+    box-shadow: 0 0 15px #0000001a;
     background: var(--bg-color-2);
-    box-sizing: border-box;
     transition: .2s ease;
     &>button {
         width: 37px;
@@ -477,7 +476,7 @@ main {
         transition: .2s ease;
     }
     &.active {
-        box-shadow: 0px 0px 10px #00000019;
+        box-shadow: 0 0 10px #00000019;
         margin-left: 68px;
         .search-block_clear-button {
             opacity: .7;
@@ -522,7 +521,7 @@ main {
     }
     border-top: 2px solid var(--border-color-1);
     border-right: 3px solid #ffffff00;
-    box-shadow: 0px 12px 8px 8px #0000000e;
+    box-shadow: 0 12px 8px 8px #0000000e;
     overflow-y: visible;
     overflow-x: hidden;
     transition: .2s ease;
@@ -617,13 +616,13 @@ main {
             display: none;
         }
         input:checked ~ label {
-            box-shadow: 0px 2px 8px #00000023;
+            box-shadow: 0 2px 8px #00000023;
             &::after {
                 transform: rotate(90deg);
             }
             &:hover,
             &:focus-visible {
-                box-shadow: 0px 2px 14px #0000002b;
+                box-shadow: 0 2px 14px #0000002b;
                 background: var(--bg-color-2);
             }
         }
@@ -715,7 +714,6 @@ main {
     gap: 10px;
     h2 {
         margin: 0;
-        font-weight: 400;
         font-size: 18px;
         font-weight: 600;
     }
@@ -738,7 +736,7 @@ main {
             align-items: center;
             height: 100%;
             border-radius: 10px;
-            box-shadow: 0px 3px 7px #00000025;
+            box-shadow: 0 3px 7px #00000025;
             background: var(--bg-color-27);
             svg {
                 width: calc(100% - 10px);
@@ -749,7 +747,7 @@ main {
             &:hover,
             &:focus-visible {
                 transform: translateY(-3px);
-                box-shadow: 0px 3px 12px #00000023;
+                box-shadow: 0 3px 12px #00000023;
             }
         }
     }
@@ -834,13 +832,13 @@ main {
         background-position: center;
         background-size: 40px 40px;
         background-repeat: no-repeat;
-        box-shadow: 0px 3px 10px #0000001a;
+        box-shadow: 0 3px 10px #0000001a;
         transition: .2s ease;
         backdrop-filter: blur(10px);
         &:hover,
         &:focus-visible {
             cursor: pointer;
-            box-shadow: 0px 3px 14px #0000002a;
+            box-shadow: 0 3px 14px #0000002a;
         }
         &.removed {
             transform: translateY(20px);
@@ -936,7 +934,7 @@ main {
         background: var(--bg-color-19);
         background-repeat: no-repeat;
         background-size: 18px 18px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.344);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.344);
         backdrop-filter: blur(10px);
         transition: .2s ease;
     }
@@ -1081,7 +1079,7 @@ section {
 .director, .founding-date, .appeals {
     padding: 12px;
     border-radius: 15px;
-    box-shadow: 0px 4px 12px #00000015;
+    box-shadow: 0 4px 12px #00000015;
     box-sizing: border-box;
     background: var(--bg-color-2);
 }
@@ -1130,7 +1128,7 @@ section {
     height: 100%;
     padding: 12px;
     border-radius: 15px;
-    box-shadow: 0px 4px 12px #00000015;
+    box-shadow: 0 4px 12px #00000015;
     box-sizing: border-box;
     background: var(--bg-color-2);
 }
@@ -1286,7 +1284,7 @@ section {
     min-height: 200px;
     background: var(--bg-color-25);
     border-radius: 12px;
-    box-shadow: 0px 0px 3px #00000017;
+    box-shadow: 0 0 3px #00000017;
     overflow: hidden;
 }
 .map_adress {
@@ -1352,7 +1350,7 @@ section {
     border-radius: 20px;
     background: var(--bg-color-15);
     backdrop-filter: blur(10px);
-    box-shadow: 0px 3px 16px #00000024;
+    box-shadow: 0 3px 16px #00000024;
     box-sizing: border-box;
     span {
         position: relative;
@@ -1434,7 +1432,6 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 0;
     margin: 15px 10px;
     padding: 15px;
     border-radius: 15px;
@@ -1567,7 +1564,7 @@ section {
         padding: 3px 5px;
         border-radius: 8px;
         background: var(--gradient-1);
-        box-shadow: 0px 2px 4px #00000027;
+        box-shadow: 0 2px 4px #00000027;
         font-size: 16px;
         text-transform: uppercase;
         color: var(--text-color-5);
@@ -1577,13 +1574,13 @@ section {
 .news-article_fullscreen {
     position: relative;
     min-height: 30px;
-    padding: 5px 0px 5px 30px;
+    padding: 5px 0 5px 30px;
     border: none;
     border-radius: 12px;
     font-size: 0px;
     font-weight: 600;
     background: var(--bg-color-3);
-    box-shadow: 0px 3px 12px #0000001c;
+    box-shadow: 0 3px 12px #0000001c;
     color: #ffffff00;
     transition: .2s ease;
     &::after {
@@ -1603,7 +1600,7 @@ section {
         cursor: pointer;
         padding: 5px 12px 5px 31px;
         font-size: 16px !important;
-        box-shadow: 0px 3px 16px var(--box-shadow-color-1);
+        box-shadow: 0 3px 16px var(--box-shadow-color-1);
         color: #ffffff;
     }
     &.article-remove-button {
@@ -1759,7 +1756,7 @@ section {
     width: 500px;
     border-radius: 25px;
     background: var(--bg-color-24);
-    box-shadow: 0px 3px 16px #0000001d;
+    box-shadow: 0 3px 16px #0000001d;
     transform: translate(-50%, -50%);
 }
 .rasp_second {
@@ -1806,7 +1803,7 @@ section {
         width: 100%;
         max-width: 100% !important;
         margin: 0 0;
-        border-radius: 0px;
+        border-radius: 0;
         box-shadow: none;
         background: var(--bg-color-1);
         transform: translate(0, 0);
@@ -1823,7 +1820,7 @@ section {
     gap: 25px;
     a {
         display: block;
-        box-shadow: 0px 2px 6px #0000001f;
+        box-shadow: 0 2px 6px #0000001f;
         padding: 5px 12px;
         border-radius: 15px;
         font-size: 20px;
@@ -1834,7 +1831,7 @@ section {
         &:hover,
         &:focus-visible {
             transform: translateY(-3px);
-            box-shadow: 0px 2px 10px #00000026;
+            box-shadow: 0 2px 10px #00000026;
         }
     }
     span {
@@ -1845,7 +1842,7 @@ section {
         font-size: 18px;
         font-weight: 600;
         background: var(--bg-color-2);
-        box-shadow: 0px 2px 6px #0000001f;
+        box-shadow: 0 2px 6px #0000001f;
         &::after {
             position: absolute;
             left: 14px;
@@ -1895,7 +1892,7 @@ section {
 .news-history_link,
 .resources_link {
     display: block;
-    box-shadow: 0px 2px 6px #0000001f;
+    box-shadow: 0 2px 6px #0000001f;
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 20px;
@@ -1906,7 +1903,7 @@ section {
     &:hover,
     &:focus-visible {
         transform: translateY(-3px);
-        box-shadow: 0px 2px 10px #00000026;
+        box-shadow: 0 2px 10px #00000026;
     }
 }
 .resources {
@@ -1930,14 +1927,14 @@ section {
         padding: 15px;
         border-radius: 25px;
         background: var(--bg-color-24);
-        box-shadow: 0px 3px 16px #0000001d;
+        box-shadow: 0 3px 16px #0000001d;
         p {
             font-size: 18px;
             margin: -5px 0 0 0;
         }
         a {
             display: block;
-            box-shadow: 0px 2px 6px #0000001f;
+            box-shadow: 0 2px 6px #0000001f;
             padding: 5px 12px;
             border-radius: 15px;
             font-size: 20px;
@@ -1948,7 +1945,7 @@ section {
             &:hover,
             &:focus-visible {
                 transform: translateY(-3px);
-                box-shadow: 0px 2px 10px #00000026;
+                box-shadow: 0 2px 10px #00000026;
             }
         }
     }
@@ -1977,6 +1974,9 @@ section {
         background: var(--bg-color-1);
     }
 }
+
+// Artricle decoration
+
 .page-article {
     position: relative;
     left: 100px;
@@ -1988,11 +1988,87 @@ section {
     border-radius: 25px;
     h1 {
         margin: 0 50px 20px 0;
+        font-size: 40px;
     }
     &.no-navigation {
         left: 0;
         grid-template-columns: 1fr;
         max-width: 700px;
+    }
+    h2 {
+        position: relative;
+        margin: 15px 0 5px 0;
+        a {
+            text-decoration: none;
+            font-size: 23px;
+            &::after {
+                position: absolute;
+                top: calc(100% - 25px);
+                content: "#";
+                font-size: 19px;
+                color: var(--text-color-2);
+                opacity: 0;
+            }
+            &:hover,
+            &:focus-visible {
+                color: var(--text-color-1);
+                text-decoration: underline;
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    h3 {
+        margin: 12px 0 0 0;
+    }
+    a {
+        width: fit-content;
+        font-size: 17px;
+        text-decoration: underline;
+        text-decoration-color: var(--text-decoration-color-1);
+        transition: .2s ease;
+        &:hover,
+        &:focus-visible {
+            text-decoration-color: var(--text-decoration-color-2);
+            color: var(--text-color-3);
+        }
+    }
+    li {
+        font-size: 17px;
+        margin: 3px 0;
+    }
+    p {
+        margin: 8px 0;
+        &.text {
+            margin: 18px 0 10px 0;
+            font-size: 18px;
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 15px;
+        box-shadow: 0 3px 12px #00000015;
+        object-position: center;
+        object-fit: cover;
+        background: var(--bg-color-25);
+    }
+    ol {
+        margin: 7px 0 10px 0;
+    }
+    code {
+        display: block;
+        margin: 9px 0;
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: 17px;
+        font-weight: 500;
+        background: var(--bg-color-12);
+        color: var(--text-color-1);
+        font-family: "Source sans Pro", sans-serif;
     }
     @media print {
         margin-top: 0;
@@ -2066,68 +2142,7 @@ section {
     font-size: 40px;
 }
 .page-article_content {
-    h2 {
-        position: relative;
-        margin: 15px 0 5px 0;
-        a {
-            text-decoration: none;
-            font-size: 23px;
-            &::after {
-                position: absolute;
-                top: calc(100% - 25px);
-                content: "#";
-                font-size: 19px;
-                color: var(--text-color-2);
-                opacity: 0;
-            }
-            &:hover,
-            &:focus-visible {
-                color: var(--text-color-1);
-                text-decoration: underline;
-                &::after {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-    h3 {
-        margin: 12px 0 0 0;
-    }
-    a {
-        width: fit-content;
-        font-size: 17px;
-        text-decoration: underline;
-        text-decoration-color: var(--text-decoration-color-1);
-        transition: .2s ease;
-        &:hover,
-        &:focus-visible {
-            text-decoration-color: var(--text-decoration-color-2);
-            color: var(--text-color-3);
-        }
-    }
-    li {
-        font-size: 17px;
-        margin: 3px 0;
-    }
-    p {
-        margin: 8px 0;
-        &.text {
-            margin: 18px 0 10px 0;
-            font-size: 18px;
-        }
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        object-position: center;
-        object-fit: cover;
-        background: var(--bg-color-25);
-        min-width: none;
-        min-height: none;
-    }
-    ol {
-        margin: 7px 0 10px 0;
-    }
+
 }
 .page-article_img-grid {
     display: grid;
@@ -2143,7 +2158,7 @@ section {
     margin: 0;
     border-radius: 12px;
     border: none;
-    box-shadow: 0px 3px 12px #00000022;
+    box-shadow: 0 3px 12px #00000022;
     background: var(--bg-color-25);
     overflow: hidden;
     transition: .2s ease;
@@ -2151,7 +2166,7 @@ section {
     &:focus-visible {
         cursor: pointer;
         transform: translateY(-3px);
-        box-shadow: 0px 3px 18px #0000003c;
+        box-shadow: 0 3px 18px #0000003c;
     }
     &:has(img.document) {
         aspect-ratio: 1 / 1.41; // 1 / sqrt(2)
@@ -2226,7 +2241,7 @@ section {
         padding: 12px;
         border-radius: 15px 15px 0 0;
         background: var(--bg-color-2);
-        box-shadow: 0px 0px 15px #00000021;
+        box-shadow: 0 0 15px #00000021;
         transition: .2s ease;
         visibility: hidden;
         z-index: 2;
@@ -2344,7 +2359,7 @@ section {
             background-color: var(--bg-color-7);
         }
         &.active {
-            box-shadow: 0px 2px 8px #00000042;
+            box-shadow: 0 2px 8px #00000042;
         }
     }
 }
@@ -2452,7 +2467,7 @@ section {
         height: 50px;
         border: none;
         border-radius: 50%;
-        box-shadow: 0px 3px 14px #0000000e;
+        box-shadow: 0 3px 14px #0000000e;
         background-color: var(--bg-color-2);
         background-position: center;
         background-repeat: no-repeat;
@@ -2461,7 +2476,7 @@ section {
         &:hover,
         &:focus-visible {
             cursor: pointer;
-            box-shadow: 0px 3px 14px #00000025;
+            box-shadow: 0 3px 14px #00000025;
         }
     }
 }
@@ -2538,7 +2553,6 @@ section {
     .swiper-slide {
         display: flex;
         justify-content: center;
-        height: calc(100vh - 200px);
         height: 100%;
         overflow: hidden;
         img {
@@ -2573,7 +2587,7 @@ section {
     height: min-content;
     padding: 12px;
     border-radius: 15px;
-    box-shadow: 0px 4px 12px #00000015;
+    box-shadow: 0 4px 12px #00000015;
     background: var(--bg-color-2);
     &_label {
         font-size: 21px;

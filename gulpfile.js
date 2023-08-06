@@ -20,6 +20,7 @@ import { images } from "./gulp/tasks/images.js";
 import { fromfToTtf, fromTtfToWoff, fontStyle } from "./gulp/tasks/fonts.js";
 import { svgSpriteFunc } from "./gulp/tasks/svgSprite.js";
 import { zip } from "./gulp/tasks/zip.js";
+import { md } from "./gulp/tasks/md.js";
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
@@ -28,10 +29,11 @@ function watcher() {
     gulp.watch(path.watch.js, js);
     gulp.watch(path.watch.images, images);
     gulp.watch(path.watch.svgicons, svgSpriteFunc)
+    gulp.watch(path.watch.md, md)
 }
 
 const fonts = gulp.series(fromfToTtf, fromTtfToWoff, fontStyle);
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSpriteFunc));
+const mainTasks = gulp.series(md, fonts, gulp.parallel(copy, html, scss, js, images, svgSpriteFunc));
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 const build = gulp.series(reset, mainTasks);
 const deployZIP = gulp.series(reset, mainTasks, zip);

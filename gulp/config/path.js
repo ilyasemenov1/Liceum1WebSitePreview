@@ -12,7 +12,8 @@ const path = {
         html: `${buildFolder}/`,
         files: `${buildFolder}/files/`,
         images: `${buildFolder}/img/`,
-        fonts: `${buildFolder}/fonts/`
+        fonts: `${buildFolder}/fonts/`,
+        md: `${srcFolder}/md-html/`
     },
     src: {
         js: `${srcFolder}/js/app.js`,
@@ -21,7 +22,8 @@ const path = {
         files: `${srcFolder}/files/**/*.*`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
         svg: `${srcFolder}/img/**/*.svg`,
-        svgicons: `${srcFolder}/svgicons/**/*.svg`
+        svgicons: `${srcFolder}/svgicons/**/*.svg`,
+        md: `${srcFolder}/md/*.md`
     },
     watch: {
         js: `${srcFolder}/js/**/*.js`,
@@ -29,7 +31,8 @@ const path = {
         html: `${srcFolder}/**/*.html`,
         files: `${srcFolder}/files/**/*.*`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,svg}`,
-        svgicons: `${srcFolder}/svgicons/**/*.svg`
+        svgicons: `${srcFolder}/svgicons/**/*.svg`,
+        md: `${srcFolder}/md/*.md`
     },
     clean: buildFolder,
     buildFolder: buildFolder,

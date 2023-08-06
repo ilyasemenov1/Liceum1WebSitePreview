@@ -406,7 +406,7 @@ class NewsArticleFullscreen {
 
 class ArticleNavigation {
     constructor() {
-        this.articleLabels = document.querySelectorAll(".page-article_topic-label");
+        this.articleLabels = document.querySelectorAll(".page-article>.article h2");
         this.linksConteiner = document.querySelector(".article-content_links");
         this.linksWrapper = document.querySelector(".article-content_wrapper");
         this.docVeiw = document.querySelector(".veiw-doc-button");
@@ -470,7 +470,7 @@ class ArticleNavigation {
 
     #changeLinkState() {
         const links = document.querySelectorAll('.article-content_link');
-        const sections = document.querySelectorAll('.page-article_topic-label');
+        const sections = document.querySelectorAll('.page-article>.article h2');
 
         let index = sections.length;
         const topicVeiwOnScreen = 0;
