@@ -67,11 +67,15 @@
 
 В рамках работы над новой методической темой лицея «Стратегия формирования позитивного корпоративного имиджа и методы его оценки для эффективного развития лицея» 27 января проводилось анкетирование родителей обучающихся 5-11 классов по вопросу удовлетворенности родительской общественностью образовательным процессом лицея.
 
-![img](@img/website-content/F463.jpg)
-![img](@img/website-content/F464.jpg)
-![img](@img/website-content/F465.jpg)
-![img](@img/website-content/F466.jpg)
-![img](@img/website-content/F467.jpg)
+<!-- Images html code -->
+
+<div class="page-article_img-grid">
+    <img alt="content-img" src="@img/website-content/F463.jpg">
+    <img alt="content-img" src="@img/website-content/F464.jpg">
+    <img alt="content-img" src="@img/website-content/F465.jpg">
+    <img alt="content-img" src="@img/website-content/F466.jpg">
+    <img alt="content-img" src="@img/website-content/F467.jpg">
+</div>
 
 ### А что о нас думает социум?
 
