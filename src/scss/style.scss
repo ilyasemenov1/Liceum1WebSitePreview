@@ -1995,12 +1995,29 @@ section {
         grid-template-columns: 1fr;
         max-width: 700px;
     }
+    h3 {
+        margin: 12px 0 0 0;
+    }
+    a:not(.article-content_link) {
+        display: block;
+        width: fit-content;
+        margin: 7px 0;
+        font-size: 17px;
+        text-decoration: underline;
+        text-decoration-color: var(--text-decoration-color-1);
+        transition: .2s ease;
+        &:hover,
+        &:focus-visible {
+            text-decoration-color: var(--text-decoration-color-2);
+            color: var(--text-color-3);
+        }
+    }
     h2 {
         position: relative;
-        margin: 15px 0 5px 0;
+        margin: 15px 0 10px 0;
         a {
-            text-decoration: none;
-            font-size: 23px;
+            text-decoration: none !important;
+            font-size: 23px !important;
             &::after {
                 position: absolute;
                 top: calc(100% - 25px);
@@ -2012,26 +2029,11 @@ section {
             &:hover,
             &:focus-visible {
                 color: var(--text-color-1);
-                text-decoration: underline;
+                text-decoration: underline !important;
                 &::after {
                     opacity: 1;
                 }
             }
-        }
-    }
-    h3 {
-        margin: 12px 0 0 0;
-    }
-    a {
-        width: fit-content;
-        font-size: 17px;
-        text-decoration: underline;
-        text-decoration-color: var(--text-decoration-color-1);
-        transition: .2s ease;
-        &:hover,
-        &:focus-visible {
-            text-decoration-color: var(--text-decoration-color-2);
-            color: var(--text-color-3);
         }
     }
     li {
@@ -2079,6 +2081,9 @@ section {
         background: var(--bg-color-12);
         color: var(--text-color-1);
         font-family: "Source sans Pro", sans-serif;
+    }
+    :is(ul, code) a {
+        display: inline !important;
     }
     @media print {
         margin-top: 0;
@@ -2141,7 +2146,7 @@ section {
         &:focus-visible {
             text-decoration: underline;
             opacity: 1;
-        outline: #00000000 solid;
+            outline: #00000000 solid;
         }
         &.active {
             opacity: 1;
