@@ -8,7 +8,7 @@ body, div, span {
     transition: background .2s ease;
 }
 
-a, button, h1, h2, h3, h4, h5, p, article, input, span, li, ul, img, svg {
+a, button, h1, h2, h3, h4, h5, h6, p, article, input, span, li, ul, img, svg {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
     color: var(--text-color-1);
@@ -2094,26 +2094,8 @@ section {
         font-family: "JetBrains Mono", sans-serif;
         font-size: 14px;
         font-weight: 700;
-        color: darkgoldenrod;
+        background: none !important;
         overflow-x: auto;
-        .hljs-section {
-            font-family: "JetBrains Mono", sans-serif;
-            color: mediumslateblue;
-        }
-        .hljs-emphasis {
-            font-family: "JetBrains Mono", sans-serif;
-            font-weight: 600;
-            color: var(--text-color-1);
-        }
-        .hljs-string {
-            color: green;
-        }
-        .hljs-property {
-            color: palevioletred;
-        }
-        .hljs-variable.constant_ {
-            color: darkgoldenrod !important;
-        }
         &::-webkit-scrollbar {
                 width: 10px;
                 height: 10px;

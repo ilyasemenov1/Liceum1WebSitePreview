@@ -214,3 +214,7 @@ new Promise((res, rej) => {
     <img alt="content-img" src="@img/website-content/nzo7.jpg" role="button">
 </div>
 ```
+
+## Полная документация Markdown:
+
+https://www.markdownguide.org/basic-syntax/
