@@ -4,6 +4,13 @@ import { isWebp } from "./modules/isWebpSupport.js";
 import { cookiesEvents } from "./modules/cookies.js";
 import "./modules/pageSwiper.js";
 import "./modules/maps.js";
+import hljs from 'highlight.js';
+import javascript from 'highlight.js/lib/languages/javascript';
+import markdown from 'highlight.js/lib/languages/markdown';
+
+hljs.registerLanguage('markdown', markdown);
+hljs.registerLanguage('javascript', javascript);
+hljs.highlightAll();
 
 import LazyLoad from "vanilla-lazyload";
 const lazyLoadInstance = new LazyLoad({

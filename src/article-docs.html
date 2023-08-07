@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include("./html/head.html", {
+        "title": "Документация по ведению статей"
+    })
+<body class="white">
+    @@include("./html/header.html", {
+        "pageStatus": "Документация по ведению статей"
+    })
+    @@include("./html/burger-menu.html", {})
+    <main>
+        <div class="sortcat">
+            <div class="links">Документация по ведению статей</div>
+        </div>
+        <section class="page-article">
+            <article class="article">
+                @@include("./md-html/article-docs.html", {})
+            </article>
+            @@include("./html/article-content.html", {})
+        </section>
+    </main>
+    <div class="page-blur"></div>
+    @@include("./html/fixed-buttons.html" {})
+    @@include("./html/fullscreen-swiper.html", {})
+    @@include("./html/footer.html" {})
+    @@include("./html/theme-select.html", {})
+    @@include("./html/is-browser-support.html", {})
+    <script src="js/app.min.js"></script>
+</body>
+</html>
