@@ -160,9 +160,11 @@ main {
     width: 60px;
     transition: .2s ease;
     overflow: hidden;
-    animation: header-scroll-animation-img ease;
-    animation-timeline: scroll(nearest);
-    animation-range: 0px 200px;
+    @media (min-width: 600px) {
+        animation: header-scroll-animation-img ease;
+        animation-timeline: scroll(nearest);
+        animation-range: 0px 200px;
+    }
     img {
         width: 100%;
     }
@@ -335,16 +337,18 @@ main {
     .header-content_organization-info a {
         font-size: 21px;
         font-weight: 700;
-        @supports (animation-range: 0px 350px) {
-            animation: header-scroll-animation-logo ease forwards;
-            animation-timeline: scroll();
-            animation-range: 0px 350px;
-        }
-        & ~ button {
-            @supports (animation-range: 0px 350px) {            
-                animation: header-scroll-animation-logo-subtext ease forwards;
+        @media (min-width: 600px) {
+            @supports (animation-range: 0px 350px) {
+                animation: header-scroll-animation-logo ease forwards;
                 animation-timeline: scroll();
                 animation-range: 0px 350px;
+            }
+            & ~ button {
+                @supports (animation-range: 0px 350px) {
+                    animation: header-scroll-animation-logo-subtext ease forwards;
+                    animation-timeline: scroll();
+                    animation-range: 0px 350px;
+                }
             }
         }
     }
@@ -2125,10 +2129,22 @@ section {
 }
 pre {
     max-width: 700px;
-    width: calc(100vw - 100px);
+    width: 100%;
     box-sizing: border-box;
     border: 3px solid var(--bg-color-7);
     border-radius: 15px;
+    @media (max-width: 1260px) {
+        max-width: calc(100vw - 400px);
+    }
+    @media (max-width: 950px) {
+        max-width: calc(100vw - 300px);
+    }
+    @media (max-width: 900px) {
+        max-width: calc(100vw - 130px);
+    }
+    @media (max-width: 630px) {
+        max-width: calc(100vw - 30px);
+    }
 }
 .article-content {
     position: sticky;
