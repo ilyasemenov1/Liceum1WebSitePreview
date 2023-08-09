@@ -52,7 +52,6 @@
   "dependencies": {
     "gulp-gm": "^0.0.9",
     "gulp-htmlmin": "^5.0.1",
-    "highlight.js": "^11.8.0",
-    "photoswipe": "^5.3.8"
+    "highlight.js": "^11.8.0"
   }
 }
