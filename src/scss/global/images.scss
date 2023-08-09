@@ -1,0 +1,10 @@
+img:not([src]):not([srcset]) {
+    visibility: hidden;
+}
+
+.article img {
+    max-width: 400px;
+    max-height: 400px;
+    height: 100%;
+    object-fit: contain;
+}

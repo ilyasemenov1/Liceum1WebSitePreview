@@ -69,13 +69,11 @@
 
 <!-- Images html code -->
 
-<div class="page-article_img-grid">
-    <img alt="content-img" src="@img/website-content/F463.jpg">
-    <img alt="content-img" src="@img/website-content/F464.jpg">
-    <img alt="content-img" src="@img/website-content/F465.jpg">
-    <img alt="content-img" src="@img/website-content/F466.jpg">
-    <img alt="content-img" src="@img/website-content/F467.jpg">
-</div>
+![content-img](@img/website-content/F463.jpg)
+![content-img](@img/website-content/F464.jpg)
+![content-img](@img/website-content/F465.jpg)
+![content-img](@img/website-content/F466.jpg)
+![content-img](@img/website-content/F467.jpg)
 
 ### А что о нас думает социум?
 

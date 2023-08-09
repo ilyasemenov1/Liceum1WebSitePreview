@@ -750,37 +750,6 @@ export class ButtonRippleEffect {
     }
 }
 
-export class imgLasyLoading {
-    constructor() {
-        this.imgs = document.querySelectorAll("img");
-        this.innerImg, this.container;
-    }
-
-    lasyLoad() {
-        this.imgs.forEach(element => {
-            let pic = element.parentElement;
-            let smallImg = document.createElement("span");
-            smallImg.className = "img-small";
-            smallImg.src = "";
-            pic.append(smallImg);
-            
-            element.addEventListener("load", this.lasyLoadEvent)
-        });
-    }
-
-    // lasyLoadEvent() {
-
-    // }
-
-    // createContainer(container, innerImg) {
-
-    // }
-
-    removeBlur(element) {
-        element.classList.remove("blurred");
-    }
-}
-
 export class InitPageNavigation {
     constructor() {
         this.path = window.location.pathname;
@@ -809,6 +778,36 @@ export class InitPageNavigation {
         this.sortcat.innerHTML = `
             <div class="links">${contentlinks}</div>
         `
+    }
+}
+
+export class PageArticleParser {
+    constructor() {
+        this.paragraphs = document.querySelectorAll(".article p");
+    }
+
+    findImagesGroups() {
+        this.paragraphs.forEach(element => {
+            let imagesCounter = 0;
+            [...element.children].forEach(childE => {
+                let image = [...childE.children].slice(-1);
+                if (image.length) {
+                    if (image[0].tagName === "IMG") {
+                        image[0].setAttribute("role", "button");
+                        image[0].setAttribute("tabIndex", "0");
+                        imagesCounter++
+                    } else {
+                        imagesCounter = 0;
+                    }
+                }
+            });
+
+            if (imagesCounter > 1) {
+                element.classList.add("page-article_img-grid");
+            } else if (imagesCounter === 1) {
+                element.classList.add("page-article_one-img");
+            }
+        });
     }
 }
 

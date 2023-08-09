@@ -24,7 +24,6 @@
   - [О вакцинации против гриппа в вопросах и ответах](#)
   - [Грипп - симптомы и профилактика](#)
   
-  <div class="page-article_img-grid">
-      <img alt="content-img" src="@img/website-content/kv2.jpg" role="button">
-      <img alt="content-img" src="@img/website-content/kv3.jpg" role="button">
-  </div>
+  ![content-img](@img/website-content/kv2.jpg)
+  ![content-img](@img/website-content/kv3.jpg)
+  

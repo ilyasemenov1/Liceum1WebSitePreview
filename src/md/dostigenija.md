@@ -13,17 +13,13 @@
     
 ## Грамоты за успехи работы коллектива лицея
 
-<!-- Images html code -->
-
-<div class="page-article_img-grid">
-    <img alt="content-img" src="@img/website-content/nzo1.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo2.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo3.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo4.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo5.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo6.jpg" role="button">
-    <img alt="content-img" src="@img/website-content/nzo7.jpg" role="button">
-</div>
+![content-img](@img/website-content/nzo1.jpg)
+![content-img](@img/website-content/nzo2.jpg)
+![content-img](@img/website-content/nzo3.jpg)
+![content-img](@img/website-content/nzo4.jpg)
+![content-img](@img/website-content/nzo5.jpg)
+![content-img](@img/website-content/nzo6.jpg)
+![content-img](@img/website-content/nzo7.jpg)
 
 ## Сертификаты
 
