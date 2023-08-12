@@ -19,11 +19,11 @@
     --pswp-bg: var(--bg-color-14);
 }
 
-.pswp__scroll-wrap {
-    transition: .2s ease;
+.pswp {
+    transition: .3s ease;
 }
 
-.pswp:is(.pswp--ui-visible) .pswp__scroll-wrap {
+.pswp:is(.pswp--ui-visible) {
     backdrop-filter: blur(25px);
 }
 
