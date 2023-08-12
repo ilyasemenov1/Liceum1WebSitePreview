@@ -6,9 +6,7 @@
 
         lazyLoad() {
             this.images.forEach(element => {
-                element.classList.add("lazy");
                 element.classList.add("img-loading");
-                element.setAttribute("loading", "lazy")
                 this.addLoadConteiner(element);
             });
         }

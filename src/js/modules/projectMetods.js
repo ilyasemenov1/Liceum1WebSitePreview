@@ -719,11 +719,13 @@ export class PageArticleParser {
         this.imagesLandscapeFlag = false;
     }
 
+    update() {
+        this.#findImagesGroups();
+    }
+
     articleImagesEvent() {
         window.addEventListener("load", () => {
-            setTimeout(() => {
-                this.#findImagesGroups();
-            }, 100);
+            this.#findImagesGroups();
         });
     }
 
