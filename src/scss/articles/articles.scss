@@ -233,6 +233,9 @@ pre {
     &.pic {
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     }
+    a {
+        margin: 0 !important;
+    }
 }
 .page-article_links {
     display: flex;

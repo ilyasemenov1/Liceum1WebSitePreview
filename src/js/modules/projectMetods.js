@@ -716,6 +716,7 @@ export class InitPageNavigation {
 export class PageArticleParser {
     constructor() {
         this.paragraphs = document.querySelectorAll(".article p");
+        this.imagesLandscapeFlag = false;
     }
 
     articleImagesEvent() {
@@ -726,27 +727,43 @@ export class PageArticleParser {
         });
     }
 
+    #genereteImgLink(img, counter, element) {
+        if (img.tagName === "IMG") {
+            let pic = img.parentElement;
+            let imgLink = document.createElement("a");
+            imgLink.href = img.src;
+            element.appendChild(imgLink);
+            imgLink.appendChild(pic);
+            let width = img.naturalWidth;
+            let height = img.naturalHeight;
+            if ((width < 50 || height < 50) && width && height){
+                let aspect = width/height;
+                let baseWidth = 1000;
+                imgLink.dataset.pswpWidth = baseWidth;
+                imgLink.dataset.pswpHeight = baseWidth/aspect;
+            } else if (width && height) {
+                imgLink.dataset.pswpWidth = width;
+                imgLink.dataset.pswpHeight = height;
+                element.appendChild(imgLink);
+            }
+            if (width/height >= 1) {
+                this.imagesLandscapeFlag = true;
+            }
+            counter++
+        }
+        return counter;
+    }
     #findImagesGroups() {
         this.paragraphs.forEach(element => {
             let imagesCounter = 0;
-            [...element.children].forEach(childE => {
-                let image = [...childE.children].slice(-1);
-                if (image.length) {
-                    let img = image[0];
-                    if (img.tagName === "IMG") {
-                        let pic = img.parentElement;
-                        let imgLink = document.createElement("a");
-                        imgLink.href = img.src;
-                        element.appendChild(imgLink);
-                        imgLink.appendChild(pic);
-                        imgLink.dataset.pswpWidth = img.naturalWidth;
-                        imgLink.dataset.pswpHeight = img.naturalHeight;
-                        imagesCounter++
-                    } else {
-                        imagesCounter = 0;
+            if (![...element.children].some((element) => ["P", "SPAN", 'LI', 'UL', "OL"].includes(element.tagName))) {
+                [...element.children].forEach(childE => {
+                    let image = [...childE.children].slice(-1);
+                    if (image.length) {
+                        imagesCounter = this.#genereteImgLink(image[0], imagesCounter, element);
                     }
-                }
-            });
+                });
+            }
 
             if (imagesCounter >= 1) {
                 const leftArrowSVGString = `<svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" /></svg>`;
@@ -773,8 +790,15 @@ export class PageArticleParser {
                     wheelToZoom: true
                 });
                 lightbox.init();
+                lightbox.on("openingAnimationStart", (e) => {
+                    document.body.style = "overflow: hidden;";
+                });
+                lightbox.on("destroy", (e) => {
+                    document.body.style = "";
+                });
                 imagesCounter > 1 ? element.className = "page-article_img-grid" : element.classList.add("page-article_one-img");
                 element.classList.add("pswp-gallery");
+                if (this.imagesLandscapeFlag) element.classList.add("pic")
             }
         });
     }
