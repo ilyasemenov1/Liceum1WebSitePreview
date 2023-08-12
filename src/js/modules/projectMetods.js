@@ -623,76 +623,6 @@ class SetPageTheme {
     }
 }
 
-class InitFullscreenSwiper {
-    constructor(swiper) {
-        this.imgContainers = document.querySelectorAll(".page-article_img-grid-");
-        this.target, this.container;
-        this.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
-        this.swiperContainer = document.querySelector(".fullscreen-swiper");
-        this.swiperRemoveButton = document.querySelector(".fullscreen-swiper-navigation_close-button");
-        this.counter = document.querySelector(".fullscreen-swiper-navigation_slides-counter");
-        this.slideIndex = swiper.activeIndex;
-        this.swiper = swiper;
-    }
-
-    initSwiper() {
-        this.slideGenerateEvent();
-        this.swiperRemoveEvent();
-    }
-
-    sildeNumEvent() {
-        let slides = document.querySelectorAll(".fullscreen-swiper_wrapper>div");
-        this.counter.innerText = `${this.slideIndex+1}/${slides.length}`;
-    }
-
-    swiperRemoveEvent() {
-        this.swiperRemoveButton.addEventListener("click", () => {
-            this.removeSwiper();
-        });
-    }
-
-    removeSwiper() {
-        this.swiperContainer.classList.remove("active");
-        document.body.style = "overflow: visivle;";
-        setTimeout(() => {
-            this.swiperWrapper.innerHTML = "";
-        }, 200);
-    }
-
-    slideGenerateEvent() {
-        this.imgContainers.forEach(element => {
-            element.addEventListener("click", (event) => {
-                this.swiperContainer.classList.add("active");
-                document.body.style = "overflow: hidden;";
-                this.target = event.target;
-                this.container = element;
-                let conteinerChildren = this.container.children;
-                for (let i = 0; i < conteinerChildren.length; i++) {
-                    let img  = conteinerChildren.item(i).innerHTML;
-                    let slide = `
-                    <div class="swiper-slide fullscreen-swiper_slide">
-                        <div class="swiper-zoom-container">${img}</div>
-                    </div>`;
-                    this.swiperWrapper.innerHTML += slide;
-                }
-                this.sildeNumEvent();
-                this.findTargetImgIdex();
-            });
-        });
-    }
-    
-    findTargetImgIdex() {
-        if (this.target.src) {
-            let buttons = document.querySelectorAll(".page-article_img-button");
-            for (let i = 0; i < buttons.length; i++) {
-                if (buttons[i].children[0].children[1].src == this.target.src) {
-                    this.swiper.slideTo(i);
-                }
-            }
-        }
-    }
-}
-
 export class ButtonRippleEffect {
     constructor() {
         this.buttons = document.querySelectorAll("button, .burger-menu_link, .news-history_link, .rasp a, .footer-content-social_link, .liceum1-info-link, .ege_link, .oge_link");
@@ -819,10 +749,28 @@ export class PageArticleParser {
             });
 
             if (imagesCounter >= 1) {
+                const leftArrowSVGString = `<svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M768 903.232l-50.432 56.768L256 512l461.568-448 50.432 56.768L364.928 512z" /></svg>`;
+                const rightArowSVGString = `<svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M256 120.768L306.432 64 768 512l-461.568 448L256 903.232 659.072 512z"/></svg>`
+                const zoomSVGString = `<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 17C13.866 17 17 13.866 17 10C17 6.13401 13.866 3 10 3C6.13401 3 3 6.13401 3 10C3 13.866 6.13401 17 10 17Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.9992 21L14.9492 14.95" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 10H14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 6V14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`;
+                const closeSVGString = `<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.7457 3.32851C20.3552 2.93798 19.722 2.93798 19.3315 3.32851L12.0371 10.6229L4.74275 3.32851C4.35223 2.93798 3.71906 2.93798 3.32854 3.32851C2.93801 3.71903 2.93801 4.3522 3.32854 4.74272L10.6229 12.0371L3.32856 19.3314C2.93803 19.722 2.93803 20.3551 3.32856 20.7457C3.71908 21.1362 4.35225 21.1362 4.74277 20.7457L12.0371 13.4513L19.3315 20.7457C19.722 21.1362 20.3552 21.1362 20.7457 20.7457C21.1362 20.3551 21.1362 19.722 20.7457 19.3315L13.4513 12.0371L20.7457 4.74272C21.1362 4.3522 21.1362 3.71903 20.7457 3.32851Z"/>
+                </svg>`;
+
                 const lightbox = new PhotoSwipeLightbox({
+                    arrowPrevSVG: leftArrowSVGString,
+                    arrowNextSVG: rightArowSVGString,
+                    zoomSVG: zoomSVGString,
+                    closeSVG: closeSVGString,
+
                     gallery: element,
                     children: 'a',
-                    pswpModule: () => import('photoswipe')
+                    pswpModule: () => import('photoswipe'),
+                    wheelToZoom: true
                 });
                 lightbox.init();
                 imagesCounter > 1 ? element.className = "page-article_img-grid" : element.classList.add("page-article_one-img");
@@ -832,4 +780,4 @@ export class PageArticleParser {
     }
 }
 
-export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, InitFullscreenSwiper }
+export { ButtonPopup, PageScroll, BurgerMenuEvents, TextCopy, NewsArticleFullscreen, ArticleNavigation, SetPageTheme }

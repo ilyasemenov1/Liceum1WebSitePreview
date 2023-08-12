@@ -1,0 +1,116 @@
+.pswp__counter {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 3px 10px !important;
+    border-radius: 30px;
+    background: var(--bg-color-1);
+    box-shadow: 0 0 15px #00000015;
+    line-height: normal !important;
+    font-family: "Source sans Pro", sans-serif !important;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-color-1) !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.pswp__bg {
+    --pswp-bg: var(--bg-color-14);
+}
+
+.pswp__scroll-wrap {
+    transition: .2s ease;
+}
+
+.pswp:is(.pswp--ui-visible) .pswp__scroll-wrap {
+    backdrop-filter: blur(25px);
+}
+
+.pswp__error-msg {
+    position: relative;
+    font-family: "Source Sans Pro", sans-serif !important;
+    font-size: 0 !important;
+    transition: .2s ease;
+    &::after {
+        position: absolute;
+        top: 0;
+        left: -110px;
+        content: "Не удалось загрузить изображение :(";
+        font-size: 16px;
+        width: 300px;
+        opacity: inherit;
+    }
+}
+
+.pswp__button {
+    background: var(--bg-color-1) !important;
+    box-shadow: 0 0 15px #0000001c !important;
+    transition: .2s ease !important;
+    opacity: 1 !important;
+    &.pswp__button--arrow {
+        top: calc(50% + 22px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 50%;
+        svg {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            fill: var(--text-color-1);
+        }
+        &.pswp__button--arrow--prev {
+            left: 15px;
+            &:hover,
+            &:hover {
+                transform: translateX(-3px);
+            }
+        }
+        &.pswp__button--arrow--next {
+            right: 15px;
+            &:hover,
+            &:hover {
+                transform: translateX(3px);
+            }
+        }
+    }
+    &.pswp__button--zoom,
+    &.pswp__button--close {
+        top: 15px;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50%;
+    }
+    &.pswp__button--close {
+        right: 15px;
+        svg {
+            position: relative;
+            top: 3px;
+            left: 0;
+            width: 60%;
+            height: 60%;
+            fill: var(--text-color-1) !important;
+        }
+    }
+    &.pswp__button--zoom {
+        //I don't know why 25px, but it works :)
+        right: 25px;
+        svg {
+            position: relative;
+            top: 2px;
+            width: 60%;
+            height: 60%;
+            stroke: var(--text-color-1) !important;
+        }
+    }
+}
+
+.pswp:not(.pswp--ui-visible) .pswp__scroll-wrap {
+    backdrop-filter: blur(0);
+    .pswp__error-msg,
+    .pswp__button {
+        opacity: 0 !important;
+    }
+}

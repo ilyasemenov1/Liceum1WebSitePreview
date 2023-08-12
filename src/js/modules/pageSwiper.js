@@ -58,21 +58,3 @@ class SwiperPagimationAdaptivity {
         this.container.classList.remove("first", "second", "pre-last", "last");
     }
 }
-
-var gallerySwiper = new Swiper(".gallerySwiper", {
-    spaceBetween: 10,
-    navigation: {
-        nextEl: '.fullscreen-swiper_next',
-        prevEl: '.fullscreen-swiper_prev'
-    },
-});
-
-window.addEventListener("load", () => {
-    let swiper = new InitFullscreenSwiper(gallerySwiper);
-    swiper.initSwiper();
-});
-
-gallerySwiper.on("slideChange", () => {
-    let swiper_ = new InitFullscreenSwiper(gallerySwiper);
-    swiper_.sildeNumEvent();
-});
