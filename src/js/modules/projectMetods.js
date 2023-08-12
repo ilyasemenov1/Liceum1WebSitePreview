@@ -2,6 +2,8 @@
 import CyrillicToTranslit from 'cyrillic-to-translit-js';
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import '../../../node_modules/swiper/swiper-bundle.min.css';
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
     
 Swiper.use([Navigation, Pagination, Autoplay]);
 class ButtonPopup {
@@ -623,7 +625,7 @@ class SetPageTheme {
 
 class InitFullscreenSwiper {
     constructor(swiper) {
-        this.imgContainers = document.querySelectorAll(".page-article_img-grid");
+        this.imgContainers = document.querySelectorAll(".page-article_img-grid-");
         this.target, this.container;
         this.swiperWrapper = document.querySelector(".fullscreen-swiper_wrapper");
         this.swiperContainer = document.querySelector(".fullscreen-swiper");
@@ -786,15 +788,29 @@ export class PageArticleParser {
         this.paragraphs = document.querySelectorAll(".article p");
     }
 
-    findImagesGroups() {
+    articleImagesEvent() {
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                this.#findImagesGroups();
+            }, 100);
+        });
+    }
+
+    #findImagesGroups() {
         this.paragraphs.forEach(element => {
             let imagesCounter = 0;
             [...element.children].forEach(childE => {
                 let image = [...childE.children].slice(-1);
                 if (image.length) {
-                    if (image[0].tagName === "IMG") {
-                        image[0].setAttribute("role", "button");
-                        image[0].setAttribute("tabIndex", "0");
+                    let img = image[0];
+                    if (img.tagName === "IMG") {
+                        let pic = img.parentElement;
+                        let imgLink = document.createElement("a");
+                        imgLink.href = img.src;
+                        element.appendChild(imgLink);
+                        imgLink.appendChild(pic);
+                        imgLink.dataset.pswpWidth = img.naturalWidth;
+                        imgLink.dataset.pswpHeight = img.naturalHeight;
                         imagesCounter++
                     } else {
                         imagesCounter = 0;
@@ -802,10 +818,15 @@ export class PageArticleParser {
                 }
             });
 
-            if (imagesCounter > 1) {
-                element.classList.add("page-article_img-grid");
-            } else if (imagesCounter === 1) {
-                element.classList.add("page-article_one-img");
+            if (imagesCounter >= 1) {
+                const lightbox = new PhotoSwipeLightbox({
+                    gallery: element,
+                    children: 'a',
+                    pswpModule: () => import('photoswipe')
+                });
+                lightbox.init();
+                imagesCounter > 1 ? element.className = "page-article_img-grid" : element.classList.add("page-article_one-img");
+                element.classList.add("pswp-gallery");
             }
         });
     }

@@ -51,7 +51,7 @@ class InitPage {
         this.setPageTheme.themeSelectEvent();
         this.ripple.rippleEvent();
         this.pageNavigation.event();
-        this.articleParser.findImagesGroups();
+        this.articleParser.articleImagesEvent();
     }
 }
 
