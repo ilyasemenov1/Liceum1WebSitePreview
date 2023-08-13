@@ -34,6 +34,16 @@ let images = () => {
         return opt;
       }))
     .pipe(app.gulp.dest(app.path.build.images))
+        .pipe(app.gulp.src(app.path.src.images))
+    .pipe(gm(function (gmfile) {
+        gmfile.resize(400, 400);
+        return gmfile;
+    }))
+    .pipe(rename(function(opt) {
+        opt.basename = `${opt.basename}-med`
+        return opt;
+    }))
+    .pipe(app.gulp.dest(app.path.build.images))
     .pipe(app.gulp.src(app.path.src.svg))
     .pipe(app.gulp.dest(app.path.build.images))
     .pipe(app.plugins.browsersync.stream())
