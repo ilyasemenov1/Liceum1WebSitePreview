@@ -4,6 +4,7 @@
 @import "global/global.scss";
 @import "articles/articles.scss";
 @import "gallery/gallery-styles.scss";
+@import "redirect/redirect.scss";
 
 //TODO: add ripple to mobile nav menu
 
@@ -34,6 +35,11 @@ main>section {
 main {
     @media print {
         padding: 50px 0 0 0;
+    }
+    &.redirect-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

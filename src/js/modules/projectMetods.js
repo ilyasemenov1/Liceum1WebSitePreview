@@ -748,7 +748,7 @@ export class PageArticleParser {
                 imgLink.dataset.pswpHeight = height;
                 let imgSrcOriginal = img.src.split("://")[1].split("/").slice(1).join("/");
                 let imgSrc = `${imgSrcOriginal.split(".")[0]}-med`;
-                let originalPath = imgSrcOriginal.split(".")[1]
+                let originalPath = imgSrcOriginal.split(".")[1];
                 if (imgSrcOriginal.split(".").length > 2) throw new Error("Error: Ivnalid image or path name")
                 pic.children[0].srcset = `${imgSrc}.webp`;
                 pic.children[1].src = `${imgSrc}.${originalPath}`;
