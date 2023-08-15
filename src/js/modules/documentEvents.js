@@ -1,4 +1,4 @@
-import { BurgerMenuEvents, ButtonPopup, TextCopy } from "./projectMetods.js";
+import { BurgerMenuEvents, ButtonPopup, TextCopy } from "./projectMethods.js";
 
 export class DocumentEvents {
     constructor() {

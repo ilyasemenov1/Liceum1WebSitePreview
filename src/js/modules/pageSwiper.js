@@ -1,6 +1,4 @@
 
-import { InitFullscreenSwiper } from "./projectMetods.js";
-
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import '../../../node_modules/swiper/swiper.min.css';
     

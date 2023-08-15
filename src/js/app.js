@@ -1,4 +1,4 @@
-import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, ButtonRippleEffect, InitPageNavigation, PageArticleParser } from "./modules/projectMetods.js";
+import { PageScroll, NewsArticleFullscreen, ArticleNavigation, SetPageTheme, ButtonRippleEffect, InitPageNavigation, PageArticleParser } from "./modules/projectMethods.js";
 import { DocumentEvents } from "./modules/documentEvents.js";
 import { isWebp } from "./modules/isWebpSupport.js";
 import { cookiesEvents } from "./modules/cookies.js";
