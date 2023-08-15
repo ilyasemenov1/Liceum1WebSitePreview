@@ -1,8 +1,8 @@
 <script>
     function isBrowserSupport() {
-        let isBrowserUnsupportedPage = document.querySelector(".browser-unsupported");
-        let browserSpecs = (function(){
-            let ua = navigator.userAgent, tem, 
+        var isBrowserUnsupportedPage = document.querySelector(".browser-unsupported");
+        var browserSpecs = (function(){
+            var ua = navigator.userAgent, tem,
                 M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
             if (/trident/i.test(M[1])){
                 tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
@@ -24,29 +24,13 @@
 
     function browserSupport(browserSpecs) {
         browserSpecs.version = parseFloat(browserSpecs.version);
-        switch(browserSpecs.name) {
-            case "Chrome":
-                browserSpecs.version < 54 ? loadPageForUnsupported() : void(0);
-                break
-            case "Firefox":
-                browserSpecs.version < 52 ? loadPageForUnsupported() : void(0);
-                break
-            case "Safari":
-                browserSpecs.version < 10.1 ? loadPageForUnsupported() : void(0);
-                break
-            case "Opera":
-                browserSpecs.version < 44 ? loadPageForUnsupported() : void(0);
-                break
-            case "Edge":
-                browserSpecs.version < 16 ? loadPageForUnsupported() : void(0);
-                break
-            case "Opera":
-                browserSpecs.version < 44 ? loadPageForUnsupported() : void(0);
-                break
-            case "IE":
+        var borwsers = [["Chrome", 90], ["Firefox", 90], ["Edge", 90], ["Safari", 13], ["IE", 0]]
+        for (var i = 0; i < borwsers.length; i++) {
+            if (browserSpecs.name === borwsers[i][0] && browserSpecs.version < borwsers[i][0]) {
                 loadPageForUnsupported();
-                break
+            }
         }
+
     }
 
     function loadPageForUnsupported() {
