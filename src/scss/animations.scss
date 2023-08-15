@@ -141,3 +141,25 @@
         opacity: 0;
     }
 }
+@keyframes err-404-border-radius-animation {
+    0%, 100% {
+        border-radius: 50% 45% 48% 42% / 50% 45% 48% 50%;
+    }
+    30% {
+        border-radius: 45% 50% 42% 48% / 40% 50% 41% 50%;
+    }
+    60% {
+        border-radius: 50% 40% 45% 50% / 45% 40% 48% 45%;
+    }
+}
+@keyframes err-404-after-border-radius-animation {
+    0%, 100% {
+        border-radius: 50% 40% 45% 50% / 45% 40% 48% 45%;
+    }
+    30% {
+        border-radius: 50% 45% 48% 42% / 50% 45% 48% 50%;
+    }
+    60% {
+        border-radius: 45% 50% 42% 48% / 40% 50% 41% 50%;
+    }
+}
