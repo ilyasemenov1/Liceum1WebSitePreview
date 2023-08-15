@@ -26,7 +26,9 @@
         browserSpecs.version = parseFloat(browserSpecs.version);
         var borwsers = [["Chrome", 90], ["Firefox", 90], ["Edge", 90], ["Safari", 13], ["IE", 0]]
         for (var i = 0; i < borwsers.length; i++) {
-            if (browserSpecs.name === borwsers[i][0] && browserSpecs.version < borwsers[i][0]) {
+            var version = browserSpecs.version;
+            var version_b = borwsers[i][1];
+            if (browserSpecs.name.toLowerCase() === borwsers[i][0].toLowerCase() && version < version_b) {
                 loadPageForUnsupported();
             }
         }
