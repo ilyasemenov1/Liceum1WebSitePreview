@@ -3,11 +3,13 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    max-width: 728px;
     &_err-icon {
         position: relative;
-        display: flex;
+        display: flex block;
         align-items: center;
         justify-content: center;
+        flex: 0 0 auto;
         width: 200px;
         height: 200px;
         border-radius: 50%;
@@ -50,9 +52,13 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
+    &_err-logo {
+        position: relative;
+        font-size: 40px;
         &::after {
             position: absolute;
-            top: 3.2em;
+            top: calc(100% + 7px);
             left: 0;
             content: "";
             width: 100%;
@@ -61,8 +67,8 @@
             opacity: .5;
         }
     }
-    &_err-logo {
-        font-size: 40px;
+    &_content.no-line &_err-logo::after {
+        display: none;
     }
     &_links {
         display: flex;
@@ -86,7 +92,7 @@
         &_links {
             justify-content: center;
         }
-        &_content::after {
+        &_err-logo::after {
             display: none;
         }
         &_err-logo {

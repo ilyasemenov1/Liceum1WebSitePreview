@@ -62,7 +62,7 @@ export class DocumentEvents {
     menuEvent() {
         let burger = document.querySelector(".burger");
         let menuDark = document.querySelector(".menu-conteiner_dark");
-
+        if (!burger) return;
         menuDark.addEventListener("click", () => {
             this.burgerMenuE.closeBurgerMenu();
             burger.classList.remove("active");
@@ -79,6 +79,7 @@ export class DocumentEvents {
     }
 
     searchEvent() {
+        if (!this.searchButton) return;
         this.searchButton.addEventListener("click", () => {
             this.openSearch();
         });

@@ -120,6 +120,7 @@ class PageScroll {
     }
 
     headerScrollEvent() {
+        if (!this.topButton) return;
         window.addEventListener("scroll", () => {
             this.scroll();
         });
@@ -159,6 +160,7 @@ class PageScroll {
     }
 
     scroll() {
+        if (!this.header) return;
         let scroll = window.pageYOffset;
         const SCROLL_HEIGHT = 35;
 
@@ -195,6 +197,7 @@ class BurgerMenuEvents {
     }
 
     calcBurgerMenuPosition(num) {
+        if (!this.pageHeader) return;
         let headerHeight = this.pageHeader.clientHeight;
         if (!isNaN(num)) {
             headerHeight = num;

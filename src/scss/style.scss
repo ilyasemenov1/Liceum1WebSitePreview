@@ -41,6 +41,9 @@ main {
         justify-content: center;
         align-items: center;
     }
+    &.no-padding {
+        padding: 0 !important;
+    }
 }
 
 .disactive {
