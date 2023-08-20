@@ -2355,5 +2355,9 @@ img {
     .flowchart-link {
         stroke: var(--text-color-1) !important;
     }
+    #flowchart-pointEnd {
+        fill: var(--text-color-1) !important;
+        stroke: var(--text-color-1) !important;
+    }
 }
 @import "ui-adaptivity";
