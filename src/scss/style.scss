@@ -2321,18 +2321,33 @@ img {
         flex-direction: column;
         gap: 5px;
         max-height: 450px;
+        color: var(--text-color-1) !important;
         overflow-x: hidden;
         overflow-y: visible;
-        color: var(--text-color-1) !important;
     }
     br {
         display: none;
     }
     a {
+        position: relative;
+        display: block;
         max-width: 450px;
         max-height: none;
         height: auto !important;
         white-space: normal !important;
+        &::after {
+            position: absolute;
+            top: calc(100% + 2px);
+            left: 15px;
+            content: "";
+            width: calc(100% - 30px);
+            height: 1px;
+            background: var(--text-color-1);
+            opacity: .1;
+        }
+        &:last-child::after {
+            display: none;
+        }
     }
 }
 @import "ui-adaptivity";
