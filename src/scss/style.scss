@@ -1663,11 +1663,14 @@ section {
     font-size: 25px;
 }
 .sitemap_content {
-    background: var(--bg-color-2);
+    background: var(--bg-color-1);
     box-shadow: 0 4px 12px #00000015;
     padding: 15px;
     border-radius: 25px;
     margin: 0 0 20px 0;
+}
+.dark-theme .sitemap_content {
+    border: 2px solid var(--bg-color-2);
 }
 .sitemap {
     display: flex;
@@ -2313,7 +2316,7 @@ img {
         stroke: none !important;
     }
     .label-container {
-        fill: var(--bg-color-1) !important;
+        fill: var(--bg-color-2) !important;
         stroke: var(--bg-color-7) !important;
     }
     .nodeLabel {
@@ -2321,7 +2324,7 @@ img {
         flex-direction: column;
         gap: 5px;
         max-height: 450px;
-        color: var(--text-color-1) !important;
+        color: var(--text-color-2) !important;
         overflow-x: hidden;
         overflow-y: visible;
     }
@@ -2333,8 +2336,8 @@ img {
         display: block;
         max-width: 450px;
         max-height: none;
-        height: auto !important;
-        white-space: normal !important;
+        height: auto;
+        white-space: normal;
         &::after {
             position: absolute;
             top: calc(100% + 2px);
@@ -2348,6 +2351,9 @@ img {
         &:last-child::after {
             display: none;
         }
+    }
+    .flowchart-link {
+        stroke: var(--text-color-1) !important;
     }
 }
 @import "ui-adaptivity";
