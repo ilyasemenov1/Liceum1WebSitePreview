@@ -2292,4 +2292,47 @@ img {
         filter: blur(0) !important;
     }
 }
+
+// SItemap styles
+
+.sitemap_content {
+    padding: 0;
+}
+
+.flowchart { 
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border: none;
+    overflow-x: scroll;
+    .cluster-label {
+        display: none;
+    }
+    .cluster rect {
+        fill: none !important;
+        stroke: none !important;
+    }
+    .label-container {
+        fill: var(--bg-color-1) !important;
+        stroke: var(--bg-color-7) !important;
+    }
+    .nodeLabel {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        max-height: 450px;
+        overflow-x: hidden;
+        overflow-y: visible;
+        color: var(--text-color-1) !important;
+    }
+    br {
+        display: none;
+    }
+    a {
+        max-width: 450px;
+        max-height: none;
+        height: auto !important;
+        white-space: normal !important;
+    }
+}
 @import "ui-adaptivity";
