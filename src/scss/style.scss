@@ -5,6 +5,7 @@
 @import "articles/articles.scss";
 @import "gallery/gallery-styles.scss";
 @import "redirect/redirect.scss";
+@import "loading/index.scss";
 
 //TODO: add ripple to mobile nav menu
 
@@ -1629,6 +1630,7 @@ section {
     }
 }
 .sortcat {
+    position: relative;
     font-size: 22px;
     font-family: "Source Sans Pro";
     font-weight: 700;
@@ -1656,6 +1658,35 @@ section {
             opacity: 1;
             left: 0%;
             width: 100%;
+        }
+    }
+    .links {
+        color: var(--text-color-1);
+    }
+    &_preload {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 270px;
+        height: calc(100% - 10px);
+        border-radius: 50px;
+        overflow: hidden;
+        &::after {
+            position: absolute;
+            top: -20px;
+            left: -50%;
+            content: "";
+            width: 300%;
+            height: 200%;
+            background: linear-gradient(to right, var(--bg-color-4), var(--bg-color-20), var(--bg-color-4));
+            background-size: 3000% 3000%;
+            animation: loading 2.5s ease infinite;
+        }
+    }
+    &.loading  {
+        width: 250px;
+        .links {
+            display: none;
         }
     }
 }

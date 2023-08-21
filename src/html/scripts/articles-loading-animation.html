@@ -1,0 +1,57 @@
+<script>
+    const article = document.querySelector(".page-article");
+    const main = document.querySelector("main");
+    const sortcat = document.querySelector(".sortcat");
+
+    function articlePreload() {
+        article.classList.add("disactive");
+        createSortcatLoading();
+        addaAticleLoadingAnimation();
+
+        window.addEventListener("load", () => {
+            removeLoaders();
+        })
+    }
+
+    function createSortcatLoading() {
+        let preload = document.createElement("span");
+        preload.className = "sortcat_preload";
+        sortcat.appendChild(preload);
+        sortcat.classList.add("loading");
+    }
+
+    function removeLoaders() {
+        let animation = document.querySelector(".page-article-loading");
+        animation.remove();
+        article.classList.remove("disactive");
+        sortcat.classList.remove("loading");
+    }
+
+    function addaAticleLoadingAnimation() {
+        let animation = document.createElement("div");
+        animation.className = "page-article-loading";
+        animation.innerHTML = `
+            <div class="page-article-loading_article">
+                <span class="page-article-loading_h1"></span>
+                <span class="page-article-loading_h2"></span>
+                <span class="span page-article-loading_text"></span>
+                <span class="span page-article-loading_text"></span>
+                <span class="span page-article-loading_text"></span>
+                <span class="page-article-loading_text-small"></span>
+                <div class="span page-article-loading_p"></div>
+                <div class="span page-article-loading_h2"></div>
+                <div class="span page-article-loading_p"></div>
+                <span class="span page-article-loading_text"></span>
+                <span class="span page-article-loading_text"></span>
+                <span class="page-article-loading_text-small"></span>
+            </div>
+            <div class="page-article-loading_side-menu">
+                <div class="page-article-loading_side-menu--label"></div>
+                <div class="page-article-loading_side-menu--content"></div>
+            </div>
+        `;
+        main.appendChild(animation);
+    }
+
+    articlePreload();
+</script>
