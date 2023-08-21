@@ -46,12 +46,18 @@ class InitPage {
         this.documentEvents.searchEvent();
         this.documentEvents.bufferEvent();
         this.pageScroll.headerScrollEvent();
-        this.fullscreen.fullscreenEvent();
-        this.articleNavigation.articleDocInit();
-        this.setPageTheme.themeSelectEvent();
         this.ripple.rippleEvent();
-        this.pageNavigation.event();
         this.articleParser.articleImagesEvent();
+        this.#initOnLoad();
+    }
+
+    #initOnLoad() {
+        window.addEventListener("load", () => {
+            this.fullscreen.fullscreenEvent();
+            this.articleNavigation.articleDocInit();
+            this.setPageTheme.themeSelectEvent();
+            this.pageNavigation.event();
+        });
     }
 }
 

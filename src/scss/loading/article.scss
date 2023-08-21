@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 260px;
     gap: 30px;
     max-width: 1000px;
-    margin: 10px auto 30px auto;
+    margin: 40px auto 30px auto;
     border-radius: 25px;
     &_h1, &_h2, &_text, &_text-small, &_p, &_side-menu--label, &_side-menu--content {
         position: relative;
@@ -41,6 +41,13 @@
     &_p {
         height: 200px;
         margin: 8px 0;
+        border-radius: 25px;
+    }
+    &_conteiner {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 5px 0;
     }
 }
 .page-article-loading_article {
